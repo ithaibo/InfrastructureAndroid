@@ -12,16 +12,10 @@ import android.widget.Toast;
 
 import com.andy.baselibrary.utils.LogUtil;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Andy on 2016/12/19.
- * <ol>
- * you must implements:
- * <li>getFrgLayoutId()</li>
- * <li></li>
- * <li></li>
- * <li></li>
- * <li></li>
- * </ol>
  */
 
 public abstract class BaseFragment extends Fragment {
@@ -46,8 +40,13 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         LogUtil.v(this.getClass().getName() + "onCreateView.");
 
+        View rootView = inflater.inflate(getFrgLayoutId(), null);
+        ButterKnife.bind(this, rootView);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        initData();
+        initView(rootView);
+
+        return rootView;
     }
 
     /**
@@ -56,6 +55,9 @@ public abstract class BaseFragment extends Fragment {
      */
     protected abstract int getFrgLayoutId();
 
+    protected void initData(){}
+
+    protected abstract void initView(View rootView);
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
