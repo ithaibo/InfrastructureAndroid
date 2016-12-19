@@ -17,6 +17,12 @@
         android:id="@+id/btn_click"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Click Me"/>
+        android:text="Click Me"/>
 
+    <TextView
+        android:id="@+id/tv_customer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_click"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>
