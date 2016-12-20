@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class GenServiceUtil {
-    private static final String BASE_URL = "https://192.168.1.24:3000/";
+    private static final String BASE_URL = "http://192.168.1.24:3000/";
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 

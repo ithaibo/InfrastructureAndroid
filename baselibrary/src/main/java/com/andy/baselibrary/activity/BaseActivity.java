@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
+
+import com.andy.baselibrary.utils.LogUtil;
 
 import butterknife.ButterKnife;
 
@@ -26,8 +29,8 @@ public abstract class BaseActivity extends FragmentActivity {
     protected Handler handler;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
         ButterKnife.bind(this);
@@ -38,6 +41,13 @@ public abstract class BaseActivity extends FragmentActivity {
         initViews();
 
         this.handler = new Handler(getMainLooper());
+        LogUtil.d("--onCreate1");
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+        LogUtil.d("--onCreate2");
     }
 
     protected abstract int getLayoutId();

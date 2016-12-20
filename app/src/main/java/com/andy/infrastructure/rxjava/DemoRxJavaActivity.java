@@ -2,6 +2,7 @@ package com.andy.infrastructure.rxjava;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import com.andy.infrastructure.bean.Customer;
 import com.andy.infrastructure.net.CustomerService;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -25,7 +27,6 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class DemoRxJavaActivity extends BaseActivity {
-
     @BindView(R.id.btnShowText)
     Button btnShowText;
     @BindView(R.id.tvTextFromNet)
@@ -64,14 +65,15 @@ public class DemoRxJavaActivity extends BaseActivity {
             public void call(rx.Subscriber<? super Customer> subscriber) {
                 Response<Customer> bean = null;
                 try {
-                    LogUtil.d("requestCustomerInfo call...");
+                    LogUtil.d("requestCustomerInfo call..." + bean);
+                    //请求服务器
                     bean = call.execute();
+                    //处理结果
                     subscriber.onNext(bean.body());
                 } catch (Exception e) {
                     e.printStackTrace();
                     subscriber.onError(e);
                 }
-
                 subscriber.onCompleted();
             }
         });
@@ -79,16 +81,6 @@ public class DemoRxJavaActivity extends BaseActivity {
         myObserable
                 .subscribeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .map(new Func1<Customer, Customer>() {
-                    @Override
-                    public Customer call(Customer customer) {
-                        if (customer != null && TextUtils.isEmpty(customer.getName())){
-                            customer.setName("nothing!");
-                        }
-                        LogUtil.d("call...");
-                        return customer;
-                    }
-                })
                 .subscribe(new Subscriber<Customer>(){
                     @Override
                     public void onNext(Customer customer) {
@@ -109,6 +101,7 @@ public class DemoRxJavaActivity extends BaseActivity {
     }
 
     private void setCustomerView(Customer data) {
+        LogUtil.d("--setCustomerView");
         if (data!=null && !TextUtils.isEmpty(data.getName())) {
             this.tvTextFromNet.setText(data.getName());
         }
