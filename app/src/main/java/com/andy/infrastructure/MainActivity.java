@@ -1,9 +1,11 @@
 package com.andy.infrastructure;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.text.TextUtils;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,38 +15,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.andy.baselibrary.utils.GenServiceUtil;
-import com.andy.baselibrary.utils.LogUtil;
-import com.andy.infrastructure.bean.Customer;
-import com.andy.infrastructure.net.CustomerService;
+import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 
+import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
+import com.andy.infrastructure.bean.DemoActivityBean;
+import com.andy.infrastructure.rxjava.DemoRxJavaActivity;
 
-import java.io.IOException;
-import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-import retrofit2.Call;
-import retrofit2.Response;
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.btn_click)
-    Button btn_click;
-    @BindView(R.id.tv_customer_name)
-    TextView tv_customer_name;
+    @BindView(R.id.rlDemoList)
+    RecyclerView rlDemoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +61,23 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        /**初始化数据**/
+        BaseRecyclerdapter adapter = new Demo4RecyclerAdapter(this);
+        adapter.initData(initDemoActivityList());
+        rlDemoList.setLayoutManager(new LinearLayoutManager(this));
+        rlDemoList.setAdapter(adapter);
+    }
+
+    private List<DemoActivityBean> initDemoActivityList() {
+        List<DemoActivityBean> demoClasses = new ArrayList<>();
+        demoClasses.add(new DemoActivityBean()
+                .setName("RxJava")
+                .setDesc("RxJava基本使用")
+                .setClassName(DemoRxJavaActivity.class)
+        );  //Rxjava
+
+        return demoClasses;
     }
 
     @Override
@@ -132,72 +137,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @OnClick({R.id.btn_click})
-    protected void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_click:
-//                Toast.makeText(this, "Thanks a lot, ButterKnife.", Toast.LENGTH_SHORT).show();
-                requestCustomerInfo();
-                break;
-        }
-    }
-
-    private void requestCustomerInfo() {
-        LogUtil.d("requestCustomerInfo()");
-        CustomerService service = GenServiceUtil.createService(CustomerService.class);
-        final Call<Customer> call = service.getCustomerInfo();
-        final Observable myObserable = Observable.create(new Observable.OnSubscribe<Customer>() {
-            @Override
-            public void call(rx.Subscriber<? super Customer> subscriber) {
-                Response<Customer> bean = null;
-                try {
-                    LogUtil.d("requestCustomerInfo call...");
-                    bean = call.execute();
-                    subscriber.onNext(bean.body());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    subscriber.onError(e);
-                }
-
-                subscriber.onCompleted();
-            }
-        });
-
-        myObserable
-                .subscribeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .map(new Func1<Customer, Customer>() {
-                    @Override
-                    public Customer call(Customer customer) {
-                        if (customer != null && TextUtils.isEmpty(customer.getName())){
-                            customer.setName("nothing!");
-                        }
-                        LogUtil.d("call...");
-                        return customer;
-                    }
-                })
-                .subscribe(new Subscriber<Customer>(){
-                    @Override
-                    public void onNext(Customer customer) {
-                        setCustomerView(customer);
-                        LogUtil.d("onNext...");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onCompleted() {
-                        LogUtil.d("onCompleted...");
-                    }
-                });
-    }
-
-    private void setCustomerView(Customer data) {
-        if (data!=null && !TextUtils.isEmpty(data.getName())) {
-            tv_customer_name.setText(data.getName());
-        }
-    }
 }

@@ -13,7 +13,7 @@ public class CommonUtils {
         } else if (list.size() <= 0) {
             return true;
         } else {
-            return true;
+            return false;
         }
     }
 }

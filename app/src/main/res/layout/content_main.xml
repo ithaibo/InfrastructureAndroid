@@ -13,16 +13,10 @@
     tools:context="com.andy.infrastructure.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <Button
-        android:id="@+id/btn_click"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Click Me"/>
 
-    <TextView
-        android:id="@+id/tv_customer_name"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlDemoList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_click"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"/>
+
 </RelativeLayout>
