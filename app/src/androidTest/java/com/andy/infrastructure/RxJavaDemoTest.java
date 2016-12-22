@@ -45,5 +45,4 @@ public class RxJavaDemoTest
         super.tearDown();
     }
 
-
 }
