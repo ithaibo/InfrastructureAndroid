@@ -11,8 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GenServiceUtil {
     private  String BASE_URL;
 
-    private OkHttpClient.Builder httpClient;
-    private Retrofit.Builder builder;
     private Retrofit retrofit;
 
     public GenServiceUtil(String BASE_URL) {
@@ -21,11 +19,11 @@ public class GenServiceUtil {
     }
 
     private void initRetrofit(String BASE_URL) {
-        httpClient = new OkHttpClient.Builder();
-        builder = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create());
-        retrofit = builder.client(httpClient.build()).build();
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(new OkHttpClient.Builder().build())
+                .build();
     }
 
     public <S> S createService(Class<S> serviceClass) {

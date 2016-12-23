@@ -3,6 +3,7 @@ package com.andy.infrastructure.demos.retrofit;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.baselibrary.net.GenServiceUtil;
@@ -71,7 +72,7 @@ public class SimpleRetrofit extends BaseActivity {
             @Override
             protected void onPostExecute(Customer customer) {
                 super.onPostExecute(customer);
-                LogUtil.d("请求结果：" + customer );
+                showToast(customer.toString(), Toast.LENGTH_LONG);
             }
         };
 
