@@ -27,8 +27,8 @@
             <meta-data android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-        <activity android:name=".rxjava.DemoRxJavaActivity" />
-        <activity android:name=".retrofit.SimpleRetrofit"/>
+        <activity android:name=".demos.retrofit.SimpleRetrofit" />
+        <activity android:name=".demos.rxjava.DemoRxJavaActivity"/>
     </application>
 
 </manifest>

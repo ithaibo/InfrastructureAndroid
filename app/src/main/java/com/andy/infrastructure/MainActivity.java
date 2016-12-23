@@ -20,8 +20,9 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
-import com.andy.infrastructure.retrofit.SimpleRetrofit;
-import com.andy.infrastructure.rxjava.DemoRxJavaActivity;
+import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
+import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;

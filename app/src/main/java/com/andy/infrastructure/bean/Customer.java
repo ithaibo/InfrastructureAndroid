@@ -134,4 +134,23 @@ public class Customer extends Bean {
     public void setLastUpdateTime(Timestamp lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "headImg='" + headImg + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", email='" + email + '\'' +
+                ", currentCity='" + currentCity + '\'' +
+                ", openid='" + openid + '\'' +
+                ", status=" + status +
+                ", deviceType='" + deviceType + '\'' +
+                ", lastLoginTime=" + lastLoginTime +
+                ", createTime=" + createTime +
+                ", lastUpdateTime=" + lastUpdateTime +
+                '}';
+    }
 }

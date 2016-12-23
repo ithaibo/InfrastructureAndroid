@@ -1,9 +1,6 @@
-package com.andy.infrastructure.rxjava;
+package com.andy.infrastructure.demos.rxjava;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,14 +9,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andy.baselibrary.activity.BaseActivity;
-import com.andy.baselibrary.utils.GenServiceUtil;
+import com.andy.baselibrary.net.GenServiceUtil;
 import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.Customer;
 import com.andy.infrastructure.net.CustomerService;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -28,7 +24,6 @@ import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class DemoRxJavaActivity extends BaseActivity {
@@ -58,25 +53,27 @@ public class DemoRxJavaActivity extends BaseActivity {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnShowText:
-//                requestCustomerInfo();
+                requestCustomerInfo();
 //                simpleAction();
-                showImages();
+//                showImages();
                 break;
         }
     }
 
     public void requestCustomerInfo() {
         LogUtil.d("requestCustomerInfo()");
-        CustomerService service = GenServiceUtil.createService(CustomerService.class);
-        final Call<Customer> call = service.getCustomerInfo();
+        final Call<Customer> call = new GenServiceUtil("http://192.168.1.24:3000/")
+                .createService(CustomerService.class)
+                .getCustomerInfo();
+
         final Observable myObserable = Observable.create(new Observable.OnSubscribe<Customer>() {
             @Override
-            public void call(rx.Subscriber<? super Customer> subscriber) {
+            public void call(Subscriber<? super Customer> subscriber) {
                 Response<Customer> bean = null;
                 try {
-                    LogUtil.d("requestCustomerInfo call..." + bean);
                     //请求服务器
                     bean = call.execute();
+                    LogUtil.d("requestCustomerInfo call..." + bean.body());
                     //处理结果
                     subscriber.onNext(bean.body());
                 } catch (Exception e) {

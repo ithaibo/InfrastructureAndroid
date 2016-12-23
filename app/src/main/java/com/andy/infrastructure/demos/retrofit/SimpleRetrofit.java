@@ -1,11 +1,11 @@
-package com.andy.infrastructure.retrofit;
+package com.andy.infrastructure.demos.retrofit;
 
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.Button;
 
 import com.andy.baselibrary.activity.BaseActivity;
-import com.andy.baselibrary.utils.GenServiceUtil;
+import com.andy.baselibrary.net.GenServiceUtil;
 import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.Customer;
@@ -51,8 +51,9 @@ public class SimpleRetrofit extends BaseActivity {
     }
 
     private void justGetCustomerInfo() {
-        com.andy.infrastructure.net.CustomerService service = GenServiceUtil.createService(com.andy.infrastructure.net.CustomerService.class);
-        final Call<Customer> call = service.getCustomerInfo();
+        final Call<Customer> call = new GenServiceUtil("http://192.168.1.24:3000/")
+                .createService(com.andy.infrastructure.net.CustomerService.class)
+                        .getCustomerInfo();
         AsyncTask<String, Integer, Customer> task = new AsyncTask<String, Integer, Customer>() {
             @Override
             protected Customer doInBackground(String... strings) {

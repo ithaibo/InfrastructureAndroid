@@ -8,4 +8,4 @@
     com.squareup.retrofit2:converter-gson:2.1.0
 
 ##学习小结
-    1. 在使用@BindView(R.id.tvRes) TextView tvRes 时，需要注意的是:对象tvRes不能是private或static，且名字必须和tvRes一致。
+    1.
