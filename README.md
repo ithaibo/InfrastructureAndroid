@@ -12,7 +12,7 @@ baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseAc
     compile 'io.reactivex.rxjava2:rxjava:2.0.2'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 
-##基本用法介绍
+##baselibrary基本用法介绍
 
 
 # shortcuts.xml（res/xml）
