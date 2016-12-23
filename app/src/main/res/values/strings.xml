@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Infrastructure</string>
+    <string name="app_name">Android脚手架</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -20,4 +20,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="compose_shortcut_short_label1">Retrofit</string>
+    <string name="compose_shortcut_long_label1">去学习Retrofit基础</string>
+    <string name="compose_disabled_message1">disable message shortcut.</string>
 </resources>

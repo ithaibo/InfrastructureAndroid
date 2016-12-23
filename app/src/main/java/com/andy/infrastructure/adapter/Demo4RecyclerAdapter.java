@@ -30,7 +30,7 @@ public class Demo4RecyclerAdapter extends BaseRecyclerdapter<DemoActivityBean> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DemoActivityHolder h = (DemoActivityHolder) holder;
-        DemoActivityBean bean = getItem(position);
+        final DemoActivityBean bean = getItem(position);
         if (bean !=null) {
             h.tvDescDemo.setText(bean.getDesc());
         }
@@ -38,7 +38,7 @@ public class Demo4RecyclerAdapter extends BaseRecyclerdapter<DemoActivityBean> {
         h.tvDescDemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, DemoRxJavaActivity.class);
+                Intent intent = new Intent(mContext, bean.getClassName());
                 mContext.startActivity(intent);
             }
         });

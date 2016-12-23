@@ -20,6 +20,7 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
+import com.andy.infrastructure.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.rxjava.DemoRxJavaActivity;
 
 import java.util.ArrayList;
@@ -76,6 +77,12 @@ public class MainActivity extends AppCompatActivity
                 .setDesc("RxJava基本使用")
                 .setClassName(DemoRxJavaActivity.class)
         );  //Rxjava
+
+        demoClasses.add(new DemoActivityBean()
+                .setName("Simple Retrofit")
+                .setDesc("Simple Retrofit基本使用")
+                .setClassName(SimpleRetrofit.class)
+        );
 
         return demoClasses;
     }
