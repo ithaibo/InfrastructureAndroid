@@ -6,7 +6,8 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 
-import com.andy.infrastructure.rxjava.DemoRxJavaActivity;
+
+import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 
 import org.junit.After;
 import org.junit.Before;

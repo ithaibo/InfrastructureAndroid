@@ -10,7 +10,6 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.holder.DemoActivityHolder;
-import com.andy.infrastructure.rxjava.DemoRxJavaActivity;
 
 /**
  * Created by Andy on 2016/12/20.

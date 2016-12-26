@@ -64,7 +64,7 @@ public class DemoRxJavaActivity extends BaseActivity {
         LogUtil.d("requestCustomerInfo()");
         final Call<Customer> call = new GenServiceUtil("http://192.168.1.24:3000/")
                 .createService(CustomerService.class)
-                .getCustomerInfo();
+                .getCustomerInfo(1);
 
         final Observable myObserable = Observable.create(new Observable.OnSubscribe<Customer>() {
             @Override
