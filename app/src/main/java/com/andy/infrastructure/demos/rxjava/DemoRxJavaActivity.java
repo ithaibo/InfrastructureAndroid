@@ -62,7 +62,7 @@ public class DemoRxJavaActivity extends BaseActivity {
 
     public void requestCustomerInfo() {
         LogUtil.d("requestCustomerInfo()");
-        final Call<Customer> call = new GenServiceUtil("http://192.168.1.24:3000/")
+        final Call<Customer> call = GenServiceUtil.genInstance("http://192.168.1.24:3000/")
                 .createService(CustomerService.class)
                 .getCustomerInfo(1);
 

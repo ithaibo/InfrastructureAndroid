@@ -10,4 +10,10 @@
         android:layout_height="wrap_content"
         android:text="get a customer info"/>
 
+    <Button
+        android:id="@+id/btn_add_one_act_simple_retrofit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add a customer"/>
+
 </LinearLayout>

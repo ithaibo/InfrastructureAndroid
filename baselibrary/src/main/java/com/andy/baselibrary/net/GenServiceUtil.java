@@ -10,12 +10,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GenServiceUtil {
     private  String BASE_URL;
-
     private Retrofit retrofit;
+    private static GenServiceUtil instance;
 
-    public GenServiceUtil(String BASE_URL) {
-        this.BASE_URL = BASE_URL;
-        initRetrofit(BASE_URL);
+    public static GenServiceUtil genInstance(String BASE_URL) {
+        if (instance == null) {
+            instance = new GenServiceUtil();
+            instance.BASE_URL = BASE_URL;
+            instance.initRetrofit(BASE_URL);
+        }
+        return instance;
     }
 
     private void initRetrofit(String BASE_URL) {
