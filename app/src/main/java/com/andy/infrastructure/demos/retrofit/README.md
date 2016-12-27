@@ -11,15 +11,15 @@
 #####使用@Query添加**query string parameters**
 ```@GET("api/customer/info")	Call<Customer> getCustomerById(@Query("id") int id);```
 
-#####使用**{}**设置相关参数
+####使用**{}**设置相关参数
 ```@GET("api/customer/{id}/info")
 	Call<Customer> getCustomersSort();```
 
-#####使用@QueryMap添加复杂参数
+####使用@QueryMap添加复杂参数
 ```@GET("api/customer/info")
 Call<Customer> getCustomersByParamsMap(@QueryMap Map<String, String> params);```
 
-#####使用@Body添加body
+####使用@Body添加body
 ````@POST("api/customer/add")
 Call<Customer> addCustomer(@Body Customer body);```
 
