@@ -9,15 +9,16 @@
 * Retrofit默认是在Main Thread运行，因此异步需要自己处理。
 ### 项目示例代码
 #####使用@Query添加**query string parameters**
-```@GET("api/customer/info")	Call<Customer> getCustomerById(@Query("id") int id);```
+    @GET("api/customer/info")
+    Call<Customer> getCustomerById(@Query("id") int id);
 
 ####使用**{}**设置相关参数
-```@GET("api/customer/{id}/info")
-	Call<Customer> getCustomersSort();```
+    @GET("api/customer/{id}/info")
+    Call<Customer> getCustomersSort();
 
 ####使用@QueryMap添加复杂参数
-```@GET("api/customer/info")
-Call<Customer> getCustomersByParamsMap(@QueryMap Map<String, String> params);```
+    @GET("api/customer/info")
+    Call<Customer> getCustomersByParamsMap(@QueryMap Map<String, String> params);
 
 ####使用@Body添加body
 ````@POST("api/customer/add")
