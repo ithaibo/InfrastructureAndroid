@@ -1,9 +1,9 @@
 package com.andy.infrastructure.demos.retrofit;
 
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.baselibrary.net.GenServiceUtil;
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -32,6 +32,10 @@ import retrofit2.Response;
 public class SimpleRetrofit extends BaseActivity {
     @BindView(R.id.btn_get_net_act_simple_retrofit)
     Button btnGetNet;
+    @BindView(R.id.btn_get_net_act_simple_retrofit)
+    Button btnGetNetActSimpleRetrofit;
+    @BindView(R.id.btn_add_one_act_simple_retrofit)
+    Button btnAddOneActSimpleRetrofit;
     private List<Call> callList = new ArrayList<>();
 
     @Override
@@ -69,8 +73,8 @@ public class SimpleRetrofit extends BaseActivity {
 
         //getCustomerById(1);getCustomersSort("desc"); getCustomersByParamsMap
         final Call<Customer> getCustomerCall = GenServiceUtil.genInstance("http://192.168.1.24:3000/")
-                .createService(com.andy.infrastructure.net.CustomerService.class)
-                        .getCustomersByParamsMap(requestMap);
+                .createService(CustomerService.class)
+                .getCustomersByParamsMap(requestMap);
         callList.add(getCustomerCall);
 
         AsyncTask<String, Integer, Customer> task = new AsyncTask<String, Integer, Customer>() {
@@ -139,5 +143,12 @@ public class SimpleRetrofit extends BaseActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }
