@@ -1,7 +1,10 @@
 package com.andy.infrastructure.bean;
 
+import com.andy.baselibrary.utils.LogUtil;
+
 import rx.Observable;
 import rx.Observer;
+import rx.functions.Action1;
 
 /**
  * Created by Andy on 2016/12/28.
@@ -11,7 +14,22 @@ public class DemoRxJavaBean extends Bean {
     private String demoTitle;
     private String methodName;
     private Observable observable;
-    private Observer observer;
+    private Observer<String> observer = new Observer<String>() {
+        @Override
+        public void onCompleted() {
+            LogUtil.d("complete");
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            LogUtil.d("onError: " +e);
+        }
+
+        @Override
+        public void onNext(String v) {
+            LogUtil.d("onNext: " + v);
+        }
+    };
 
     public String getDemoTitle() {
         return demoTitle;

@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -231,7 +232,21 @@ public class DemoRxJavaActivity extends BaseActivity {
                     }
                 })
         );
-        demoList.add(new DemoRxJavaBean().setDemoTitle("distinct Selector").setMethodName("distinctSelector"));
+
+        Observable<String> values = Observable.create(o -> {
+            o.onNext("First");
+            o.onNext("Second");
+            o.onNext("Third");
+            o.onNext("Fourth");
+            o.onNext("Fifth");
+            o.onCompleted();
+        });
+
+        demoList.add(
+                new DemoRxJavaBean()
+                        .setDemoTitle("distinctUntilChanged ")
+                        .setObservable(values.distinctUntilChanged(v -> v.charAt(0)))
+        );
 
         adapter = new DemoRxJavaAdapter(this);
         adapter.initData(demoList);
