@@ -6,4 +6,10 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="common_style_item_list">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+
+    </style>
+
 </resources>

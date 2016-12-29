@@ -5,6 +5,5 @@
     <padding android:left="10dp" android:right="10dp"/>
     <corners android:radius="4dp"/>
     <solid android:color="@android:color/white"/>
-    <stroke android:color="#e2e2e2" android:width="1dp" android:dashWidth="0.5dp"/>
 
 </shape>

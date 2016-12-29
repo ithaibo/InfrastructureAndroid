@@ -2,18 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:orientation="vertical"
     android:background="@drawable/bg_item_demo_list">
 
     <TextView
-        android:id="@+id/tvDescDemo"
+        android:id="@+id/tv_title"
+        style="@style/common_style_item_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/common_style_item_list"
-        android:padding="15dp"
-        android:textSize="15sp"
-        android:textColor="#252525"
-        android:gravity="center" />
-
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="15sp" />
 </LinearLayout>

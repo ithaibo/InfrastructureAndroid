@@ -17,11 +17,11 @@ import retrofit2.http.QueryMap;
  */
 
 public interface CustomerService {
+    @GET("api/customer/info")
+    Call<Customer> getCustomerInfo();
+
     @GET("api/customer/{id}/info?sort=desc&id=100010")
     Call<Customer> getCustomerInfo(@Path("id") int id);
-
-    @GET("api/customer/info")
-    Call<Customer> getCustomerById(@Query("id") int id);
 
     @GET("api/customer/info")
     Call<Customer> getCustomersSort(@Query("sort") String sort);

@@ -32,8 +32,6 @@ import retrofit2.Response;
 public class SimpleRetrofit extends BaseActivity {
     @BindView(R.id.btn_get_net_act_simple_retrofit)
     Button btnGetNet;
-    @BindView(R.id.btn_get_net_act_simple_retrofit)
-    Button btnGetNetActSimpleRetrofit;
     @BindView(R.id.btn_add_one_act_simple_retrofit)
     Button btnAddOneActSimpleRetrofit;
     private List<Call> callList = new ArrayList<>();
