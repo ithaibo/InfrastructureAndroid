@@ -21,6 +21,8 @@ import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
+import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
+import com.andy.infrastructure.material.Material1Activity;
 
 
 import java.util.ArrayList;
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity
         /**初始化数据**/
         BaseRecyclerdapter adapter = new Demo4RecyclerAdapter(this);
         adapter.initData(initDemoActivityList());
+        if (rlDemoList == null) {
+            rlDemoList = (RecyclerView) findViewById(R.id.rlDemoList);
+        }
         rlDemoList.setLayoutManager(new LinearLayoutManager(this));
         rlDemoList.setAdapter(adapter);
     }
@@ -83,6 +88,16 @@ public class MainActivity extends AppCompatActivity
                 .setDesc("Simple Retrofit基本使用")
                 .setClassName(SimpleRetrofit.class)
         );
+
+        demoClasses.add(new DemoActivityBean()
+        .setName("RxJava Data Bind")
+        .setDesc("RxJava Data Bind")
+        .setClassName(RxJavaDataBindActivity.class));
+
+        demoClasses.add(new DemoActivityBean()
+        .setName("Material 1")
+        .setDesc("Material 1")
+        .setClassName(Material1Activity.class));
 
         return demoClasses;
     }

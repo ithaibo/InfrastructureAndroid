@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.andy.baselibrary.utils.LogUtil;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
  * 更多使用细节，请参照：<a href="http://jakewharton.github.io/butterknife/">Butter Knife Field and method binding for Android views</a>
  */
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
     protected Handler handler;
 

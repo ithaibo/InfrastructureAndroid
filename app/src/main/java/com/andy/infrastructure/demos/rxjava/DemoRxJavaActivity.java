@@ -4,8 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,13 +25,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import retrofit2.Call;
 import retrofit2.Response;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -233,21 +229,21 @@ public class DemoRxJavaActivity extends BaseActivity {
                 })
         );
 
-        Observable<String> values = Observable.create(o -> {
-            o.onNext("First");
-            o.onNext("Second");
-            o.onNext("Third");
-            o.onNext("Fourth");
-            o.onNext("Fifth");
-            o.onCompleted();
-        });
+        DataContact dataContact = new DataContact(this);
+        demoList.add(new DemoRxJavaBean()
+                .setDemoTitle("data concat")
+        .setObservable(dataContact.getConcatObservable())
+        .setObserver(dataContact.getObserver()));
 
-        demoList.add(
-                new DemoRxJavaBean()
-                        .setDemoTitle("distinctUntilChanged ")
-                        .setObservable(values.distinctUntilChanged(v -> v.charAt(0)))
-        );
+        demoList.add(new DemoRxJavaBean()
+        .setDemoTitle("groupby concat")
+        .setObservable(dataContact.getGroupConcatObservable())
+        .setObserver(dataContact.getObserver()));
 
+        demoList.add(new DemoRxJavaBean()
+        .setDemoTitle("Merge Data")
+        .setObservable(dataContact.getMergeObservable())
+        .setObserver(dataContact.getObserver()));
         adapter = new DemoRxJavaAdapter(this);
         adapter.initData(demoList);
     }
@@ -270,9 +266,6 @@ public class DemoRxJavaActivity extends BaseActivity {
                                             if (bean != null && bean.getObservable() != null && bean.getObserver() != null) {
                                                 bean.getObservable().subscribe(bean.getObserver());
                                             }
-//                                            DemoRxJavaActivity.class.getDeclaredMethod(
-//                                                    adapter.getItem(position).getMethodName()
-//                                            ).invoke(this);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
