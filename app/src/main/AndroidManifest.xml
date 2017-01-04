@@ -22,7 +22,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -33,7 +32,8 @@
         <activity android:name=".demos.retrofit.SimpleRetrofit" />
         <activity android:name=".demos.rxjava.DemoRxJavaActivity" />
         <activity android:name=".demos.rxjava.RxJavaDataBindActivity"></activity>
-        <activity android:name=".material.Material1Activity"/>
+        <activity android:name=".demos.material.Material1Activity"/>
+        <activity android:name=".demos.multiprocess.Demo4ProcessActivity" android:process=":dragon"/>
     </application>
 
 </manifest>

@@ -19,10 +19,11 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
+import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
-import com.andy.infrastructure.material.Material1Activity;
+import com.andy.infrastructure.demos.material.Material1Activity;
 
 
 import java.util.ArrayList;
@@ -98,6 +99,11 @@ public class MainActivity extends AppCompatActivity
         .setName("Material 1")
         .setDesc("Material 1")
         .setClassName(Material1Activity.class));
+
+        demoClasses.add(new DemoActivityBean()
+        .setName("Multi process")
+                .setDesc("Multi process")
+        .setClassName(Demo4ProcessActivity.class));
 
         return demoClasses;
     }

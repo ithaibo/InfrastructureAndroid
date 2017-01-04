@@ -11,7 +11,7 @@
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -39,7 +39,5 @@
     <style name="MyCheckBox" parent="Theme.AppCompat.Light">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:colorControlActivated">@color/colorAccent</item>
-        <item name="android:colorControlNormal">@color/colorPrimary</item>
     </style>
 </resources>

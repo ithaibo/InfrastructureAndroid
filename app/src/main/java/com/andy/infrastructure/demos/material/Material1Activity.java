@@ -1,4 +1,4 @@
-package com.andy.infrastructure.material;
+package com.andy.infrastructure.demos.material;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
