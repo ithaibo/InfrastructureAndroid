@@ -40,7 +40,6 @@
 
 运行后，可以看到页面中的两个TextView都有值。
 
-**Tips:**  数据绑定，只是在layout中，会自动根据变量user去给name、mobile赋值，如果user改变，TextView也会刷新。但是，如果user的更新，在Java中，需要调用binding.setUser。
 
 ###问题：如何获取EditText的输入内容？
 
@@ -68,4 +67,4 @@
     }
 继承BaseObservable，同时在setter方法中调用notifyPropertyChanged。
 
-2.更新Java中的Customer对象
+2.更新Java中的Customer对象，例如当mobile改变，UI会制动刷新。
