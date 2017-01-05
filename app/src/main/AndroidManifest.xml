@@ -29,11 +29,22 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
+        <!--Retrofit-->
         <activity android:name=".demos.retrofit.SimpleRetrofit" />
+
+        <!--RxJava-->
         <activity android:name=".demos.rxjava.DemoRxJavaActivity" />
         <activity android:name=".demos.rxjava.RxJavaDataBindActivity"></activity>
+
+        <!--Material-->
         <activity android:name=".demos.material.Material1Activity"/>
+
+        <!--Process-->
         <activity android:name=".demos.multiprocess.Demo4ProcessActivity" android:process=":dragon"/>
+
+        <!--DataBinding-->
+        <activity android:name=".demos.databinding.DataBindActivity"/>
     </application>
 
 </manifest>

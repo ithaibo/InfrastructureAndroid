@@ -19,6 +19,7 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
+import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
@@ -104,6 +105,11 @@ public class MainActivity extends AppCompatActivity
         .setName("Multi process")
                 .setDesc("Multi process")
         .setClassName(Demo4ProcessActivity.class));
+
+        demoClasses.add(new DemoActivityBean()
+                .setName("Data Binding")
+                .setDesc("Data Binding")
+                .setClassName(DataBindActivity.class));
 
         return demoClasses;
     }
