@@ -1,5 +1,8 @@
 package com.andy.infrastructure.bean;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
 import java.sql.Timestamp;
 
 /**

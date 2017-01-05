@@ -3,7 +3,10 @@
     <data>
         <variable
             name="user"
-            type="com.andy.infrastructure.bean.Customer" />
+            type="com.andy.infrastructure.demos.databinding.Customer" />
+        <variable
+            name="presenter"
+            type="com.andy.infrastructure.demos.databinding.DataBindPresenter"/>
     </data>
 
     <LinearLayout
@@ -13,17 +16,32 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="15dp"
             android:text="@{user.name}"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="15dp"
             android:text="@{user.mobile}"/>
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:text="@={user.email}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击获取输入的Email"
+            android:onClick="@{()->presenter.getEmail(user.email)}"/>
+        
         <Button
             android:id="@+id/btnChangeMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="点击改变手机号码"/>
+            android:text="点击改变手机号码"
+            android:onClick="@{()->presenter.modifyMobileValue()}"/>
     </LinearLayout>
 </layout>
