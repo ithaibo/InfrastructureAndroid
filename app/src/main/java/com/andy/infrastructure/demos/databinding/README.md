@@ -161,3 +161,4 @@
 ###Views With IDs
 > A public final field will be generated for each View with an ID in the layout. The binding does a single pass on the View hierarchy, extracting the Views with IDs. This mechanism can be faster than calling findViewById for several Views.
 
+layout文件中widget有设置id时，可以使用bind对象直接访问该控件，省去findViewById
