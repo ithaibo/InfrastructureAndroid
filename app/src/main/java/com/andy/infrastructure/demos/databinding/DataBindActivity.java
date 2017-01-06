@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.andy.infrastructure.R;
-import com.andy.infrastructure.databinding.ActDataBindDemoBinding;
 
 
 /**
@@ -20,7 +19,8 @@ public class DataBindActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActDataBindDemoBinding binding =  DataBindingUtil.setContentView(this, R.layout.act_data_bind_demo);
+        DataBind binding =  DataBindingUtil.setContentView(this, R.layout.act_data_bind_demo);
+
 
         user = new Customer();
         binding.setUser(user);

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data class="com.andy.infrastructure.demos.databinding.DataBind">
         <variable
             name="user"
             type="com.andy.infrastructure.demos.databinding.Customer" />
@@ -13,11 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:text="@{user.name}"/>
+
+        <include layout="@layout/user_name"
+            bind:user="@{user}"/>
 
         <TextView
             android:layout_width="match_parent"
