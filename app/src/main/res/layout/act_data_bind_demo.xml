@@ -42,5 +42,10 @@
             android:layout_height="wrap_content"
             android:text="点击改变手机号码"
             android:onClick="@{()->presenter.modifyMobileValue()}"/>
+
+        <FrameLayout
+            android:id="@+id/frgContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </layout>

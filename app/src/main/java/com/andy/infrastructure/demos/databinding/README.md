@@ -118,3 +118,46 @@
     <include layout="@layout/user_name"
             bind:user="@{user}"/>
 
+###Expression Language
+ 
+
+- 数学运算 + - / * % <br>
+- 字符串拼接 + <br>
+- 逻辑运算符 && ||  <br>
+- 位运算 & | ^ <br>
+- Unary + - ! ~  <br>
+- 位移 >> >>> << <br>
+- 比较运算符 == > < >= <= <br>
+- instanceof <br>
+- Grouping () <br>
+- Literals character, String, numeric, null <br>
+- Cast <br>
+- Method calls <br>
+- Field access <br>
+- Array access [] <br>
+- 三元运算符 ? : <br>
+
+- Null Coalescing Operator ??
+> 如果??左边不为空就使用左边值，否则就使用右边的值。
+
+     android:text="@{user.displayName ?? user.lastName}"
+
+上面的代码相当于：
+
+    android:text="@{user.displayName != null ? user.displayName : user.lastName}"
+
+###Data Objects
+三种数据更新提示机制：
+>  - Observable Object
+>  - Observable Fields
+>  - Observable Collections
+
+####Observable Object
+这种方式，需要做三个步骤：
+>  - 继承BaseObservable 
+>  - 为getter添加@Bindable
+>  - 在setter中添加代码notifyPropertyChanged(BR.name);
+
+###Views With IDs
+> A public final field will be generated for each View with an ID in the layout. The binding does a single pass on the View hierarchy, extracting the Views with IDs. This mechanism can be faster than calling findViewById for several Views.
+

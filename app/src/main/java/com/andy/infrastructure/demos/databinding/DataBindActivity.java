@@ -33,6 +33,7 @@ public class DataBindActivity extends AppCompatActivity {
 
         binding.setPresenter(mPresenter);
 
+
     }
 
 }
