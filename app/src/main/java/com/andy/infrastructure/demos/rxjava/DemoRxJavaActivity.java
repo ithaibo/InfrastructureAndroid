@@ -58,6 +58,7 @@ public class DemoRxJavaActivity extends BaseActivity {
                             @Override
                             public void call(Subscriber<? super String> subscriber) {
                                 subscriber.onNext("First");
+                                subscriber.onNext("Sirst");
                                 subscriber.onNext("Second");
                                 subscriber.onNext("Third");
                                 subscriber.onNext("Fourth");
