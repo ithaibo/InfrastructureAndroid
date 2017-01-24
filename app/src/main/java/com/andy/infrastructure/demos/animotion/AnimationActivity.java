@@ -2,6 +2,7 @@ package com.andy.infrastructure.demos.animotion;
 
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -18,6 +19,8 @@ public class AnimationActivity extends BaseActivity {
     Button btnAnimation;
     @BindView(R.id.activity_animation)
     RelativeLayout activityAnimation;
+    private float centerX;
+    private float centerY;
 
     @Override
     protected int getLayoutId() {
@@ -26,33 +29,23 @@ public class AnimationActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        final float centerX = activityAnimation.getWidth() / 2.0f;
-        final float centerY = activityAnimation.getHeight() / 2.0f;
+        centerX = activityAnimation.getWidth() / 2.0f;
+        centerY = activityAnimation.getHeight() / 2.0f;
+    }
 
-        final Rotate3dAnimation rotation = new Rotate3dAnimation(0, 90, centerX, centerY, 310.0f, true);
-        rotation.setDuration(500);
+    private void startAnimation(float degreeDelta) {
+
+        final Rotate3dAnimation rotation = new Rotate3dAnimation(0, degreeDelta, 0, btnAnimation.getHeight()/2.0f, 310.0f, true);
+        rotation.setDuration(2000);
         rotation.setFillAfter(true);
         rotation.setInterpolator(new AccelerateInterpolator());
-        rotation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
 
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
+        activityAnimation.startAnimation(rotation);
     }
 
     @Override
     protected void initViews() {
-
+        startAnimation(15);
     }
+
 }
