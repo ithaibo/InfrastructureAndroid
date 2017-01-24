@@ -5,13 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
 
-    <!--bugly-->
+    <!-- bugly -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +25,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -33,27 +34,24 @@
                 android:resource="@xml/shortcuts" />
         </activity>
 
-        <!--Retrofit-->
+        <!-- Retrofit -->
         <activity android:name=".demos.retrofit.SimpleRetrofit" />
 
-        <!--RxJava-->
+        <!-- RxJava -->
         <activity android:name=".demos.rxjava.DemoRxJavaActivity" />
-        <activity android:name=".demos.rxjava.RxJavaDataBindActivity"></activity>
+        <activity android:name=".demos.rxjava.RxJavaDataBindActivity" />
 
-        <!--Material-->
-        <activity android:name=".demos.material.Material1Activity"/>
+        <!-- Material -->
+        <activity android:name=".demos.material.Material1Activity" />
 
-        <!--Process-->
-        <activity android:name=".demos.multiprocess.Demo4ProcessActivity" android:process=":dragon"/>
-
-        <!--DataBinding-->
-        <activity android:name=".demos.databinding.DataBindActivity"/>
-
-
-        <!--Bugly-->
+        <!-- Process -->
         <activity
-            android:name="com.tencent.bugly.beta.ui.BetaActivity"
-            android:theme="@android:style/Theme.Translucent" />
+            android:name=".demos.multiprocess.Demo4ProcessActivity"
+            android:process=":dragon" />
+
+        <!-- DataBinding -->
+        <activity android:name=".demos.databinding.DataBindActivity" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.andy.infrastructure.fileProvider"
@@ -61,10 +59,10 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
 
-
+        <activity android:name=".demos.animotion.AnimationActivity"></activity>
     </application>
 
 </manifest>
