@@ -190,6 +190,9 @@ public class MaterialPresenter {
 
 **注：**别忘记在Activity中绑定presenter变量
 
+结果如下图：<br/>
+![](gerg.gif)
+
 ## Advanced Binding ##
 ### Dynamic Variables ###
 在一些特殊情况下，DataBind类对应的layout是未知的，比如RecyclerView.Adapter。在onBindViewHolder方法中可以使用BindingHolder.getBinding()方法返回一个ViewDataBinding对象。
@@ -201,8 +204,5 @@ public void onBindViewHolder(BindingHolder holder, int position) {
 }
 ```
 
-结果如下图：
-
-![](gerg.gif)
 
 ## Attribute Setters ##
