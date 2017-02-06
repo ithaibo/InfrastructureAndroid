@@ -2,6 +2,9 @@ package com.andy.baselibrary.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
+import android.databinding.tool.DataBinder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
@@ -28,11 +31,12 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
     protected Handler handler;
+    protected ViewDataBinding mDataBind;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
+        mDataBind = DataBindingUtil.setContentView(this, getLayoutId());
 
         ButterKnife.bind(this);
 

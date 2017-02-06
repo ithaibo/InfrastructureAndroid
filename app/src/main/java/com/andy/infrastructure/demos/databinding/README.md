@@ -162,3 +162,46 @@
 > A public final field will be generated for each View with an ID in the layout. The binding does a single pass on the View hierarchy, extracting the Views with IDs. This mechanism can be faster than calling findViewById for several Views.
 
 layout文件中widget有设置id时，可以使用bind对象直接访问该控件，省去findViewById
+
+## Event Handling ##
+### 绑定OnClick事件 ###
+首先定义一个Presenter。在该类中提供一个方法onClick去完成点击事件的逻辑处理，该方法有2个参数view和dataFrg。因为这里需要改变dataFrg中的cbText属性的值。
+``` Java
+public class MaterialPresenter {
+    public void onClick(View view, DataFrg dataFrg) {
+        switch (view.getId()) {
+            case R.id.btn_change_text:
+                dataFrg.setCbText("Text is ...");
+                break;
+        }
+    }
+}
+```
+
+在layout中调用该方法：
+``` xml
+<Button
+   android:id="@+id/btn_change_text"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:text="点击更换CheckBox文字"
+   android:onClick="@{(view)->presenter.onClick(view, dataFrg)}"/>
+```
+
+**注：**别忘记在Activity中绑定presenter变量
+
+## Advanced Binding ##
+### Dynamic Variables ###
+在一些特殊情况下，DataBind类对应的layout是未知的，比如RecyclerView.Adapter。在onBindViewHolder方法中可以使用BindingHolder.getBinding()方法返回一个ViewDataBinding对象。
+``` Java
+public void onBindViewHolder(BindingHolder holder, int position) {
+   final T item = mItems.get(position);
+   holder.getBinding().setVariable(BR.item, item);
+   holder.getBinding().executePendingBindings();
+}
+```
+
+结果如下图：
+！[点击改变CheckBox文字](gerg.gif)
+
+## Attribute Setters ##
