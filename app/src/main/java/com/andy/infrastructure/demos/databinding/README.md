@@ -202,6 +202,7 @@ public void onBindViewHolder(BindingHolder holder, int position) {
 ```
 
 结果如下图：
-！[点击改变CheckBox文字](gerg.gif)
+
+![](gerg.gif)
 
 ## Attribute Setters ##
