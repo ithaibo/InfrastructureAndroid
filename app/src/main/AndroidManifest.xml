@@ -62,7 +62,8 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".demos.animotion.AnimationActivity"></activity>
+        <activity android:name=".demos.animotion.AnimationActivity" />
+        <activity android:name=".demos.gesture.ScrollerDemoActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".demos.gesture.ScrollerDemoActivity">
+
+        <Button
+            android:id="@+id/scroll_to_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scrollTo" />
+
+        <Button
+            android:id="@+id/scroll_by_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scrollBy" />
+
+        <com.andy.infrastructure.demos.gesture.ScrollerLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="This is first child view"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="This is second child view"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="This is third child view"/>
+        </com.andy.infrastructure.demos.gesture.ScrollerLayout>
+
+    </LinearLayout>
+</layout>

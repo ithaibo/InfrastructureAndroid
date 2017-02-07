@@ -21,6 +21,7 @@ import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.demos.animotion.AnimationActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
+import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
@@ -116,6 +117,11 @@ public class MainActivity extends AppCompatActivity
         .setName("Animation Activity")
         .setDesc("Animation Activity")
         .setClassName(AnimationActivity.class));
+
+        demoClasses.add(new DemoActivityBean()
+                .setName("Scroller Demo Activity")
+                .setDesc("Scroller Demo Activity")
+                .setClassName(ScrollerDemoActivity.class));
 
         return demoClasses;
     }
