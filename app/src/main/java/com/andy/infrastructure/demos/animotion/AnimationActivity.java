@@ -1,6 +1,7 @@
 package com.andy.infrastructure.demos.animotion;
 
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.animation.AccelerateInterpolator;
@@ -19,6 +20,9 @@ public class AnimationActivity extends BaseActivity {
     Button btnAnimation;
     @BindView(R.id.activity_animation)
     RelativeLayout activityAnimation;
+    @BindView(R.id.lengthUpAnimation)
+    Button lengthUpAnimation;
+
     private float centerX;
     private float centerY;
 
@@ -40,12 +44,21 @@ public class AnimationActivity extends BaseActivity {
         rotation.setFillAfter(true);
         rotation.setInterpolator(new AccelerateInterpolator());
 
-        activityAnimation.startAnimation(rotation);
+//        activityAnimation.startAnimation(rotation);
     }
 
     @Override
     protected void initViews() {
-        startAnimation(15);
+//        startAnimation(15);
+
+        ViewWrapper viewWrapper = new ViewWrapper(lengthUpAnimation);
+        ObjectAnimator widthChangeAnim = ObjectAnimator.ofFloat(viewWrapper, "width", viewWrapper.getWidth(), 300);
+        widthChangeAnim.setDuration(3000);
+        widthChangeAnim.start();
+
+        ObjectAnimator alphAnim = ObjectAnimator.ofFloat(btnAnimation, "alpha", 1f, 0f);
+        alphAnim.setDuration(3000);
+        alphAnim.start();
     }
 
 }

@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="animation button"/>
 
+    <Button
+        android:layout_marginTop="50dp"
+        android:id="@+id/lengthUpAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="width change animation"/>
 </RelativeLayout>
