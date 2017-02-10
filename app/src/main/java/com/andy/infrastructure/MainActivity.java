@@ -22,6 +22,7 @@ import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.demos.animotion.AnimationActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
+import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
@@ -122,6 +123,11 @@ public class MainActivity extends AppCompatActivity
                 .setName("Scroller Demo Activity")
                 .setDesc("Scroller Demo Activity")
                 .setClassName(ScrollerDemoActivity.class));
+
+        demoClasses.add(new DemoActivityBean()
+        .setName("Sliding Conflict")
+        .setDesc("Sliding Conflict")
+        .setClassName(SlidingConflict.class));
 
         return demoClasses;
     }

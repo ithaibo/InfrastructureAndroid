@@ -60,6 +60,11 @@ public class ScrollerLayout extends ViewGroup {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean intercepted = false;
+
+        int x = (int) ev.getX();
+        int y = (int) ev.getY();
+
         switch (ev.getAction()){
             case MotionEvent.ACTION_DOWN:
                 mXDown = ev.getRawX();

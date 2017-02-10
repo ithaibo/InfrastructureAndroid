@@ -4,8 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="This is 1st fragment."
+        android:gravity="center" />
+
     <ListView
-        android:id="@+id/lv_first_frg_conflict"
+        android:id="@+id/lv_third_frg_conflict"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

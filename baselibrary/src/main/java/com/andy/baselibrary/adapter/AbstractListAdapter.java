@@ -18,7 +18,14 @@ import java.util.List;
 public abstract class AbstractListAdapter<T> extends BaseAdapter {
     protected Context mContext;
     private List<T> dataList;
-    private BaseHolder itemOnClickListener;
+
+    public AbstractListAdapter(Context mContext) {
+        this.mContext = mContext;
+    }
+
+    public void initData(List<T> data) {
+        this.dataList = data;
+    }
 
     public void refreshData(List<T> data) {
         this.dataList = data;
@@ -52,17 +59,17 @@ public abstract class AbstractListAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        BaseHolder holder = null;
+        BaseHolder holder;
         if (view == null) {
             view = View.inflate(mContext, getItemLayoutId(), null);
-            holder = getHolder();
+            holder = getHolder(view);
             view.setTag(holder);
         } else {
             holder = (BaseHolder) view.getTag();
         }
         T item = getItem(position);
         setItemView(holder, item, view);
-        setItemOnClickListener(holder);
+        setItemOnClickListener(position, holder);
         return view;
     }
 
@@ -77,7 +84,7 @@ public abstract class AbstractListAdapter<T> extends BaseAdapter {
      *
      * @param holder
      */
-    public abstract void setItemOnClickListener(BaseHolder holder);
+    public abstract void setItemOnClickListener(int position, BaseHolder holder);
 
-    public abstract BaseHolder getHolder();
+    public abstract BaseHolder getHolder(View view);
 }

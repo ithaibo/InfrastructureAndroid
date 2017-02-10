@@ -63,7 +63,8 @@
         </provider>
 
         <activity android:name=".demos.animotion.AnimationActivity" />
-        <activity android:name=".demos.gesture.ScrollerDemoActivity"></activity>
+        <activity android:name=".demos.gesture.ScrollerDemoActivity" />
+        <activity android:name=".demos.gesture.SlidingConflict"></activity>
     </application>
 
 </manifest>
