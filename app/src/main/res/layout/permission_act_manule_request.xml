@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_simple"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_request_dial_act_manule"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="这里是在另外一个进程中"/>
+        android:text="获取拨打电话的权限并拨打10086"/>
 
 </LinearLayout>

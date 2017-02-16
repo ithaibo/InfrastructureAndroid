@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -65,7 +67,8 @@
         <activity android:name=".demos.animotion.AnimationActivity" />
         <activity android:name=".demos.gesture.ScrollerDemoActivity" />
         <activity android:name=".demos.gesture.SlidingConflict" />
-        <activity android:name=".demos.other.DemoExpandableListViewActivity"></activity>
+        <activity android:name=".demos.other.DemoExpandableListViewActivity"/>
+        <activity android:name=".demos.permission.ManualRequestPermissionActivity"/>
     </application>
 
 </manifest>
