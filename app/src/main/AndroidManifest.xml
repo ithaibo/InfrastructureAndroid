@@ -69,6 +69,7 @@
         <activity android:name=".demos.gesture.SlidingConflict" />
         <activity android:name=".demos.other.DemoExpandableListViewActivity"/>
         <activity android:name=".demos.permission.ManualRequestPermissionActivity"/>
+        <activity android:name=".demos.custome_view.CustomeViewActivity"/>
     </application>
 
 </manifest>
