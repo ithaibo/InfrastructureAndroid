@@ -20,6 +20,7 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.demos.animotion.AnimationActivity;
+import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
@@ -134,6 +135,11 @@ public class MainActivity extends AppCompatActivity
         .setName("Permission Manual")
         .setDesc("Permission Manual")
         .setClassName(ManualRequestPermissionActivity.class));
+
+        demoClasses.add(new DemoActivityBean()
+                .setName("Custom View")
+                .setDesc("Custom View")
+                .setClassName(CustomeViewActivity.class));
 
         return demoClasses;
     }
