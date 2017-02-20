@@ -10,4 +10,9 @@
         android:layout_height="wrap_content"
         android:text="获取拨打电话的权限并拨打10086"/>
 
+    <Button
+        android:id="@+id/btn_send_sms_act_permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送短信"/>
 </LinearLayout>
