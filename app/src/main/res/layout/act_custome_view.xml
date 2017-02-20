@@ -10,29 +10,34 @@
         android:layout_height="50dp"
         app:circle_color="@color/colorAccent"
         android:background="@color/colorPrimary"
+        android:layout_margin="5dp"
         android:paddingLeft="30dp"/>
 
     <com.andy.infrastructure.demos.custome_view.CircleView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:circle_color="@color/colorAccent"
         android:background="@color/colorPrimary"/>
 
     <com.andy.infrastructure.demos.custome_view.CircleView
         android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:circle_color="@color/colorAccent"
         android:background="@color/colorPrimary"/>
 
     <com.andy.infrastructure.demos.custome_view.CircleView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_margin="5dp"
         app:circle_color="@color/colorAccent"
         android:background="@color/colorPrimary"/>
 
     <com.andy.infrastructure.demos.custome_view.CircleView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_margin="5dp"
         app:circle_color="@color/colorAccent"
         android:background="@color/colorPrimary"
         android:paddingLeft="20dp"
