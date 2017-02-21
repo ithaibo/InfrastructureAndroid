@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
+import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 
 /**
@@ -45,19 +47,19 @@ public class CircleView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
+
         int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
 
-        if (widthSpecMode == MeasureSpec.AT_MOST &&
-                heightSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(100, 100);
-        } else if (widthSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(100, heightSpecSize);
-        } else if (heightSpecMode ==MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthSpecSize, 100);
-        }
+        int width = widthSpecMode == MeasureSpec.AT_MOST ? 100 : widthSpecSize;
+        int height = heightSpecMode == MeasureSpec.AT_MOST ? 100 : heightSpecSize;
+
+        setMeasuredDimension(width, height);
+
+        LogUtil.i("onMeasure ... width = " + width + " height = " + height);
     }
 
     @Override
@@ -71,8 +73,8 @@ public class CircleView extends View {
 
         int width = getWidth() - paddingLeft - paddingRight;
         int height = getHeight() - paddingTop - paddingBottom;
-        int radius = Math.min(width, height)/2;
+        int radius = Math.min(width, height) / 2;
 
-        canvas.drawCircle(paddingLeft + width/2, paddingTop + height/2, radius, mPaint);
+        canvas.drawCircle(paddingLeft + width / 2, paddingTop + height / 2, radius, mPaint);
     }
 }
