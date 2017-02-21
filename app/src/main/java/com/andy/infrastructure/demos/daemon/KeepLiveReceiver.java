@@ -1,4 +1,4 @@
-package com.andy.infrastructure.demos.other;
+package com.andy.infrastructure.demos.daemon;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -75,14 +75,14 @@
         <activity android:name=".demos.custome_view.CustomeViewActivity"/>
 
         <!--进程保活-->
-        <activity android:name=".demos.other.KeepAliveActivity"
+        <activity android:name=".demos.daemon.KeepAliveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
             android:excludeFromRecents="true"
             android:exported="false"
             android:finishOnTaskLaunch="false"
             android:launchMode="singleInstance"
             android:theme="@style/LiveActivtiyStyle"/>
-        <service android:name=".demos.other.KeepLiveService">
+        <service android:name=".demos.daemon.KeepLiveService">
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
                 <action android:name="android.intent.action.SCREEN_OFF"/>

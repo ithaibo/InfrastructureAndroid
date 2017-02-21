@@ -1,7 +1,6 @@
-package com.andy.infrastructure.demos.other;
+package com.andy.infrastructure.demos.daemon;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;

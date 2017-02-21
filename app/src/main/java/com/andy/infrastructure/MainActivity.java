@@ -26,7 +26,7 @@ import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
-import com.andy.infrastructure.demos.other.KeepLiveService;
+import com.andy.infrastructure.demos.daemon.KeepLiveService;
 import com.andy.infrastructure.demos.permission.ManualRequestPermissionActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
