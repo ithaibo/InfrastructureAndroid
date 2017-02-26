@@ -27,7 +27,7 @@ public class ArrayAdapterDemo extends BaseActivity {
     protected void initData() {
         List<String> dataList = new ArrayList<>();
         datas = new SoftReference<List<String>>(dataList);
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<10 * 2; i++) {
             dataList.add("item " + ( i + 1));
         }
     }

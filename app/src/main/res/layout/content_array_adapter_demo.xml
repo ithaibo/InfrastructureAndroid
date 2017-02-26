@@ -16,6 +16,7 @@
     <ListView
         android:id="@+id/lv_act_array_adapter_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbars="none"/>
 
 </FrameLayout>
