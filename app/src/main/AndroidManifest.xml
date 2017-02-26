@@ -12,8 +12,7 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -67,9 +66,18 @@
         <activity android:name=".demos.animotion.AnimationActivity" />
         <activity android:name=".demos.gesture.ScrollerDemoActivity" />
         <activity android:name=".demos.gesture.SlidingConflict" />
-        <activity android:name=".demos.other.DemoExpandableListViewActivity"/>
-        <activity android:name=".demos.permission.ManualRequestPermissionActivity"/>
-        <activity android:name=".demos.custome_view.CustomeViewActivity"/>
+        <activity android:name=".demos.other.DemoExpandableListViewActivity" />
+        <activity android:name=".demos.permission.ManualRequestPermissionActivity" />
+        <activity android:name=".demos.custome_view.CustomeViewActivity" />
+        <activity
+            android:name=".demos.listview.ArrayAdapterDemo"
+            android:label="@string/title_activity_array_adapter_demo"
+            android:parentActivityName="com.andy.baselibrary.activity.BaseActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.andy.baselibrary.activity.BaseActivity" />
+        </activity>
     </application>
 
 </manifest>
