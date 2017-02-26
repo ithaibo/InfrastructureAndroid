@@ -12,11 +12,16 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_xxh"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -24,9 +29,8 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -66,18 +70,26 @@
         <activity android:name=".demos.animotion.AnimationActivity" />
         <activity android:name=".demos.gesture.ScrollerDemoActivity" />
         <activity android:name=".demos.gesture.SlidingConflict" />
-        <activity android:name=".demos.other.DemoExpandableListViewActivity" />
-        <activity android:name=".demos.permission.ManualRequestPermissionActivity" />
-        <activity android:name=".demos.custome_view.CustomeViewActivity" />
-        <activity
-            android:name=".demos.listview.ArrayAdapterDemo"
-            android:label="@string/title_activity_array_adapter_demo"
-            android:parentActivityName="com.andy.baselibrary.activity.BaseActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.andy.baselibrary.activity.BaseActivity" />
-        </activity>
+        <activity android:name=".demos.other.DemoExpandableListViewActivity"/>
+        <activity android:name=".demos.permission.ManualRequestPermissionActivity"/>
+        <activity android:name=".demos.custome_view.CustomeViewActivity"/>
+
+        <!--进程保活-->
+        <activity android:name=".demos.daemon.KeepAliveActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/LiveActivtiyStyle"/>
+        <service android:name=".demos.daemon.KeepLiveService">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

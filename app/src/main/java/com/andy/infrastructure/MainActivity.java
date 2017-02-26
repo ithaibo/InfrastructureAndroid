@@ -1,5 +1,6 @@
 package com.andy.infrastructure;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,6 +27,7 @@ import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
+import com.andy.infrastructure.demos.daemon.KeepLiveService;
 import com.andy.infrastructure.demos.permission.ManualRequestPermissionActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
@@ -207,4 +209,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Intent intent = new Intent(this, KeepLiveService.class);
+        startService(intent);
+    }
 }
