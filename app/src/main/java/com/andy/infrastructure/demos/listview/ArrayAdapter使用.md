@@ -58,5 +58,23 @@ ArrayAdapter的Constructor：
 java.lang.IllegalStateException: ArrayAdapter requires the resource ID to be a TextView
 ```
 
-因此得出结论：构造器中传入的resource必须是一个layout，这个layout有且仅有一个TextView，没有其他任何父节点、兄弟节点。
+查看ArrayAdapter源码：
+``` Jva
+public @NonNull View getView(int position, @Nullable View convertView,
+            @NonNull ViewGroup parent) {
+        return createViewFromResource(mInflater, position, convertView, parent, mResource);
+    }
 
+    private @NonNull View createViewFromResource(@NonNull LayoutInflater inflater, int position,
+            @Nullable View convertView, @NonNull ViewGroup parent, int resource) {
+        final View view;
+        final TextView text;
+        ...
+        try {
+            if (mFieldId == 0) {
+                //  If no custom field is assigned, assume the whole resource is a TextView
+                text = (TextView) view;
+            }
+        return view;
+```
+上面的源码中，如何mFiledId（TextView的Id）如果为零,直接将view（整个layout）转为TextView。因此，必须使用只有一个节点:TextView的布局。
