@@ -7,7 +7,7 @@ import android.view.View;
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.DataFrg;
-import com.andy.infrastructure.DataBind;
+import com.andy.infrastructure.demos.material.DataFrgBind;
 import com.andy.infrastructure.presenter.MaterialPresenter;
 
 /**
@@ -21,13 +21,14 @@ public class Material1Activity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DataBind dataFrgBind = (DataBind) mDataBind;
+        DataFrgBind dataFrgBind = (DataFrgBind) mDataBind;
 
         mDataInstance = new DataFrg();
         mDataInstance.setCbText("Text -- 1");
 
         dataFrgBind.setDataFrg(mDataInstance);
         dataFrgBind.setPresenter(new MaterialPresenter());
+
     }
 
     @Override

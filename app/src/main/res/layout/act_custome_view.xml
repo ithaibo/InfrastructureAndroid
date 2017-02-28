@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="com.andy.infrastructure.DataBind">
+        <variable
+            name="pieData"
+            type="com.andy.infrastructure.demos.custome_view.PieData"/>
+    </data>
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     xmlns:android="http://schemas.android.com/apk/res/android" />
@@ -20,5 +26,11 @@
         <com.andy.infrastructure.demos.custome_view.CanvasArcView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <com.andy.infrastructure.demos.custome_view.PieView
+            android:id="@+id/pieView"
+            android:layout_width="150dp"
+            android:layout_height="150dp" />
+        
     </LinearLayout>
-</ScrollView>
+</ScrollView></layout>
