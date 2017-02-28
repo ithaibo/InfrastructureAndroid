@@ -23,4 +23,5 @@
     <string name="compose_shortcut_short_label1">Retrofit</string>
     <string name="compose_shortcut_long_label1">去学习Retrofit基础</string>
     <string name="compose_disabled_message1">disable message shortcut.</string>
+    <string name="title_activity_array_adapter_demo">ArrayAdapterDemo</string>
 </resources>

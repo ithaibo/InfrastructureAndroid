@@ -25,6 +25,7 @@ import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
+import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.daemon.KeepLiveService;
 import com.andy.infrastructure.demos.permission.ManualRequestPermissionActivity;
@@ -142,6 +143,11 @@ public class MainActivity extends AppCompatActivity
                 .setName("Custom View")
                 .setDesc("Custom View")
                 .setClassName(CustomeViewActivity.class));
+
+        demoClasses.add(new DemoActivityBean()
+        .setName("ArrayAdapter : 自动找到其中的TextView并赋值")
+        .setClassName(ArrayAdapterDemo.class)
+        .setDesc("ArrayAdapter : 自动找到其中的TextView并赋值"));
 
         return demoClasses;
     }
