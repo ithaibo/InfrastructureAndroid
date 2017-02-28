@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="com.andy.infrastructure.demos.other.PackageBind">
+        <variable
+            name="packageInfo"
+            type="com.andy.infrastructure.module.PackageModule"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_package_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:gravity="center_vertical|left"
+            android:textSize="15sp"
+            android:text="@{packageInfo.appName}"/>
+
+        <TextView
+            android:id="@+id/tv_package_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical|left"
+            android:textSize="13sp"
+            android:text="@{packageInfo.apkName}"/>
+    </LinearLayout>
+</layout>

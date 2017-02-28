@@ -72,6 +72,7 @@
         <activity android:name=".demos.other.DemoExpandableListViewActivity"/>
         <activity android:name=".demos.permission.ManualRequestPermissionActivity"/>
         <activity android:name=".demos.custome_view.CustomeViewActivity"/>
+        <activity android:name=".demos.other.PackageInfoActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

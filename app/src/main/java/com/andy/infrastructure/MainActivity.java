@@ -28,6 +28,7 @@ import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.daemon.KeepLiveService;
+import com.andy.infrastructure.demos.other.PackageInfoActivity;
 import com.andy.infrastructure.demos.permission.ManualRequestPermissionActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
@@ -148,6 +149,13 @@ public class MainActivity extends AppCompatActivity
         .setName("ArrayAdapter : 自动找到其中的TextView并赋值")
         .setClassName(ArrayAdapterDemo.class)
         .setDesc("ArrayAdapter : 自动找到其中的TextView并赋值"));
+
+        demoClasses.add(new DemoActivityBean()
+        .setName("PackageInfo DataBinding in RecyclerView ")
+        .setClassName(PackageInfoActivity.class)
+        .setDesc("PackageInfoActivity PackageInfo DataBinding in RecyclerView"));
+
+
 
         return demoClasses;
     }
