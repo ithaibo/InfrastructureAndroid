@@ -87,4 +87,5 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile files('lib/testSo.jar')
     compile 'com.android.support:support-v4:25.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0'
 }

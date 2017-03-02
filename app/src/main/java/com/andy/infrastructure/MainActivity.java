@@ -21,6 +21,7 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.demos.animotion.AnimationActivity;
+import com.andy.infrastructure.demos.constraint_layout.ConstraintLayoutActivity;
 import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
@@ -155,7 +156,10 @@ public class MainActivity extends AppCompatActivity
         .setClassName(PackageInfoActivity.class)
         .setDesc("PackageInfoActivity PackageInfo DataBinding in RecyclerView"));
 
-
+        demoClasses.add(new DemoActivityBean()
+        .setClassName(ConstraintLayoutActivity.class)
+        .setName("Constraint Layout")
+        .setDesc("Constraint Layout"));
 
         return demoClasses;
     }
