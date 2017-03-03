@@ -24,4 +24,6 @@
     <string name="compose_shortcut_long_label1">去学习Retrofit基础</string>
     <string name="compose_disabled_message1">disable message shortcut.</string>
     <string name="title_activity_array_adapter_demo">ArrayAdapterDemo</string>
+
+    <string name="label_swith_act_float_window">是否开启悬浮窗</string>
 </resources>

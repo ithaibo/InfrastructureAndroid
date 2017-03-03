@@ -24,6 +24,7 @@ import com.andy.infrastructure.demos.animotion.AnimationActivity;
 import com.andy.infrastructure.demos.constraint_layout.ConstraintLayoutActivity;
 import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
+import com.andy.infrastructure.demos.float_window.FloatWindowActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
@@ -160,6 +161,11 @@ public class MainActivity extends AppCompatActivity
         .setClassName(ConstraintLayoutActivity.class)
         .setName("Constraint Layout")
         .setDesc("Constraint Layout"));
+
+        demoClasses.add(new DemoActivityBean()
+                .setClassName(FloatWindowActivity.class)
+                .setName("Float Window")
+                .setDesc("Float Window"));
 
         return demoClasses;
     }
