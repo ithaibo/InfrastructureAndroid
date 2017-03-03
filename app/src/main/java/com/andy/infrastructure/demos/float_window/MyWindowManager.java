@@ -60,6 +60,7 @@ public class MyWindowManager {
 				if(!Settings.canDrawOverlays(context.getApplicationContext())) {
 					//启动Activity让用户授权
 					Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+					intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					context.startActivity(intent);
 					return;
 				} else {
