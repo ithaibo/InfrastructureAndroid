@@ -30,6 +30,7 @@ import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.daemon.KeepLiveService;
+import com.andy.infrastructure.demos.mvp.MvpDemoActivity;
 import com.andy.infrastructure.demos.other.PackageInfoActivity;
 import com.andy.infrastructure.demos.permission.ManualRequestPermissionActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
@@ -166,6 +167,11 @@ public class MainActivity extends AppCompatActivity
                 .setClassName(FloatWindowActivity.class)
                 .setName("Float Window")
                 .setDesc("Float Window"));
+
+        demoClasses.add(new DemoActivityBean()
+                .setClassName(MvpDemoActivity.class)
+                .setName("Mvp Demo")
+                .setDesc("Mvp Demo"));
 
         return demoClasses;
     }

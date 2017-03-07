@@ -77,6 +77,10 @@
         <activity android:name=".demos.other.PackageInfoActivity"/>
         <activity android:name=".demos.constraint_layout.ConstraintLayoutActivity"/>
         <activity android:name=".demos.float_window.FloatWindowActivity"/>
+        <activity android:name=".demos.mvp.MvpDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".demos.mvp.MeiziDescripActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

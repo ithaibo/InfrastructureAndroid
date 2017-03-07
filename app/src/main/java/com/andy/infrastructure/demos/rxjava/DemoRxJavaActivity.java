@@ -18,7 +18,7 @@ import com.andy.infrastructure.R;
 import com.andy.infrastructure.adapter.DemoRxJavaAdapter;
 import com.andy.infrastructure.bean.Customer;
 import com.andy.infrastructure.bean.DemoRxJavaBean;
-import com.andy.infrastructure.net.CustomerService;
+import com.andy.infrastructure.service.CustomerService;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;

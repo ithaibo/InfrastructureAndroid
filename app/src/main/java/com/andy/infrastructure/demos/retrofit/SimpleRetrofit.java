@@ -10,7 +10,7 @@ import com.andy.baselibrary.net.GenServiceUtil;
 import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.Customer;
-import com.andy.infrastructure.net.CustomerService;
+import com.andy.infrastructure.service.CustomerService;
 
 import java.io.IOException;
 import java.util.ArrayList;

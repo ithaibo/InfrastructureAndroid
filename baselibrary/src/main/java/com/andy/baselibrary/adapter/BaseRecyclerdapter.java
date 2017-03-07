@@ -30,6 +30,7 @@ public abstract class BaseRecyclerdapter<T> extends RecyclerView.Adapter {
 
     public void refreshData(List<T> dataList){
         this.dataList = dataList;
+        notifyDataSetChanged();
     }
 
     public void appendData(List<T> dataList){
@@ -37,6 +38,7 @@ public abstract class BaseRecyclerdapter<T> extends RecyclerView.Adapter {
             this.dataList = new ArrayList<>();
         }
         this.dataList.addAll(dataList);
+        notifyDataSetChanged();
     }
 
     @Override

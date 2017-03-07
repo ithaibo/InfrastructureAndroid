@@ -1,4 +1,4 @@
-package com.andy.infrastructure.net;
+package com.andy.infrastructure.service;
 
 import com.andy.infrastructure.bean.Customer;
 
