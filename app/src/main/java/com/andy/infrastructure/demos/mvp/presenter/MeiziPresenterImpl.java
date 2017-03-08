@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.andy.baselibrary.net.GenServiceUtil;
+import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.bean.BaseListBean;
 import com.andy.infrastructure.bean.MeiziData;
 import com.andy.infrastructure.bean.MeiziDataList;
@@ -33,7 +34,7 @@ public class MeiziPresenterImpl extends BasePresenterImpl implements MeiziPresen
     @Override
     public void getMeiziData(int index) {
         //显示progressbar
-        Subscription subscription = GenServiceUtil
+        final Subscription subscription = GenServiceUtil
                 .genInstance("http://gank.io")
                 .createService(MeiziService.class)
                 .getMeiziData(index)
@@ -52,6 +53,7 @@ public class MeiziPresenterImpl extends BasePresenterImpl implements MeiziPresen
 
                     @Override
                     public void onNext(MeiziDataList meiziData) {
+                        LogUtil.i("request http://gank.io/api/data/福利/10/{1} success. result: " + meiziData);
                         meiziFragment.updateMeiziData(meiziData.getResults());
                     }
                 });

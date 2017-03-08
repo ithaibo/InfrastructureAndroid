@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
-import com.andy.infrastructure.adapter.MeiziAdapter;
+import com.andy.infrastructure.adapter.MeiziAdapter2;
 import com.andy.infrastructure.bean.MeiziData;
 import com.andy.infrastructure.demos.mvp.presenter.MeiziPresenter;
 import com.andy.infrastructure.demos.mvp.presenter.MeiziPresenterImpl;
@@ -23,7 +23,7 @@ public class MvpDemoActivity extends BaseActivity implements IMeiziFragment {
     @BindView(R.id.rcl_meizi)
     RecyclerView rclMeizi;
     private MeiziPresenter meiziPresenter;
-    private MeiziAdapter meiziAdapter;
+    private MeiziAdapter2 meiziAdapter;
     private LinearLayoutManager layoutManager;
 
 
@@ -35,17 +35,15 @@ public class MvpDemoActivity extends BaseActivity implements IMeiziFragment {
     @Override
     protected void initData() {
         meiziPresenter = new MeiziPresenterImpl(this, this);
-
-        meiziAdapter = new MeiziAdapter(this);
+        meiziAdapter = new MeiziAdapter2(this, R.layout.item_meizi_mvp);
     }
 
     @Override
     protected void initViews() {
         layoutManager = new LinearLayoutManager(this);
         rclMeizi.setLayoutManager(layoutManager);
-
         rclMeizi.setAdapter(meiziAdapter);
-
+        //触发网络请求
         meiziPresenter.getMeiziData(1);
     }
 

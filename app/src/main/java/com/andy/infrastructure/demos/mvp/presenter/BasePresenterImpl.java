@@ -19,7 +19,7 @@ public class BasePresenterImpl implements Presenter {
 
     @Override
     public void unsubscribe() {
-        if (this.compositeSubscription !=null ) {
+        if (this.compositeSubscription !=null && !this.compositeSubscription.isUnsubscribed() ) {
             this.compositeSubscription.unsubscribe();
         }
     }
