@@ -1,4 +1,4 @@
-package com.andy.infrastructure.demos.mvp.presenter;
+package com.andy.infrastructure.presenter;
 
 import android.content.Context;
 import android.widget.Toast;

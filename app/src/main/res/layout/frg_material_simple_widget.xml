@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="com.andy.infrastructure.demos.material.DataFrgBind">
+        <variable
+            name="dataFrg"
+            type="com.andy.infrastructure.bean.DataFrg" />
+
+        <variable
+            name="presenter"
+            type="com.andy.infrastructure.presenter.MaterialPresenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@{dataFrg.cbText}"
+            android:theme="@style/MyCheckBox" />
+
+        <Button
+            android:id="@+id/btn_change_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->presenter.onClick(view, dataFrg)}"
+            android:text="点击更换CheckBox文字" />
+    </LinearLayout>
+
+</layout>

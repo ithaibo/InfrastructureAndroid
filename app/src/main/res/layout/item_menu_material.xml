@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data class="com.andy.infrastructure.demos.material.MenuDataBind">
+        <variable
+            name="descMenu"
+            type="com.andy.infrastructure.bean.DemoFragmentBean"/>
+        <variable
+            name="itemMenuPresenter"
+            type="com.andy.infrastructure.presenter.ItemMenuMaterialPresenter"/>
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        tool:text="TextInputLayout"
+        android:text="@{descMenu.desc}"
+        android:onClick="@{()->itemMenuPresenter.replaceFragemntAction(descMenu)}"/>
+</layout>

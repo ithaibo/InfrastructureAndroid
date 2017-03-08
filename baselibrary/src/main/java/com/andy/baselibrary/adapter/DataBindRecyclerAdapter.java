@@ -16,20 +16,19 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public abstract class DataBindRecyclerAdapter<T> extends BaseRecyclerdapter<T> {
-    private int idResLayout;
 
-    public DataBindRecyclerAdapter(Context mContext, @NotNull int idResLayout) {
+    public DataBindRecyclerAdapter(Context mContext) {
         super(mContext);
-        this.idResLayout = idResLayout;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemRootView = mLayoutInflater.inflate(this.idResLayout, parent, false);
+        View itemRootView = mLayoutInflater.inflate(getLayoutId(), parent, false);
         return getHolder(itemRootView);
     }
 
     public abstract DataBindRecyclerHolder<T> getHolder(View itemView);
+    public abstract int getLayoutId();
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {

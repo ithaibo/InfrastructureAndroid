@@ -7,8 +7,8 @@ import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.adapter.MeiziAdapter;
 import com.andy.infrastructure.bean.MeiziData;
-import com.andy.infrastructure.demos.mvp.presenter.MeiziPresenter;
-import com.andy.infrastructure.demos.mvp.presenter.MeiziPresenterImpl;
+import com.andy.infrastructure.presenter.MeiziPresenter;
+import com.andy.infrastructure.presenter.MeiziPresenterImpl;
 import com.andy.infrastructure.interfaces.IMeiziFragment;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class MvpDemoActivity extends BaseActivity implements IMeiziFragment {
     @Override
     protected void initData() {
         meiziPresenter = new MeiziPresenterImpl(this, this);
-        meiziAdapter = new MeiziAdapter(this, R.layout.item_meizi_mvp);
+        meiziAdapter = new MeiziAdapter(this);
     }
 
     @Override

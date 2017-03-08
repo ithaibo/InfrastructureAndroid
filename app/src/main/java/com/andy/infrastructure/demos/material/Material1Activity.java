@@ -1,35 +1,25 @@
 package com.andy.infrastructure.demos.material;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
-import com.andy.infrastructure.bean.DataFrg;
-import com.andy.infrastructure.demos.material.DataFrgBind;
-import com.andy.infrastructure.presenter.MaterialPresenter;
+import com.andy.infrastructure.bean.DemoFragmentBean;
+import com.andy.infrastructure.presenter.ItemMenuMaterialPresenter;
 
 /**
  * Created by Smily on 2017/1/2.
  */
 
-public class Material1Activity extends BaseActivity {
-
-    private DataFrg mDataInstance;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        DataFrgBind dataFrgBind = (DataFrgBind) mDataBind;
-
-        mDataInstance = new DataFrg();
-        mDataInstance.setCbText("Text -- 1");
-
-        dataFrgBind.setDataFrg(mDataInstance);
-        dataFrgBind.setPresenter(new MaterialPresenter());
-
-    }
+public class Material1Activity extends BaseActivity implements View.OnClickListener, ItemMenuMaterialPresenter {
+    private Fragment simpleWidgetFrg;
+    private Fragment textInputLayouttFrg;
+    private static final String TAG_DIALOG = "materialMenuDialog";
+    private FragmentTransaction ft;
+    private ActBind actBind;
 
     @Override
     protected int getLayoutId() {
@@ -38,11 +28,37 @@ public class Material1Activity extends BaseActivity {
 
     @Override
     protected void initData() {
+        FragmentManager fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
 
+        actBind = (ActBind) mDataBind;
+        simpleWidgetFrg = new SimpleDesighWidgetFragment();
+        textInputLayouttFrg = new TextInputlayoutFragment();
+
+        actBind.fabShowMenu.setOnClickListener(this);
     }
 
     @Override
     protected void initViews() {
+        replaceFragemntAction(new DemoFragmentBean()
+        .setClassName(TextInputlayoutFragment.class));
+    }
 
+    @Override
+    public void onClick(View v) {
+        MaterialMenuDialog dialog = new MaterialMenuDialog();
+        dialog.show(getSupportFragmentManager(), TAG_DIALOG);
+    }
+
+    @Override
+    public void replaceFragemntAction(DemoFragmentBean itemData) {
+        try {
+            ft.replace(actBind.flFrgContent.getId(), itemData.getClassName().newInstance());
+            ft.commit();
+        }catch (InstantiationException  e1){
+            e1.printStackTrace();
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
+        }
     }
 }
