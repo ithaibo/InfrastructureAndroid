@@ -17,16 +17,10 @@ public class MeiziHolder extends RecyclerView.ViewHolder {
     private MeiziDataBind mBind;
     public MeiziHolder(View itemView) {
         super(itemView);
-
         mBind = DataBindingUtil.bind(itemView);
     }
 
     public void bind(MeiziData meizi) {
-        Glide.with(mBind.itemImage.getContext())
-                .load(meizi.getUrl())
-                .centerCrop()
-                .into(mBind.itemImage);
-
-//        mBind.setMeizi(meizi);
+        mBind.setMeizi(meizi);
     }
 }

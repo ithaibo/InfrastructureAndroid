@@ -45,7 +45,50 @@ public interface MeiziService {
 
 ## Item Bind ##
 RecyclerView中Item进行Bind操作。在com.andy.infrastructure.holder.MeiziHolder.bind中使用Glide加载图片。
+1. 在布局中，设置Url
+``` xml
+<ImageView
+    android:id="@+id/item_image"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    app:imageUrl="@{meizi.url}"/>
+```
 
+2. 在ViewHolder中进行bing
+``` Java
+public class MeiziHolder extends RecyclerView.ViewHolder {
+    private MeiziDataBind mBind;
+    public MeiziHolder(View itemView) {
+        super(itemView);
+        mBind = DataBindingUtil.bind(itemView);
+    }
+
+    public void bind(MeiziData meizi) {
+        mBind.setMeizi(meizi);
+    }
+}
 ```
-实现中...
+
+3. 添加一个BindAdapter类
+``` Java
+public class ImageViewGlideBindAdapter {
+    @BindingAdapter("android:src")
+    public static void setSrc(ImageView imageView, Bitmap bitmap) {
+        imageView.setImageBitmap(bitmap);
+    }
+
+    @BindingAdapter("android:src")
+    public static void setSrc(ImageView imageView, int resId) {
+        imageView.setImageResource(resId);
+    }
+
+    @BindingAdapter({"app:imageUrl"/*, "app:placeHolder", "app:error"*/})
+    public static void loadImage(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .load(url)
+                .into(imageView);
+    }
+}
 ```
+
+以上步骤完成就可以完成DataBinding + Glide的组合使用。

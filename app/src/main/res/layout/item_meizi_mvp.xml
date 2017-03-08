@@ -35,7 +35,8 @@
                 <ImageView
                     android:id="@+id/item_image"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"/>
+                    android:layout_height="300dp"
+                    app:imageUrl="@{meizi.url}"/>
 
             </LinearLayout>
 
