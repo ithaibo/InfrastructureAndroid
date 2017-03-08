@@ -49,6 +49,12 @@ baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseAc
 - multiprocess          多进程示例
 - retrofit              Retrofit示例
 - rxjava                RxJava示例
+- mvp                   RxJava + Retrofit +DataBinding
 
 相关示例可以查看源代码，及其说明。
-1/6/2017 4:52:48 PM 
+
+## 更新说明 ##
+| ---- | ----------- |
+| time | description |
+| 1/6/2017 4:52:48 PM |  |
+| 3/8/2017 11:28:30 AM | mvp |
