@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
  * Created by Andy on 2017/3/8.
  */
 
-public class MeiziAdapter2 extends DataBindRecyclerAdapter<MeiziData> {
-    public MeiziAdapter2(Context mContext, @NotNull int idResLayout) {
+public class MeiziAdapter extends DataBindRecyclerAdapter<MeiziData> {
+    public MeiziAdapter(Context mContext, @NotNull int idResLayout) {
         super(mContext, idResLayout);
     }
 
