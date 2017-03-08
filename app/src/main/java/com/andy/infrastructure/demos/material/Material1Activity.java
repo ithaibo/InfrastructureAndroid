@@ -28,8 +28,6 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initData() {
-        FragmentManager fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
 
         actBind = (ActBind) mDataBind;
         simpleWidgetFrg = new SimpleDesighWidgetFragment();
@@ -52,8 +50,11 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void replaceFragemntAction(DemoFragmentBean itemData) {
+        FragmentManager fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
         try {
             ft.replace(actBind.flFrgContent.getId(), itemData.getClassName().newInstance());
+            ft.addToBackStack(null);
             ft.commit();
         }catch (InstantiationException  e1){
             e1.printStackTrace();
