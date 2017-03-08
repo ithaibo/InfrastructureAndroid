@@ -6,8 +6,6 @@ import android.view.View;
 
 import com.andy.infrastructure.bean.MeiziData;
 import com.andy.infrastructure.demos.mvp.MeiziDataBind;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 /**
  * Created by Andy on 2017/3/7.

@@ -2,7 +2,6 @@ package com.andy.infrastructure.demos.mvp;
 
 import android.databinding.BindingAdapter;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -22,12 +21,10 @@ public class ImageViewGlideBindAdapter {
         imageView.setImageResource(resId);
     }
 
-    @BindingAdapter({"app:imageUrl"/*, "app:placeHolder", "app:error"*/})
+    @BindingAdapter({"app:imageUrl"})
     public static void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
                 .load(url)
                 .into(imageView);
-//                        .placeholder(holderDrawable)
-//                .error(errorDrawable)
     }
 }

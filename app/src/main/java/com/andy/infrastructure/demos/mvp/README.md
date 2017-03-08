@@ -92,3 +92,5 @@ public class ImageViewGlideBindAdapter {
 ```
 
 以上步骤完成就可以完成DataBinding + Glide的组合使用。
+
+3/8/2017 12:17:28 PM 
