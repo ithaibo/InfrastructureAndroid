@@ -6,6 +6,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import org.junit.Ignore;
+
 /**
  * Created by Andy on 2017/3/8.
  */

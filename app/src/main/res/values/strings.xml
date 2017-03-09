@@ -31,4 +31,7 @@
     <string name="text_show_snackbar_simple">没有任何Action的SnackBar</string>
     <string name="text_show_snackbar_action">带Action的SnackBar</string>
     <string name="label_text_action_snack">UNDO</string>
+
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
 </resources>

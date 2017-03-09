@@ -1,6 +1,5 @@
 package com.andy.infrastructure.demos.material;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -15,8 +14,6 @@ import com.andy.infrastructure.presenter.ItemMenuMaterialPresenter;
  */
 
 public class Material1Activity extends BaseActivity implements View.OnClickListener, ItemMenuMaterialPresenter {
-    private Fragment simpleWidgetFrg;
-    private Fragment textInputLayouttFrg;
     private static final String TAG_DIALOG = "materialMenuDialog";
     private FragmentTransaction ft;
     private ActBind actBind;
@@ -31,9 +28,6 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
     protected void initData() {
 
         actBind = (ActBind) mDataBind;
-        simpleWidgetFrg = new SimpleDesighWidgetFragment();
-        textInputLayouttFrg = new TextInputlayoutFragment();
-
         actBind.fabShowMenu.setOnClickListener(this);
     }
 
@@ -55,7 +49,6 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
         ft = fm.beginTransaction();
         try {
             ft.replace(actBind.flFrgContent.getId(), itemData.getClassName().newInstance());
-//            ft.addToBackStack(null);
             ft.commit();
         } catch (InstantiationException e1) {
             e1.printStackTrace();
