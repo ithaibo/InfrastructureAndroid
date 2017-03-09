@@ -20,6 +20,7 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
     private static final String TAG_DIALOG = "materialMenuDialog";
     private FragmentTransaction ft;
     private ActBind actBind;
+    private MaterialMenuDialog menuDialog;
 
     @Override
     protected int getLayoutId() {
@@ -39,13 +40,13 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
     @Override
     protected void initViews() {
         replaceFragemntAction(new DemoFragmentBean()
-        .setClassName(TextInputlayoutFragment.class));
+                .setClassName(TextInputlayoutFragment.class));
     }
 
     @Override
     public void onClick(View v) {
-        MaterialMenuDialog dialog = new MaterialMenuDialog();
-        dialog.show(getSupportFragmentManager(), TAG_DIALOG);
+        menuDialog = new MaterialMenuDialog();
+        menuDialog.show(getSupportFragmentManager(), TAG_DIALOG);
     }
 
     @Override
@@ -54,12 +55,15 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
         ft = fm.beginTransaction();
         try {
             ft.replace(actBind.flFrgContent.getId(), itemData.getClassName().newInstance());
-            ft.addToBackStack(null);
+//            ft.addToBackStack(null);
             ft.commit();
-        }catch (InstantiationException  e1){
+        } catch (InstantiationException e1) {
             e1.printStackTrace();
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
+        }
+        if (menuDialog != null) {
+            menuDialog.dismissAllowingStateLoss();
         }
     }
 }

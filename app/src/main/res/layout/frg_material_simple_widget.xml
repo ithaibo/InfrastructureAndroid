@@ -8,6 +8,10 @@
         <variable
             name="presenter"
             type="com.andy.infrastructure.presenter.MaterialPresenter" />
+
+        <variable
+            name="snackPresenter"
+            type="com.andy.infrastructure.presenter.ShowSnackPresenter"/>
     </data>
 
     <LinearLayout
@@ -28,6 +32,20 @@
             android:layout_height="wrap_content"
             android:onClick="@{(view)->presenter.onClick(view, dataFrg)}"
             android:text="点击更换CheckBox文字" />
+
+        <Button
+            android:id="@+id/btn_show_snack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> snackPresenter.showSnackBar(view)}"
+            android:text="点击显示SnackBar" />
+
+        <Button
+            android:id="@+id/btn_show_snack_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> snackPresenter.showSnackBar(view)}"
+            android:text="带Action的SnackBar" />
     </LinearLayout>
 
 </layout>

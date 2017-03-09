@@ -26,4 +26,9 @@
     <string name="title_activity_array_adapter_demo">ArrayAdapterDemo</string>
 
     <string name="label_swith_act_float_window">是否开启悬浮窗</string>
+
+    <!--SnackBar-->
+    <string name="text_show_snackbar_simple">没有任何Action的SnackBar</string>
+    <string name="text_show_snackbar_action">带Action的SnackBar</string>
+    <string name="label_text_action_snack">UNDO</string>
 </resources>

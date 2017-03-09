@@ -19,5 +19,6 @@
         android:padding="10dp"
         tool:text="TextInputLayout"
         android:text="@{descMenu.desc}"
+        android:textColor="@android:color/white"
         android:onClick="@{()->itemMenuPresenter.replaceFragemntAction(descMenu)}"/>
 </layout>
