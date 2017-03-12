@@ -10,11 +10,11 @@ import rx.functions.Action1;
  * Created by Andy on 2016/12/28.
  */
 
-public class DemoRxJavaBean extends Bean {
+public class DemoRxJavaBean<T> extends Bean {
     private String demoTitle;
     private String methodName;
     private Observable observable;
-    private Observer<String> observer = new Observer<String>() {
+    private Observer<T> observer = new Observer<T>() {
         @Override
         public void onCompleted() {
             LogUtil.d("complete");
@@ -26,7 +26,7 @@ public class DemoRxJavaBean extends Bean {
         }
 
         @Override
-        public void onNext(String v) {
+        public void onNext(T v) {
             LogUtil.d("onNext: " + v);
         }
     };

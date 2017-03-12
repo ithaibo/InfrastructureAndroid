@@ -68,6 +68,10 @@ public class DataContact {
         return ob;
     }
 
+    /**
+     * Operator Merge
+     * @return
+     */
     public Observable getMergeObservable() {
         return Observable.merge(
                 Observable.interval(100, TimeUnit.MILLISECONDS).map(new Func1<Long, String>() {
@@ -83,5 +87,14 @@ public class DataContact {
                     }
                 })
         ).take(6);
+    }
+
+    /**
+     * Operator take
+     * @return
+     */
+    public Observable operaterTake() {
+        return Observable.interval(100, TimeUnit.MILLISECONDS)
+                .take(10);
     }
 }

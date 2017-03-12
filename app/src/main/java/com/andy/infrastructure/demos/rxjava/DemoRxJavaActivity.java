@@ -53,96 +53,23 @@ public class DemoRxJavaActivity extends BaseActivity {
         demoList = new ArrayList<>();
         demoList.add(new DemoRxJavaBean()
                 .setDemoTitle("distinct selector")
-                .setObservable(
-                        Observable.create(new Observable.OnSubscribe<String>() {
-                            @Override
-                            public void call(Subscriber<? super String> subscriber) {
-                                subscriber.onNext("First");
-                                subscriber.onNext("Sirst");
-                                subscriber.onNext("Second");
-                                subscriber.onNext("Third");
-                                subscriber.onNext("Fourth");
-                                subscriber.onNext("Fifth");
-                                subscriber.onCompleted();
-                            }
-                        }).distinct(new Func1<String, Character>() {
-                            @Override
-                            public Character call(String s) {
-                                return s.charAt(0);
-                            }
-                        })
-                ).setObserver(new Observer<String>() {
-                    @Override
-                    public void onCompleted() {
-                        LogUtil.d("Distinct Selector -- Complete");
-                    }
+                .setObservable(OperatorFactory.optDistinct())
+                .setObserver(ObserverFactory.obsLogcat(this)));
 
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.d("Distinct Selector -- onError:" + e);
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        LogUtil.d("Distinct Selector -- onNext: " + s);
-                    }
-                }));
         demoList.add(new DemoRxJavaBean().setDemoTitle("filter demo")
-                .setObserver(new Subscriber<Integer>() {
+                .setObservable(ObservableFactory.rangeIntObservable(0, 10)
+                .filter(new Func1<Integer, Boolean>() {
                     @Override
-                    public void onCompleted() {
-                        LogUtil.d("Simple Filter : completed!");
+                    public Boolean call(Integer integer) {
+                        return integer.intValue()%2==0;
                     }
+                }))
+                .setObserver(ObserverFactory.obsLogcat(this)));
 
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.d("Simple Filter : Error" + e);
-                    }
-
-                    @Override
-                    public void onNext(Integer integer) {
-                        LogUtil.d("Simple Filter: " + integer);
-                    }
-                })
-                .setObservable(Observable.range(0, 10)
-                        .filter(new Func1<Integer, Boolean>() {
-                            @Override
-                            public Boolean call(Integer integer) {
-                                if (integer.intValue() % 2 == 0) {
-                                    return true;
-                                }
-                                return false;
-                            }
-                        })));
         demoList.add(new DemoRxJavaBean().setDemoTitle("show image")
-                .setObservable(Observable.create(new Observable.OnSubscribe<Drawable>() {
-                    @Override
-                    public void call(Subscriber<? super Drawable> subscriber) {
-                        Drawable drawable = getResources().getDrawable(R.mipmap.tab_bar_icon_home_pressed);
-                        subscriber.onNext(drawable);
-                        subscriber.onCompleted();
-                    }
-                }).subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread()))
-                .setObserver(new Observer<Drawable>() {
-                    @Override
-                    public void onCompleted() {
-                        Toast.makeText(DemoRxJavaActivity.this, "加载完毕", Toast.LENGTH_LONG).show();
-                    }
+                .setObservable(ObservableFactory.drawableObservable(R.drawable.bg_item_demo_list, this))
+                .setObserver(ObserverFactory.drawableObserver(new ImageView(this))));
 
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onNext(Drawable drawable) {
-                        ImageView iv = new ImageView(mContext);
-                        Glide.with(mContext).
-                                load("http://img1.imgtn.bdimg.com/it/u=1480985633,1206349730&fm=21&gp=0.jpg")
-                                .into(iv);
-                        showDialog(iv);
-                    }
-                }));
         demoList.add(new DemoRxJavaBean().setDemoTitle("print String Array").setObservable(Observable.from(new String[]{
                 "Smily", "Andy"
         })).setObserver(new Observer<String>() {
@@ -161,6 +88,7 @@ public class DemoRxJavaActivity extends BaseActivity {
                 LogUtil.d(s);
             }
         }));
+
         demoList.add(new DemoRxJavaBean().setDemoTitle("just Distinct")
                 .setObservable(Observable.create(new Observable.OnSubscribe<Integer>() {
                     @Override
