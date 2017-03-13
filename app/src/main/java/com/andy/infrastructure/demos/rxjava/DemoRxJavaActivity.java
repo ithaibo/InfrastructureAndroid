@@ -70,53 +70,16 @@ public class DemoRxJavaActivity extends BaseActivity {
                 .setObservable(ObservableFactory.drawableObservable(R.drawable.bg_item_demo_list, this))
                 .setObserver(ObserverFactory.drawableObserver(new ImageView(this))));
 
-        demoList.add(new DemoRxJavaBean().setDemoTitle("print String Array").setObservable(Observable.from(new String[]{
+        demoList.add(new DemoRxJavaBean().setDemoTitle("print String Array")
+                .setObservable(Observable.from(new String[]{
                 "Smily", "Andy"
-        })).setObserver(new Observer<String>() {
-            @Override
-            public void onCompleted() {
-                LogUtil.d("printStringArray completed.");
-            }
+        })).setObserver(ObserverFactory.obsLogcat(this)));
 
-            @Override
-            public void onError(Throwable e) {
-                LogUtil.d("printStringArray error.");
-            }
+        demoList.add(new DemoRxJavaBean()
+        .setDemoTitle("Distinct with rule")
+        .setObservable(OperatorFactory.optDistinctByRule())
+        .setObserver(ObserverFactory.obsLogcat(this)));
 
-            @Override
-            public void onNext(String s) {
-                LogUtil.d(s);
-            }
-        }));
-
-        demoList.add(new DemoRxJavaBean().setDemoTitle("just Distinct")
-                .setObservable(Observable.create(new Observable.OnSubscribe<Integer>() {
-                    @Override
-                    public void call(Subscriber<? super Integer> subscriber) {
-                        subscriber.onNext(1);
-                        subscriber.onNext(1);
-                        subscriber.onNext(2);
-                        subscriber.onNext(3);
-                        subscriber.onNext(2);
-                        subscriber.onCompleted();
-                    }
-                }).distinct())
-                .setObserver(new Observer<Integer>() {
-                    @Override
-                    public void onCompleted() {
-                        LogUtil.d("Distinct -- completed!");
-                    }
-
-                    @Override
-                    public void onError(Throwable throwable) {
-                        LogUtil.d("Distinct -- onError: " + throwable);
-                    }
-
-                    @Override
-                    public void onNext(Integer integer) {
-                        LogUtil.d("Distinct -- onNext : " + integer);
-                    }
-                }));
         demoList.add(new DemoRxJavaBean()
                 .setDemoTitle("simple http request")
                 .setObservable(Observable.create(new Observable.OnSubscribe<Customer>() {
@@ -137,7 +100,7 @@ public class DemoRxJavaActivity extends BaseActivity {
                         }
                         subscriber.onCompleted();
                     }
-                }).subscribeOn(Schedulers.io())
+                }).observeOn(Schedulers.io())
                         .subscribeOn(AndroidSchedulers.mainThread()))
                 .setObserver(new Observer<Customer>() {
                     @Override
