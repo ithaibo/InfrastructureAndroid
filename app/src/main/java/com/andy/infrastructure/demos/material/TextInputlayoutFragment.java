@@ -1,8 +1,6 @@
 package com.andy.infrastructure.demos.material;
 
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 
 import com.andy.baselibrary.fragment.DataBindFrgment;
@@ -11,7 +9,6 @@ import com.andy.infrastructure.bean.UserBean;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Action1;
 import rx.functions.Func1;
 
 /**
