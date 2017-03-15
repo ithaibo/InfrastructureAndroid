@@ -1,34 +1,35 @@
-package com.andy.infrastructure.demos.material;
+package com.andy.infrastructure.demos.web;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.DemoFragmentBean;
-import com.andy.infrastructure.presenter.ItemMenuMaterialPresenter;
+import com.andy.infrastructure.demos.material.ActBind;
+import com.andy.infrastructure.demos.material.MaterialMenuDialog;
+import com.andy.infrastructure.demos.material.TextInputlayoutFragment;
 
 /**
- * Created by Smily on 2017/1/2.
+ * Created by Andy on 2017/3/15.
  */
 
-public class Material1Activity extends BaseActivity implements View.OnClickListener, ItemMenuMaterialPresenter {
-    private static final String TAG_DIALOG = "materialMenuDialog";
-    private FragmentTransaction ft;
-    private ActBind actBind;
+public class WebViewActivity extends BaseActivity {
     private MaterialMenuDialog menuDialog;
+    private ActBind actBind;
+    private FragmentTransaction ft;
+    private static final String TAG_DIALOG = "webMenuDialog";
 
     @Override
     protected int getLayoutId() {
-        return R.layout.act_material_1;
+        return R.layout.act_web_view;
     }
 
     @Override
     protected void initData() {
+        WebActivityBinding mWebBind = (WebActivityBinding) mDataBind;
 
-        actBind = (ActBind) mDataBind;
-        actBind.fabShowMenu.setOnClickListener(this);
+
     }
 
     @Override
@@ -36,13 +37,6 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
         replaceFragemntAction(new DemoFragmentBean()
                 .setClassName(TextInputlayoutFragment.class));
     }
-
-    @Override
-    public void onClick(View v) {
-        menuDialog = new MaterialMenuDialog();
-        menuDialog.show(getSupportFragmentManager(), TAG_DIALOG);
-    }
-
 
     public void replaceFragemntAction(DemoFragmentBean itemData) {
         FragmentManager fm = getSupportFragmentManager();

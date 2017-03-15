@@ -23,7 +23,7 @@ public class ImageViewGlideBindAdapter {
         imageView.setImageResource(resId);
     }
 
-    @BindingAdapter({"app:imageUrl"})
+    @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
                 .load(url)
