@@ -5,6 +5,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 
 import com.andy.baselibrary.fragment.DataBindFrgment;
+import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.CommonWebFragmentBind;
 import com.andy.infrastructure.R;
 
@@ -32,7 +33,9 @@ public class BaseWebFragment extends DataBindFrgment {
         webSettings = bind.webViewCommon.webViewCommon.getSettings();
         webSettings.setAllowContentAccess(true);
         webSettings.setAppCacheEnabled(true);
-        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptEnabled(true);//允许加载JS
+        webSettings.setSupportZoom(false);  //禁止缩放
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
 
         bind.webViewCommon.webViewCommon.setWebChromeClient(initWebChromeCLient());
     }
@@ -42,6 +45,10 @@ public class BaseWebFragment extends DataBindFrgment {
     }
 
     protected WebChromeClient initWebChromeCLient() {
+        int screenDensity = getResources().getDisplayMetrics().densityDpi ;
+
+        LogUtil.i("屏幕分辨率--" + screenDensity);
+
         WebChromeClient client = new WebChromeClient();
 
         return client;

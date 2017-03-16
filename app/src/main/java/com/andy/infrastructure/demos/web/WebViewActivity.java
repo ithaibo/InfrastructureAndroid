@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.andy.baselibrary.activity.BaseActivity;
+import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.DemoFragmentBean;
 import com.andy.infrastructure.demos.material.ActBind;
@@ -29,7 +30,8 @@ public class WebViewActivity extends BaseActivity {
     protected void initData() {
         WebActivityBinding mWebBind = (WebActivityBinding) mDataBind;
 
-
+        int screenDensity = getResources().getDisplayMetrics().densityDpi ;
+        LogUtil.i("屏幕分辨率--" + screenDensity);
     }
 
     @Override
