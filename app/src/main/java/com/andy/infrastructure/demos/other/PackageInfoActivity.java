@@ -4,14 +4,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.andy.baselibrary.activity.BaseActivity;
+import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.adapter.Package4RecyclerAdapter;
 import com.andy.infrastructure.module.PackageModule;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +64,36 @@ public class PackageInfoActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        pullAnrTrace();
+    }
 
+    private void pullAnrTrace() {
+        String status = Environment.getExternalStorageState();
+        if (status.equals(Environment.MEDIA_MOUNTED)) {
+            File sd = Environment.getExternalStorageDirectory();
+            String path = sd.getPath();
+            FileReader input = null;
+            FileWriter output = null;
+            try {
+                File file = new File("/data/anr/traces.txt");
+                if(file.exists()){
+                    input = new FileReader(file);
+                    output = new FileWriter(path + "/trace.txt");
+                    int read = input.read();
+                    while ( read != -1 ) {
+                        output.write(read);
+                        read = input.read();
+                    }
+                    LogUtil.i("trace document pull success");
+                } else {
+                    LogUtil.e("trace document is null!");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try{if(null != input) input.close(); }catch (Exception e) {}
+                try{if(null != output) output.close(); }catch (Exception e) {}
+            }
+        }
     }
 }

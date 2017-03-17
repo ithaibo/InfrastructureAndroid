@@ -37,6 +37,7 @@ import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
 import com.andy.infrastructure.demos.material.Material1Activity;
+import com.andy.infrastructure.demos.view.ViewBasicActivity;
 import com.andy.infrastructure.demos.web.WebViewActivity;
 
 
@@ -178,6 +179,11 @@ public class MainActivity extends AppCompatActivity
                 .setClassName(WebViewActivity.class)
                 .setName("WebViewActivity")
                 .setDesc("WebViewActivity"));
+
+        demoClasses.add(new DemoActivityBean()
+                .setClassName(ViewBasicActivity.class)
+                .setName("ViewBasicActivity")
+                .setDesc("ViewBasicActivity"));
 
         return demoClasses;
     }

@@ -81,6 +81,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demos.mvp.MeiziDescripActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".demos.web.WebViewActivity"/>
+        <activity android:name=".demos.view.ViewBasicActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"
