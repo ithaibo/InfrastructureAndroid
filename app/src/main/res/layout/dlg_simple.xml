@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_sim_dlg_title"
+        style="@style/list_dialog_item_text_view"
+        android:textSize="16sp"
+        tools:text="title"/>
+
+    <TextView
+        android:id="@+id/tv_sim_dlg_content"
+        style="@style/list_dialog_item_text_view"
+        android:textSize="14sp"
+        tools:text="content content content content content\n content\ncontent"/>
+
+    <Button
+        android:id="@+id/btn_simple_dlg_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        tools:text="single Button"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_simple_dlg_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            tools:text="cancel"/>
+        <Button
+            android:id="@+id/btn_simple_dlg_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            tools:text="comfirm"/>
+    </LinearLayout>
+</LinearLayout>

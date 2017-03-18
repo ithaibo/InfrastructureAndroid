@@ -4,10 +4,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 
 /**
@@ -21,21 +25,24 @@ public abstract class DataBindBaseDialog extends DialogFragment {
     private Dialog dialog;
     protected ViewDataBinding dataBinding;
 
+    @Nullable
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        dialog = new Dialog(getActivity(), getStyle());
-
-        LayoutInflater inflater = (LayoutInflater) getActivity()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(getLayoutId(), null, false);
-
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(getLayoutId(), container, false);
         dataBinding = DataBindingUtil.bind(view);
-
-        dialog.setContentView(view);
-        dialog.setCanceledOnTouchOutside(true);
-        return dialog;
+        return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //窗口背景透明，没有padding
+        }
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -46,7 +53,4 @@ public abstract class DataBindBaseDialog extends DialogFragment {
     protected abstract int getLayoutId();
     protected abstract int getStyle();
 
-    public void setContentView(View view){
-        dialog.setContentView(view);
-    }
 }

@@ -23,7 +23,7 @@ public abstract class DataBindRecyclerAdapter<T> extends BaseRecyclerdapter<T> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemRootView = mLayoutInflater.inflate(getLayoutId(), parent, false);
+        View itemRootView = LayoutInflater.from(parent.getContext()).inflate(getLayoutId(), parent, false);
         return getHolder(itemRootView);
     }
 
