@@ -27,7 +27,17 @@ public abstract class DataBindRecyclerAdapter<T> extends BaseRecyclerdapter<T> {
         return getHolder(itemRootView);
     }
 
+    /**
+     * 实例化出Holder， 其中的ItemView已经过inflate的实例
+     * @param itemView
+     * @return
+     */
     public abstract DataBindRecyclerHolder<T> getHolder(View itemView);
+
+    /**
+     * 返回该Item的layout
+     * @return
+     */
     public abstract int getLayoutId();
 
     @Override

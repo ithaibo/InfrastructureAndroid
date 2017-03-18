@@ -44,4 +44,15 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
+
+    <style name="list_dialog_item_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#121212</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#1affffff</item>
+    </style>
 </resources>
