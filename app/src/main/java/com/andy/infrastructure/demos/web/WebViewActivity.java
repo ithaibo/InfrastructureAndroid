@@ -20,9 +20,7 @@ import java.util.List;
  */
 
 public class WebViewActivity extends BaseActivity implements ListDialogItemPresenter<String> {
-    private MaterialMenuDialog menuDialog;
     private FragmentTransaction ft;
-    private static final String TAG_DIALOG = "webMenuDialog";
     private WebActivityBinding mWebBind;
 
     private ListMenuDialog llistMenuDialog;
@@ -41,9 +39,6 @@ public class WebViewActivity extends BaseActivity implements ListDialogItemPrese
         LogUtil.i("屏幕分辨率--" + screenDensity);
 
         menuListData = new ArrayList<>();
-
-        Class<? extends Fragment> frgCls = SimpleWebViewFragment.class;
-
         menuListData.add(new ListDialogItemDataBean<String>()
         .setItemDesc("Simple Web Fragment")
         .setItemData(SimpleWebViewFragment.class.getName())
@@ -72,7 +67,6 @@ public class WebViewActivity extends BaseActivity implements ListDialogItemPrese
                     llistMenuDialog = new ListMenuDialog();
                     llistMenuDialog.setDataSet(menuListData);
                 }
-
                 llistMenuDialog.show(getSupportFragmentManager(), "ListDialog");
             }
         });
@@ -96,8 +90,8 @@ public class WebViewActivity extends BaseActivity implements ListDialogItemPrese
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         }
-        if (menuDialog != null) {
-            menuDialog.dismissAllowingStateLoss();
+        if (llistMenuDialog != null) {
+            llistMenuDialog.dismissAllowingStateLoss();
         }
     }
 }
