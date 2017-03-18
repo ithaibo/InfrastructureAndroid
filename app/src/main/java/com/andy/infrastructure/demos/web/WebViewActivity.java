@@ -8,13 +8,10 @@ import android.view.View;
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
-import com.andy.infrastructure.bean.DemoFragmentBean;
 import com.andy.infrastructure.bean.ListDialogItemDataBean;
-import com.andy.infrastructure.demos.material.ActBind;
 import com.andy.infrastructure.demos.material.MaterialMenuDialog;
 import com.andy.infrastructure.demos.material.TextInputlayoutFragment;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class WebViewActivity extends BaseActivity implements ListDialogItemPrese
     private static final String TAG_DIALOG = "webMenuDialog";
     private WebActivityBinding mWebBind;
 
-    private ListMenuDialog materialMenuDialog;
+    private ListMenuDialog llistMenuDialog;
     private List<ListDialogItemDataBean<String>> menuListData;
 
     @Override
@@ -71,12 +68,12 @@ public class WebViewActivity extends BaseActivity implements ListDialogItemPrese
         mWebBind.fabShowMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (materialMenuDialog == null) {
-                    materialMenuDialog = new ListMenuDialog();
-                    materialMenuDialog.setDataSet(menuListData);
+                if (llistMenuDialog == null) {
+                    llistMenuDialog = new ListMenuDialog();
+                    llistMenuDialog.setDataSet(menuListData);
                 }
 
-                materialMenuDialog.show(getSupportFragmentManager(), "ListDialog");
+                llistMenuDialog.show(getSupportFragmentManager(), "ListDialog");
             }
         });
 
@@ -91,8 +88,8 @@ public class WebViewActivity extends BaseActivity implements ListDialogItemPrese
 
             ft.replace(mWebBind.flFrgContent.getId(), fragment);
             ft.commit();
-            if (materialMenuDialog!=null /*&& materialMenuDialog.getDialog().isShowing()*/){
-                materialMenuDialog.dismissAllowingStateLoss();
+            if (llistMenuDialog !=null /*&& llistMenuDialog.getDialog().isShowing()*/){
+                llistMenuDialog.dismissAllowingStateLoss();
             }
         } catch (InstantiationException e1) {
             e1.printStackTrace();

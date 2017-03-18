@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="com.andy.infrastructure.ListDialogItemBind">
-
         <variable
             name="itemData"
             type="com.andy.infrastructure.bean.ListDialogItemDataBean" />
@@ -13,13 +12,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dividerPadding="1dp">
+        android:dividerPadding="1dp"
+        android:background="@color/colorCommonWindow">
 
         <TextView
             style="@style/list_dialog_item_text_view"
             android:onClick="@{()->itemData.presenter.present(itemData.itemData)}"
             android:text="@{itemData.itemDesc}"
-            tools:text="Stub" />
+            tools:text="Stub"/>
     </LinearLayout>
 
 </layout>

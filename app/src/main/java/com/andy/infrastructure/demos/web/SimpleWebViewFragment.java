@@ -7,4 +7,9 @@ import com.andy.infrastructure.base.BaseWebFragment;
  */
 
 public class SimpleWebViewFragment extends BaseWebFragment {
+
+    @Override
+    protected String getHtmlUrl() {
+        return "https://ithaibo.github.io/";
+    }
 }

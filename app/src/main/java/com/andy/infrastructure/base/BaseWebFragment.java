@@ -13,7 +13,7 @@ import com.andy.infrastructure.R;
  * Created by Andy on 2017/3/15.
  */
 
-public class BaseWebFragment extends DataBindFrgment {
+public abstract class BaseWebFragment extends DataBindFrgment {
 
     private WebSettings webSettings;
 
@@ -38,6 +38,8 @@ public class BaseWebFragment extends DataBindFrgment {
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
 
         bind.webViewCommon.webViewCommon.setWebChromeClient(initWebChromeCLient());
+
+        bind.webViewCommon.webViewCommon.loadUrl(getHtmlUrl());
     }
 
     public WebSettings getWebSettings() {
@@ -53,4 +55,6 @@ public class BaseWebFragment extends DataBindFrgment {
 
         return client;
     }
+
+    protected abstract String getHtmlUrl();
 }

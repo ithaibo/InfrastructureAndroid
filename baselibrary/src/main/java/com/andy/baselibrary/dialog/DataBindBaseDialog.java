@@ -40,7 +40,7 @@ public abstract class DataBindBaseDialog extends DialogFragment {
         Dialog dialog = getDialog();
         if (dialog != null) {
             dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //窗口背景透明，没有padding
+//            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
     }
 
@@ -53,4 +53,7 @@ public abstract class DataBindBaseDialog extends DialogFragment {
     protected abstract int getLayoutId();
     protected abstract int getStyle();
 
+    public void setContentView(View view){
+        dialog.setContentView(view);
+    }
 }
