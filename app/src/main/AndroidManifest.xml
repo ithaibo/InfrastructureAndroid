@@ -83,6 +83,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demos.web.WebViewActivity"/>
         <activity android:name=".demos.view.ViewBasicActivity"/>
+        <activity android:name=".demos.ping.CheckNetValidByCheckInternetActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

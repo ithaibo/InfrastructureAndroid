@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-aut"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickNetCheck"
+            type="View.OnClickListener" />
+
+        <variable
+            name="netCheckData"
+            type="com.andy.infrastructure.presenter.NetCheckData"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/box_ping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{netCheckData.showPingPb}">
+
+                <Button
+                    android:id="@+id/btn_ping_trigger"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_internet_access_ping"
+                    android:onClick="@{(view) -> clickNetCheck.onClick(view)}"/>
+
+                <TextView
+                    android:id="@+id/tv_ping_time_cost"
+                    style="@style/list_dialog_item_text_view"
+                    android:text="@{netCheckData.pingTimeCost}"/>
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{netCheckData.showPingPb}"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:id="@+id/box_intAddr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{netCheckData.showIntAPb}">
+
+                <Button
+                    android:id="@+id/btn_intaddr_trigger"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> clickNetCheck.onClick(view)}"
+                    android:text="@string/btn_internet_access_intAddr" />
+
+                <TextView
+                    android:id="@+id/tv_intAddr_time_cost"
+                    style="@style/list_dialog_item_text_view"
+                    android:text="@{netCheckData.intATimeCost}"/>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{netCheckData.showIntAPb}"/>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</layout>

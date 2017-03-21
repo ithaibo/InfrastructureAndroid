@@ -21,4 +21,7 @@
 
     <string name="label_username">Username</string>
     <string name="label_password">Password</string>
+
+    <string name="btn_internet_access_ping">Check Internet Access By Ping.</string>
+    <string name="btn_internet_access_intAddr">Check Internet Access By intAddr.</string>
 </resources>

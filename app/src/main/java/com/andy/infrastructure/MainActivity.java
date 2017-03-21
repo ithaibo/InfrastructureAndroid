@@ -33,6 +33,7 @@ import com.andy.infrastructure.demos.daemon.KeepLiveService;
 import com.andy.infrastructure.demos.mvp.MvpDemoActivity;
 import com.andy.infrastructure.demos.other.PackageInfoActivity;
 import com.andy.infrastructure.demos.permission.ManualRequestPermissionActivity;
+import com.andy.infrastructure.demos.ping.CheckNetValidByCheckInternetActivity;
 import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
@@ -184,6 +185,11 @@ public class MainActivity extends AppCompatActivity
                 .setClassName(ViewBasicActivity.class)
                 .setName("ViewBasicActivity")
                 .setDesc("ViewBasicActivity"));
+
+        demoClasses.add(new DemoActivityBean()
+                .setClassName(CheckNetValidByCheckInternetActivity.class)
+                .setName("CheckNetValidByPingActivity")
+                .setDesc("CheckNetValidByPingActivity"));
 
         return demoClasses;
     }
