@@ -5,6 +5,7 @@ import com.andy.baselibrary.bean.InternetCheckDataBean;
 import com.andy.baselibrary.interfaces.CheckInterNetAcccessCallback;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -59,7 +60,9 @@ public class NetWorkUtils {
                     data.setIsinternetAccess(isValid);
                     data.setStopTime(System.currentTimeMillis());
                     callBack.onCallback(data);
-                    LogUtil.i("NetWorkUtils-isInternetAvailableByPing-complete. start time: " + data.getStartTime() + " end time: " + data.getStopTime() + "isValid: " +isValid);
+                    LogUtil.i("NetWorkUtils-isInternetAvailableByPing-complete. start time: "
+                            + data.getStartTime() + " end time: " +
+                            data.getStopTime() + "isValid: " +isValid);
                 }
             }
         });
@@ -69,6 +72,8 @@ public class NetWorkUtils {
 
     public static void isInternetAvailableByIntAdddr(@NonNull final CheckInterNetAcccessCallback<InternetCheckDataBean> callBack) {
         LogUtil.i("NetWorkUtils.isInternetAvailableByIntAdddr");
+        final WeakReference<CheckInterNetAcccessCallback<InternetCheckDataBean>> callbackWeakReference =
+                new WeakReference<CheckInterNetAcccessCallback<InternetCheckDataBean>>(callBack);
         Thread interNetAccessThread = new Thread(
                 new Runnable() {
                     @Override
@@ -85,8 +90,12 @@ public class NetWorkUtils {
                         } finally {
                             data.setIsinternetAccess(isAccess);
                             data.setStopTime(System.currentTimeMillis());
-                            callBack.onCallback(data);
-                            LogUtil.i("NetWorkUtils-isInternetAvailableByIntAdddr-complete. start time: " + data.getStartTime() + " end time: " + data.getStopTime() + "network access: " + isAccess);
+                            if (callbackWeakReference.get()!=null) {
+                                callbackWeakReference.get().onCallback(data);
+                            }
+                            LogUtil.i("NetWorkUtils-isInternetAvailableByIntAdddr-complete. start time: " +
+                                    data.getStartTime() + " end time: " +
+                                    data.getStopTime() + "network access: " + isAccess);
                         }
                     }
                 });

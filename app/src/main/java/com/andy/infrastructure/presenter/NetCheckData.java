@@ -2,10 +2,9 @@ package com.andy.infrastructure.presenter;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.ObservableField;
-import android.view.View;
 
 import com.andy.infrastructure.BR;
+import com.andy.infrastructure.bean.PingViewStatusBean;
 
 import java.io.Serializable;
 
@@ -15,47 +14,25 @@ import java.io.Serializable;
 
 public class NetCheckData extends BaseObservable implements Serializable {
     @Bindable
-    private int showPingPb;
+    PingViewStatusBean pingStatueData;
     @Bindable
-    private int showIntAPb;
-    @Bindable
-    private String pingTimeCost;
-    @Bindable
-    private String intATimeCost;
+    PingViewStatusBean intAddrStatueData;
 
-    public int getShowPingPb() {
-        return showPingPb;
+    public PingViewStatusBean getPingStatueData() {
+        return pingStatueData;
     }
 
-    public void setShowPingPb(int showPingPb) {
-        this.showPingPb = showPingPb;
-        notifyPropertyChanged(BR.netCheckData);
+    public void setPingStatueData(PingViewStatusBean pingStatueData) {
+        this.pingStatueData = pingStatueData;
+        notifyPropertyChanged(BR.pingStatueData);
     }
 
-    public int getShowIntAPb() {
-        return showIntAPb;
+    public PingViewStatusBean getIntAddrStatueData() {
+        return intAddrStatueData;
     }
 
-    public void setShowIntAPb(int showIntAPb) {
-        this.showIntAPb = showIntAPb;
-        notifyPropertyChanged(BR.netCheckData);
-    }
-
-    public String getPingTimeCost() {
-        return pingTimeCost;
-    }
-
-    public void setPingTimeCost(String pingTimeCost) {
-        this.pingTimeCost = pingTimeCost;
-        notifyPropertyChanged(BR.netCheckData);
-    }
-
-    public String getIntATimeCost() {
-        return intATimeCost;
-    }
-
-    public void setIntATimeCost(String intATimeCost) {
-        this.intATimeCost = intATimeCost;
-        notifyPropertyChanged(BR.netCheckData);
+    public void setIntAddrStatueData(PingViewStatusBean intAddrStatueData) {
+        this.intAddrStatueData = intAddrStatueData;
+        notifyPropertyChanged(BR.intAddrStatueData);
     }
 }
