@@ -8,8 +8,9 @@
     <com.andy.infrastructure.demos.view.custome_view.CircleView
         android:id="@+id/circle_view_padding"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="350dp"
         android:padding="15dp"
-        app:circle_color="@color/colorAccent"/>
+        app:circle_color="#992288"
+        android:background="#a1a1a1"/>
 
 </LinearLayout>

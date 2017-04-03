@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 
 /**
@@ -27,9 +28,6 @@ public class CircleView extends View {
     /**默认宽高*/
     private int defaultWidth = 100;
     private int defaultHeight= 100;
-
-    private int mWidth;
-    private int mHeight;
 
     public CircleView(Context context) {
         super(context);
@@ -64,34 +62,44 @@ public class CircleView extends View {
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
 
-        int heightMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
         /**处理宽、高位wrap_content的情况*/
-        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
-            mWidth = defaultWidth;
-            mHeight = defaultHeight;
-        } else if (widthMode == MeasureSpec.AT_MOST) {
-            mWidth = defaultWidth;
-            mHeight= heightSize;
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            mWidth = widthSize;
-            mHeight= defaultHeight;
-        }
+        int mWidth = widthMode == MeasureSpec.AT_MOST ? defaultWidth : widthSize;
+        int mHeight = heightMode == MeasureSpec.AT_MOST ? defaultHeight : heightSize;
 
-        setMeasuredDimension(mWidth, mHeight);
+        int len = Math.max(mWidth, mHeight);
+
+        setMeasuredDimension(len, len);
+
+        LogUtil.d("width: " + mWidth);
+        LogUtil.d("Height: " + mHeight);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        int paddingLeft = getPaddingLeft();
+        int paddingRight = getPaddingRight();
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
 
-        mWidth = getWidth();
-        mHeight = getHeight();
+        LogUtil.d("paddingLeft: " + getPaddingLeft());
+        LogUtil.d("paddingRight: " + getPaddingRight());
 
-        int radiusNew = Math.min(mWidth/2, mHeight/2);
-        radius = Math.min(radiusNew, radius);
+        LogUtil.d("width: " + getWidth());
+        LogUtil.d("Height: " + getHeight());
 
-        canvas.drawCircle(mWidth/2, mHeight/2, radius, paintCircle);
+        int mWidth = getWidth() - paddingLeft -paddingRight;
+        int mHeight = getHeight() - paddingTop - paddingBottom;
+
+        LogUtil.d("width: " + mWidth);
+        LogUtil.d("Height: " + mHeight);
+
+        float radiusNew = Math.min(mWidth/2, mHeight/2);
+        LogUtil.d("radiusNew: " + radiusNew);
+
+        canvas.drawCircle(paddingLeft + mWidth/2, paddingTop + mHeight/2, radiusNew, paintCircle);
     }
 }

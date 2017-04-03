@@ -8,7 +8,7 @@ import android.view.View;
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.ListDialogItemDataBean;
-import com.andy.infrastructure.databinding.ActViewBasicBinding;
+import com.andy.infrastructure.databinding.ActFragmentContainerBinding;
 import com.andy.infrastructure.demos.view.custome_view.CircleViewFragment;
 import com.andy.infrastructure.dialog.ListMenuDialog;
 import com.andy.infrastructure.presenter.ListDialogItemPresenter;
@@ -20,15 +20,15 @@ import java.util.List;
  * Created by Andy on 2017/3/17.
  */
 
-public class ViewBasicActivity extends BaseActivity implements View.OnClickListener, ListDialogItemPresenter<Fragment> {
-    private ActViewBasicBinding binding;
+public class FragmentContainerActivity extends BaseActivity implements View.OnClickListener, ListDialogItemPresenter<Fragment> {
+    private ActFragmentContainerBinding binding;
     private FragmentTransaction ft;
     private ListMenuDialog<Fragment> fragmentMenuListDialog;
     private List<ListDialogItemDataBean<Fragment>> menuDialogDataList;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.act_view_basic;
+        return R.layout.act_fragment_container;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ViewBasicActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initViews() {
-        binding = (ActViewBasicBinding) mDataBind;
+        binding = (ActFragmentContainerBinding) mDataBind;
         binding.contentViewRoot.fabShowMenu.setOnClickListener(this);
     }
 
@@ -78,15 +78,14 @@ public class ViewBasicActivity extends BaseActivity implements View.OnClickListe
     }
 
     public void doReplaceFragment(Fragment fragment) {
-        if (fragment.isAdded()) {
-            return;
+        if (!fragment.isAdded()) {
+            if (ft == null) {
+                FragmentManager fm = getSupportFragmentManager();
+                ft = fm.beginTransaction();
+            }
+            ft.replace(binding.contentViewRoot.flFrgContent.getId(), fragment);
+            ft.commit();
         }
-        if (ft == null) {
-            FragmentManager fm = getSupportFragmentManager();
-            ft = fm.beginTransaction();
-        }
-        ft.replace(binding.contentViewRoot.flFrgContent.getId(), fragment);
-        ft.commit();
         if (fragmentMenuListDialog != null) {
             fragmentMenuListDialog.dismissAllowingStateLoss();
         }
