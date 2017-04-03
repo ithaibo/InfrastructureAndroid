@@ -1,24 +1,30 @@
 package com.andy.infrastructure.demos.view;
 
-import android.support.v4.view.GestureDetectorCompat;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.widget.Scroller;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
 import com.andy.baselibrary.activity.BaseActivity;
-import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
+import com.andy.infrastructure.bean.ListDialogItemDataBean;
 import com.andy.infrastructure.databinding.ActViewBasicBinding;
+import com.andy.infrastructure.demos.view.custome_view.CircleViewFragment;
+import com.andy.infrastructure.dialog.ListMenuDialog;
+import com.andy.infrastructure.presenter.ListDialogItemPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Andy on 2017/3/17.
  */
 
-public class ViewBasicActivity extends BaseActivity {
-    private GestureDetector.OnGestureListener gestureListener;
-    private GestureDetectorCompat gestureDetector;
-    private Scroller scroller;
+public class ViewBasicActivity extends BaseActivity implements View.OnClickListener, ListDialogItemPresenter<Fragment> {
     private ActViewBasicBinding binding;
+    private FragmentTransaction ft;
+    private ListMenuDialog<Fragment> fragmentMenuListDialog;
+    private List<ListDialogItemDataBean<Fragment>> menuDialogDataList;
 
     @Override
     protected int getLayoutId() {
@@ -27,63 +33,63 @@ public class ViewBasicActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        gestureDetector = new GestureDetectorCompat(this, getGestureListener());
+        if (menuDialogDataList == null) {
+            menuDialogDataList = new ArrayList<>();
+            menuDialogDataList.add(
+                    new ListDialogItemDataBean<>(
+                            new CircleViewFragment(), "CircleView", this)
+            );
+        }
     }
 
     @Override
     protected void initViews() {
         binding = (ActViewBasicBinding) mDataBind;
-        binding.tv.setEnabled(false);
+        binding.contentViewRoot.fabShowMenu.setOnClickListener(this);
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        LogUtil.d("有新的触摸事件产生");
-        this.gestureDetector.onTouchEvent(event);
-
-        return super.onTouchEvent(event);
+    protected void onStart() {
+        super.onStart();
+        doReplaceFragment(menuDialogDataList.get(0).getItemData());
     }
 
-    private GestureDetector.OnGestureListener getGestureListener() {
-        if (gestureListener == null) {
-            gestureListener = new GestureDetector.OnGestureListener(){
-                @Override
-                public boolean onDown(MotionEvent e) {
-                    LogUtil.i("onDown: " + e.toString());
-                    return true;
-                }
-
-                @Override
-                public void onShowPress(MotionEvent e) {
-                    LogUtil.i("onShowPress: " + e.toString());
-                }
-
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    LogUtil.i("onSingleTapUp: " + e.toString());
-                    return true;
-                }
-
-                @Override
-                public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                    LogUtil.i("onScroll: " + e1.toString() + "--" + e2.toString() + "--distanceX " + distanceX + "--distanceY " +distanceY );
-                    return true;
-                }
-
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    LogUtil.i("onLongPress: " + e.toString());
-                }
-
-                @Override
-                public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                    LogUtil.i("onFling: " + e1.toString() + "--" + e2.toString() + "--velocityX " + velocityX + "--distanceY " +velocityY);
-                    return false;
-                }
-            };
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab_show_menu) {
+            showMenuListDialog();
         }
-        return gestureListener;
     }
 
+    @Override
+    public void present(Fragment fragClass) {
+        doReplaceFragment(fragClass);
+    }
+
+    /**
+     * 显示菜单Dialog
+     */
+    private void showMenuListDialog() {
+        if (fragmentMenuListDialog == null) {
+            fragmentMenuListDialog = new ListMenuDialog<>();
+            fragmentMenuListDialog.setDataSet(menuDialogDataList);
+        }
+        fragmentMenuListDialog.show(getSupportFragmentManager(), "FramentMenu");
+    }
+
+    public void doReplaceFragment(Fragment fragment) {
+        if (fragment.isAdded()) {
+            return;
+        }
+        if (ft == null) {
+            FragmentManager fm = getSupportFragmentManager();
+            ft = fm.beginTransaction();
+        }
+        ft.replace(binding.contentViewRoot.flFrgContent.getId(), fragment);
+        ft.commit();
+        if (fragmentMenuListDialog != null) {
+            fragmentMenuListDialog.dismissAllowingStateLoss();
+        }
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.andy.infrastructure.demos.web;
+package com.andy.infrastructure.dialog;
 
 import android.support.v7.widget.LinearLayoutManager;
 

@@ -1,6 +1,6 @@
 package com.andy.infrastructure.bean;
 
-import com.andy.infrastructure.demos.web.ListDialogItemPresenter;
+import com.andy.infrastructure.presenter.ListDialogItemPresenter;
 
 /**
  * Created by andy on 17-3-18.
@@ -11,6 +11,15 @@ public class ListDialogItemDataBean<T> extends Bean
     private T itemData;
     private String itemDesc;
     private ListDialogItemPresenter<T> presenter;
+
+    public ListDialogItemDataBean() {
+    }
+
+    public ListDialogItemDataBean(T itemData, String itemDesc, ListDialogItemPresenter<T> presenter) {
+        this.itemData = itemData;
+        this.itemDesc = itemDesc;
+        this.presenter = presenter;
+    }
 
     public T getItemData() {
         return itemData;
