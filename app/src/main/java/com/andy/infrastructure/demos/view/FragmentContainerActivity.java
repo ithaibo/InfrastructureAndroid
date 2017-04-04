@@ -1,7 +1,6 @@
 package com.andy.infrastructure.demos.view;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
@@ -10,6 +9,7 @@ import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.ListDialogItemDataBean;
 import com.andy.infrastructure.databinding.ActFragmentContainerBinding;
 import com.andy.infrastructure.demos.view.custome_view.CircleViewFragment;
+import com.andy.infrastructure.demos.view.custome_view.CustomeHorizontalScrollViewFragment;
 import com.andy.infrastructure.dialog.ListMenuDialog;
 import com.andy.infrastructure.presenter.ListDialogItemPresenter;
 
@@ -22,7 +22,6 @@ import java.util.List;
 
 public class FragmentContainerActivity extends BaseActivity implements View.OnClickListener, ListDialogItemPresenter<Fragment> {
     private ActFragmentContainerBinding binding;
-    private FragmentTransaction ft;
     private ListMenuDialog<Fragment> fragmentMenuListDialog;
     private List<ListDialogItemDataBean<Fragment>> menuDialogDataList;
 
@@ -38,6 +37,13 @@ public class FragmentContainerActivity extends BaseActivity implements View.OnCl
             menuDialogDataList.add(
                     new ListDialogItemDataBean<>(
                             new CircleViewFragment(), "CircleView", this)
+            );
+            menuDialogDataList.add(
+                    new ListDialogItemDataBean<>(
+                            new CustomeHorizontalScrollViewFragment(),
+                            "CustomeHorizontalScrollView",
+                            this
+                    )
             );
         }
     }
@@ -79,10 +85,7 @@ public class FragmentContainerActivity extends BaseActivity implements View.OnCl
 
     public void doReplaceFragment(Fragment fragment) {
         if (!fragment.isAdded()) {
-            if (ft == null) {
-                FragmentManager fm = getSupportFragmentManager();
-                ft = fm.beginTransaction();
-            }
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(binding.contentViewRoot.flFrgContent.getId(), fragment);
             ft.commit();
         }
