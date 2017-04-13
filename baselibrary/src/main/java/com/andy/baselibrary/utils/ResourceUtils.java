@@ -1,4 +1,4 @@
-package com.gidoor.runner.utils;
+package com.andy.baselibrary.utils;
 
 import android.content.Context;
 import android.webkit.WebView;
