@@ -1,10 +1,10 @@
-#Data Binding
+# Data Binding
 根据变量，自动赋值到各widget
-##What
+## What
 用一个变量绑定各个widget的值。
-##Why
+## Why
 在Java文件中，只更改一个对象，而无须手动设置某个widget（TextView）的值。
-##How
+## How
 >1.编写layout文件，这里的layout为：
     act\_data\_bind\_demo.xml
 >    
@@ -43,7 +43,7 @@
 运行后，可以看到页面中的两个TextView都有值。
 
 
-###问题：如何获取EditText的输入内容？
+### 问题：如何获取EditText的输入内容？
 
 **failed：**
 
@@ -58,7 +58,7 @@
 
     ...android:text="@={user.email}"
 
-###问题：如何通过一个按钮改变当前页面中的TextView的值？
+### 问题：如何通过一个按钮改变当前页面中的TextView的值？
 1.module类继承BaseObservable
 
     public class Customer extends BaseObservable {
@@ -71,7 +71,7 @@
 
 2.更新Java中的Customer对象，例如当mobile改变，UI会制动刷新。
 
-###Custom Binding Class Names
+### Custom Binding Class Names
 默认情况下，Binding Class是根据layout文件名生成的。（例如，当layout文件为act\_data\_bind\_demo.xml，生成的class为：ActDataBindDemoBinding）
 
 可以自定义类名，以及设定包名：
@@ -82,7 +82,7 @@
 
 上面的代码中，会在包com.andy.infrastructure.demos.databinding下生成一个名为DataBind的类。**注意**这个package必须是存在的，当然也可以不指定package（会在默认的包下生成该类）。
 
-###Include
+### Include
 在layout文件中使用include时，也可以传递数据到指定的layout中。需要额外2个步骤：
 
 1. 确保传递的变量在两个layout中都有声明
@@ -118,7 +118,7 @@
     <include layout="@layout/user_name"
             bind:user="@{user}"/>
 
-###Expression Language
+### Expression Language
  
 
 - 数学运算 + - / * % <br>
@@ -146,19 +146,19 @@
 
     android:text="@{user.displayName != null ? user.displayName : user.lastName}"
 
-###Data Objects
+### Data Objects
 三种数据更新提示机制：
 >  - Observable Object
 >  - Observable Fields
 >  - Observable Collections
 
-####Observable Object
+#### Observable Object
 这种方式，需要做三个步骤：
 >  - 继承BaseObservable 
 >  - 为getter添加@Bindable
 >  - 在setter中添加代码notifyPropertyChanged(BR.name);
 
-###Views With IDs
+### Views With IDs
 > A public final field will be generated for each View with an ID in the layout. The binding does a single pass on the View hierarchy, extracting the Views with IDs. This mechanism can be faster than calling findViewById for several Views.
 
 layout文件中widget有设置id时，可以使用bind对象直接访问该控件，省去findViewById
