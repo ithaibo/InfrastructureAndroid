@@ -87,6 +87,7 @@
 
 1. 确保传递的变量在两个layout中都有声明
 
+``` xml
     <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
     <data class="com.andy.infrastructure.demos.databinding.DataBind">
@@ -98,8 +99,9 @@
     ...
         <include layout="@layout/user_name"
             bind:user="@{user}"/>
-
+```
     被引入的layout：
+``` xml
     ...
     <data>
         <variable
@@ -112,11 +114,13 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:text="@{user.name}">
+```
 
 2. 外层layout中传递变量
-
+ ``` xml
     <include layout="@layout/user_name"
             bind:user="@{user}"/>
+```
 
 ### Expression Language
  
