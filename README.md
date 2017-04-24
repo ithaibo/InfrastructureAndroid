@@ -1,7 +1,7 @@
 # InfrastructureAndroid
 这是一个Android APP快速开发框架
 
-##代码结构
+## 代码结构
 baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseActivity BaseFragment holder utils adapter的封装
 
 ##使用的第三方库
@@ -12,15 +12,15 @@ baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseAc
     compile 'io.reactivex.rxjava2:rxjava:2.0.2'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 
-##baselibrary基本用法介绍
+## baselibrary基本用法介绍
 
 
 # shortcuts.xml（res/xml）
 这里存放的是一些shortcut（Android N最新功能，类似于IOS的3D Touch，在Launcher长按可弹出一些快捷方式）
 
-##simpleStaticShortcut
+## simpleStaticShortcut
     这是一个简单的静态Shortcut，可进入SimpleRetrofit。
-###实现方式：
+### 实现方式：
     1. 在res/xml目录下创建一个shortcut.xml文件；
     2. 在该文件中编写Shortcut，例如：
        <shortcut
@@ -41,7 +41,7 @@ baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseAc
      * @Date: 2016-12-23
      */
 
-##Demo
+## Demo
 该project的demo有：
 
 - databind              DataBinding示例

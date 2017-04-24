@@ -9,8 +9,9 @@ import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.ListDialogItemDataBean;
-import com.andy.infrastructure.demos.material.MaterialMenuDialog;
 import com.andy.infrastructure.demos.material.TextInputlayoutFragment;
+import com.andy.infrastructure.dialog.ListMenuDialog;
+import com.andy.infrastructure.presenter.ListDialogItemPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

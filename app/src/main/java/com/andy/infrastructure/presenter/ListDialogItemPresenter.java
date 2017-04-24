@@ -1,4 +1,4 @@
-package com.andy.infrastructure.demos.web;
+package com.andy.infrastructure.presenter;
 
 /**
  * Created by andy on 17-3-18.
