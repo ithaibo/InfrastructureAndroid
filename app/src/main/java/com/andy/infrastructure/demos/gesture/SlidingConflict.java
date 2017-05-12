@@ -1,16 +1,9 @@
 package com.andy.infrastructure.demos.gesture;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.andy.baselibrary.activity.BaseActivity;
 import com.andy.infrastructure.R;
-import com.andy.infrastructure.adapter.SlidingConflictAdapter;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 

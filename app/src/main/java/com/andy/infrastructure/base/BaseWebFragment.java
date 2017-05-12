@@ -13,7 +13,7 @@ import com.andy.infrastructure.R;
  * Created by Andy on 2017/3/15.
  */
 
-public abstract class BaseWebFragment extends DataBindFrgment {
+public abstract class BaseWebFragment extends DataBindFrgment<CommonWebFragmentBind> {
 
     private WebSettings webSettings;
 
@@ -24,22 +24,20 @@ public abstract class BaseWebFragment extends DataBindFrgment {
 
     @Override
     protected void initView(View rootView) {
-        CommonWebFragmentBind webFragmentBind = (CommonWebFragmentBind) dataBinder;
-
-        initWebSet(webFragmentBind);
+        initWebSet();
     }
 
-    private void initWebSet(CommonWebFragmentBind bind) {
-        webSettings = bind.webViewCommon.webViewCommon.getSettings();
+    private void initWebSet() {
+        webSettings = dataBinder.webViewCommon.webViewCommon.getSettings();
         webSettings.setAllowContentAccess(true);
         webSettings.setAppCacheEnabled(true);
         webSettings.setJavaScriptEnabled(true);//允许加载JS
         webSettings.setSupportZoom(false);  //禁止缩放
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
 
-        bind.webViewCommon.webViewCommon.setWebChromeClient(initWebChromeCLient());
+        dataBinder.webViewCommon.webViewCommon.setWebChromeClient(initWebChromeCLient());
 
-        bind.webViewCommon.webViewCommon.loadUrl(getHtmlUrl());
+        dataBinder.webViewCommon.webViewCommon.loadUrl(getHtmlUrl());
     }
 
     public WebSettings getWebSettings() {

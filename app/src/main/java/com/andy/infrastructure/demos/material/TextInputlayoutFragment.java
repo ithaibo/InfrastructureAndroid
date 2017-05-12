@@ -6,6 +6,7 @@ import android.view.View;
 import com.andy.baselibrary.fragment.DataBindFrgment;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.UserBean;
+import com.andy.infrastructure.demos.material.FrgTextInputDaBind;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -15,7 +16,7 @@ import rx.functions.Func1;
  * Created by Andy on 2017/3/8.
  */
 
-public class TextInputlayoutFragment extends DataBindFrgment {
+public class TextInputlayoutFragment extends DataBindFrgment<FrgTextInputDaBind> {
 
     @Override
     protected int getFrgLayoutId() {
@@ -24,25 +25,22 @@ public class TextInputlayoutFragment extends DataBindFrgment {
 
     @Override
     protected void initView(View rootView) {
-        FrgTextInputDaBind textInputDataBind = (FrgTextInputDaBind) dataBinder;
-
         UserBean userBean = new UserBean();
-        textInputDataBind.setUserData(userBean);
-
-        initInputLayoutParams(textInputDataBind);
+        dataBinder.setUserData(userBean);
+        initInputLayoutParams();
     }
 
-    private void initInputLayoutParams(final FrgTextInputDaBind dataBind) {
-        dataBind.inputLayoutUsername.setHint(getResources().getString(R.string.label_username));
-        dataBind.inputLayoutPassword.setHint(getResources().getString(R.string.label_password));
+    private void initInputLayoutParams() {
+        dataBinder.inputLayoutUsername.setHint(getResources().getString(R.string.label_username));
+        dataBinder.inputLayoutPassword.setHint(getResources().getString(R.string.label_password));
 
         Observable.create(new Observable.OnSubscribe<UserBean>() {
             @Override
             public void call(final Subscriber<? super UserBean> subscriber) {
-                dataBind.btnLogin.setOnClickListener(new View.OnClickListener() {
+                dataBinder.btnLogin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        subscriber.onNext(dataBind.getUserData());
+                        subscriber.onNext(dataBinder.getUserData());
                     }
                 });
             }
@@ -52,10 +50,10 @@ public class TextInputlayoutFragment extends DataBindFrgment {
                 if(userBean==null ||
                         TextUtils.isEmpty(userBean.userName.get()))
                 {
-                    dataBind.inputLayoutUsername.setError("Username cannot be null!");
+                    dataBinder.inputLayoutUsername.setError("Username cannot be null!");
                     return false;
                 } else {
-                    dataBind.inputLayoutUsername.setError(null);
+                    dataBinder.inputLayoutUsername.setError(null);
                     return true;
                 }
             }
@@ -66,28 +64,14 @@ public class TextInputlayoutFragment extends DataBindFrgment {
                         userBean.password==null ||
                         TextUtils.isEmpty(userBean.password.get())||
                         "123456".equals(userBean.password.get())) {
-                    dataBind.inputLayoutPassword.setError("Password Wrong!");
+                    dataBinder.inputLayoutPassword.setError("Password Wrong!");
                     return false;
                 } else {
-                    dataBind.inputLayoutPassword.setError(null);
+                    dataBinder.inputLayoutPassword.setError(null);
                     return true;
                 }
             }
         });
 
-//        dataBind.btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (TextUtils.isEmpty(dataBind.getUserData().userName.get())) {
-//                    dataBind.inputLayoutUsername.setError("Username cannot be null!");
-//                }
-//
-//                if (TextUtils.isEmpty(dataBind.getUserData().password.get()) ||
-//                        !"123456".equals(dataBind.getUserData().password.get())) {
-//                    dataBind.inputLayoutPassword.setError("Password Wrong!");
-//                    dataBind.inputLayoutUsername.setError(null);
-//                }
-//            }
-//        });
     }
 }

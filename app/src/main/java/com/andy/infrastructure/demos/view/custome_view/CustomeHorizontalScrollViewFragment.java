@@ -21,7 +21,7 @@ import java.util.zip.Inflater;
  * Created by andy on 17-4-4.
  */
 
-public class CustomeHorizontalScrollViewFragment extends DataBindFrgment {
+public class CustomeHorizontalScrollViewFragment extends DataBindFrgment<CustomeHorizontalViewBinding> {
     @Override
     protected int getFrgLayoutId() {
         return R.layout.frg_custome_view_horizontal_scroll_view;
@@ -32,19 +32,18 @@ public class CustomeHorizontalScrollViewFragment extends DataBindFrgment {
         final int screenWidth = mContext.getResources().getDisplayMetrics().widthPixels;
         final int screenHeight = mContext.getResources().getDisplayMetrics().heightPixels;
 
-        CustomeHorizontalViewBinding horizontalViewBinding = (CustomeHorizontalViewBinding) dataBinder;
-        horizontalViewBinding.hsCustom.removeAllViews();
+        dataBinder.hsCustom.removeAllViews();
 
         for (int i=0; i<3; i++) {
             ViewGroup child = (ViewGroup) mContext.getLayoutInflater()
                     .inflate(R.layout.layout_content_scroll_item,
-                            horizontalViewBinding.hsCustom, false);
+                            dataBinder.hsCustom, false);
             child.getLayoutParams().width = screenWidth;
             TextView tvTitle = (TextView) child.findViewById(R.id.title);
             tvTitle.setText("Page: " + (i+1));
             child.setBackgroundColor(Color.rgb(255/(i+1), 255/(i+1), 0));
             createList(child);
-            horizontalViewBinding.hsCustom.addView(child);
+            dataBinder.hsCustom.addView(child);
         }
     }
 

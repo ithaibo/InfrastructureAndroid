@@ -2,6 +2,7 @@ package com.andy.infrastructure.demos.custome_view;
 
 
 import com.andy.baselibrary.activity.BaseActivity;
+import com.andy.baselibrary.activity.DataBindActivity;
 import com.andy.infrastructure.DataBind;
 import com.andy.infrastructure.R;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * Created by Smily on 2017/2/19.
  */
 
-public class CustomeViewActivity extends BaseActivity {
+public class CustomeViewActivity extends DataBindActivity<DataBind> {
 
     private ArrayList<PieData> datas;
 
@@ -29,9 +30,7 @@ public class CustomeViewActivity extends BaseActivity {
             datas.add(item);
         }
 
-        DataBind customViewDataBind = (DataBind) mDataBind;
-
-        customViewDataBind.pieView.setData(datas);
+        mDataBind.pieView.setData(datas);
 
     }
 

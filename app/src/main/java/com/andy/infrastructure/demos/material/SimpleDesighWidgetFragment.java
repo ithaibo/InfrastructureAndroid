@@ -2,7 +2,6 @@ package com.andy.infrastructure.demos.material;
 
 import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.andy.baselibrary.fragment.DataBindFrgment;
 import com.andy.infrastructure.R;
@@ -15,8 +14,7 @@ import com.andy.infrastructure.presenter.ShowSnackPresenter;
  * Created by Andy on 2017/3/8.
  */
 
-public class SimpleDesighWidgetFragment extends DataBindFrgment implements ShowSnackPresenter {
-    private DataFrgBind mDataBinder;
+public class SimpleDesighWidgetFragment extends DataBindFrgment<DataFrgBind> implements ShowSnackPresenter {
 
     @Override
     protected int getFrgLayoutId() {
@@ -25,14 +23,13 @@ public class SimpleDesighWidgetFragment extends DataBindFrgment implements ShowS
 
     @Override
     protected void initView(View rootView) {
-        mDataBinder = (DataFrgBind) dataBinder;
 
         DataFrg mDataInstance = new DataFrg();
         mDataInstance.setCbText("Text -- 1");
 
-        mDataBinder.setDataFrg(mDataInstance);
-        mDataBinder.setSnackPresenter(this);
-        mDataBinder.setPresenter(new MaterialPresenter());
+        dataBinder.setDataFrg(mDataInstance);
+        dataBinder.setSnackPresenter(this);
+        dataBinder.setPresenter(new MaterialPresenter());
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.CompoundButton;
 
 import com.andy.baselibrary.activity.BaseActivity;
+import com.andy.baselibrary.activity.DataBindActivity;
 import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.databinding.FloatWindowActFloatWindowBinding;
@@ -12,9 +13,8 @@ import com.andy.infrastructure.databinding.FloatWindowActFloatWindowBinding;
  * Created by Andy on 2017/3/3.
  */
 
-public class FloatWindowActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
+public class FloatWindowActivity extends DataBindActivity<FloatWindowActFloatWindowBinding> implements CompoundButton.OnCheckedChangeListener {
 
-    private FloatWindowActFloatWindowBinding mBinding;
     private Intent shotcutService;
 
     @Override
@@ -24,10 +24,9 @@ public class FloatWindowActivity extends BaseActivity implements CompoundButton.
 
     @Override
     protected void initData() {
-        mBinding = (FloatWindowActFloatWindowBinding) mDataBind;
 
         shotcutService = new Intent(this, FloatWindowService.class);
-        mBinding.swtActFloatWindow.setOnCheckedChangeListener(this);
+        mDataBind.swtActFloatWindow.setOnCheckedChangeListener(this);
     }
 
     @Override

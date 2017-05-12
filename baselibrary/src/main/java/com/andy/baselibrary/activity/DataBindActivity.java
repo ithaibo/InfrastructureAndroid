@@ -17,10 +17,10 @@ import com.andy.baselibrary.utils.LogUtil;
  * Created by andy on 17-4-4.
  */
 
-public abstract class DataBindActivity extends Activity {
+public abstract class DataBindActivity<DB extends ViewDataBinding> extends Activity {
     protected Context mContext;
     protected Handler handler;
-    protected ViewDataBinding mDataBind;
+    protected DB mDataBind;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

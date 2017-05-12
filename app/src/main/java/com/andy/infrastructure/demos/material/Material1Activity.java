@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.andy.baselibrary.activity.BaseActivity;
+import com.andy.baselibrary.activity.DataBindActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.DemoFragmentBean;
 import com.andy.infrastructure.presenter.ItemMenuMaterialPresenter;
@@ -13,10 +14,9 @@ import com.andy.infrastructure.presenter.ItemMenuMaterialPresenter;
  * Created by Smily on 2017/1/2.
  */
 
-public class Material1Activity extends BaseActivity implements View.OnClickListener, ItemMenuMaterialPresenter {
+public class Material1Activity extends DataBindActivity<ActBind> implements View.OnClickListener, ItemMenuMaterialPresenter {
     private static final String TAG_DIALOG = "materialMenuDialog";
     private FragmentTransaction ft;
-    private ActBind actBind;
     private MaterialMenuDialog menuDialog;
 
     @Override
@@ -27,8 +27,7 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
     @Override
     protected void initData() {
 
-        actBind = (ActBind) mDataBind;
-        actBind.fabShowMenu.setOnClickListener(this);
+        mDataBind.fabShowMenu.setOnClickListener(this);
     }
 
     @Override
@@ -48,7 +47,7 @@ public class Material1Activity extends BaseActivity implements View.OnClickListe
         FragmentManager fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         try {
-            ft.replace(actBind.flFrgContent.getId(), itemData.getClassName().newInstance());
+            ft.replace(mDataBind.flFrgContent.getId(), itemData.getClassName().newInstance());
             ft.commit();
         } catch (InstantiationException e1) {
             e1.printStackTrace();

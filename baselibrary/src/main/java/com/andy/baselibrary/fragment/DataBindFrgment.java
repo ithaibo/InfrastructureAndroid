@@ -18,9 +18,9 @@ import com.andy.baselibrary.utils.LogUtil;
  * Created by Andy on 2017/3/8.
  */
 
-public abstract class DataBindFrgment extends Fragment {
+public abstract class DataBindFrgment<DB extends ViewDataBinding> extends Fragment {
     protected Activity mContext;
-    protected ViewDataBinding dataBinder;
+    protected DB dataBinder;
 
     @Override
     public void onAttach(Context context) {
