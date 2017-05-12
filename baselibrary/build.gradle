@@ -29,20 +29,22 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'junit:junit:4.12'
-    compile 'com.android.support:recyclerview-v7:25.0.1'
-    compile 'com.squareup.okhttp3:okhttp:3.5.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'io.reactivex:rxjava:1.2.4'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.squareup.retrofit2:retrofit-converters:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    compile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    compile "junit:junit:$rootProject.junit"
+
+    compile "com.android.support:appcompat-v7:$rootProject.support"
+    compile "com.android.support.test.espresso:espresso-core:2.2.2"
+    compile "com.android.support.test.espresso:espresso-contrib:2.2.2"
+    compile "com.android.support:recyclerview-v7:$rootProject.support"
+
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttp"
+    compile "com.github.bumptech.glide:glide:$rootProject.glide"
+    compile "com.google.code.gson:gson:$rootProject.gson"
+    compile "com.jakewharton:butterknife:$rootProject.butterknife"
+    compile "io.reactivex:rxjava:$rootProject.rxjava"
+    compile "io.reactivex:rxandroid:$rootProject.rxandroid"
+    compile "com.squareup.retrofit2:retrofit-converters:$rootProject.retrofit"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
+    compile "com.jakewharton:butterknife-compiler:8.4.0"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.adapter_rxjava"
 
 }

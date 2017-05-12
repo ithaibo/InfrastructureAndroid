@@ -1,6 +1,5 @@
 package com.andy.baselibrary.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 import com.andy.baselibrary.utils.LogUtil;
@@ -17,7 +17,7 @@ import com.andy.baselibrary.utils.LogUtil;
  * Created by andy on 17-4-4.
  */
 
-public abstract class DataBindActivity<DB extends ViewDataBinding> extends Activity {
+public abstract class DataBindActivity<DB extends ViewDataBinding> extends FragmentActivity {
     protected Context mContext;
     protected Handler handler;
     protected DB mDataBind;
