@@ -1,5 +1,9 @@
 package com.andy.baselibrary.utils;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import com.android.annotations.NonNull;
 import com.andy.baselibrary.bean.InternetCheckDataBean;
 import com.andy.baselibrary.interfaces.CheckInterNetAcccessCallback;
@@ -20,13 +24,28 @@ import java.net.UnknownHostException;
  */
 
 public class NetWorkUtils {
-    /**
-     * @return
-     */
-    public static boolean isNetworkConnected() {
-        boolean isConnected = false;
 
-        return isConnected;
+    /**
+     * 判断网络是否连通
+     */
+    public static boolean isNetworkConnected(Context context) {
+        try {
+            if(context!=null){
+                @SuppressWarnings("static-access")
+                ConnectivityManager cm = (ConnectivityManager) context
+                        .getSystemService(context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = cm.getActiveNetworkInfo();
+                return info != null && info.isConnected();
+            }else{
+                /**如果context为空，就返回false，表示网络未连接*/
+                return false;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+
     }
 
     /**

@@ -13,7 +13,6 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
