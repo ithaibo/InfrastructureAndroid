@@ -120,9 +120,8 @@ public class CheckNetValidByCheckInternetActivity extends BaseActivity implement
 
     private void checkByPing() {
         pingData.setShowPingPb(View.VISIBLE);
-        for (int i = 0; i < TIME_NUMBER_CHECK; i++) {
-            NetWorkUtils.isInternetAvailableByPing(pingCallback);
-        }
+        boolean isActive = NetWorkUtils.isInternetAvailableByPing();
+        LogUtil.i("network status: " + isActive);
     }
 
     private void checkByIntAddr() {
