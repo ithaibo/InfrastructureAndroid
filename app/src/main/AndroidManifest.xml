@@ -85,6 +85,7 @@
         <activity android:name=".demos.view.FragmentContainerActivity"/>
         <activity android:name=".demos.ping.CheckNetValidByCheckInternetActivity"
             /> <!--android:screenOrientation="portrait"-->
+        <activity android:name=".demos.db.NoteDemoActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

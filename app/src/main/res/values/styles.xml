@@ -60,4 +60,9 @@
         <item name="android:textSize">18.0sp</item>
         <item name="android:textColor">@android:color/transparent</item>
     </style>
+
+    <style name="ActivityWHStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>

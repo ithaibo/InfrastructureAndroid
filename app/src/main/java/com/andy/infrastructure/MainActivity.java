@@ -24,6 +24,7 @@ import com.andy.infrastructure.demos.animotion.AnimationActivity;
 import com.andy.infrastructure.demos.constraint_layout.ConstraintLayoutActivity;
 import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
+import com.andy.infrastructure.demos.db.NoteDemoActivity;
 import com.andy.infrastructure.demos.float_window.FloatWindowActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
@@ -190,6 +191,10 @@ public class MainActivity extends AppCompatActivity
                 .setClassName(CheckNetValidByCheckInternetActivity.class)
                 .setName("CheckNetValidByPingActivity")
                 .setDesc("CheckNetValidByPingActivity"));
+
+        demoClasses.add( new DemoActivityBean("SQLite demo notes",
+                "SQLite demo notes",
+                NoteDemoActivity.class));
 
         return demoClasses;
     }

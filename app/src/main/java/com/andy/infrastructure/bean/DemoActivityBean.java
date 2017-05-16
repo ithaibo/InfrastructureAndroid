@@ -15,6 +15,15 @@ public class DemoActivityBean extends Bean {
         return name;
     }
 
+    public DemoActivityBean() {
+    }
+
+    public DemoActivityBean(String name, String desc, Class<? extends Activity> className) {
+        this.name = name;
+        this.desc = desc;
+        this.className = className;
+    }
+
     public DemoActivityBean setName(String name) {
         this.name = name;
         return this;
