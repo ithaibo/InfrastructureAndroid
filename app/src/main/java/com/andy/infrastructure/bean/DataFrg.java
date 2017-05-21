@@ -3,7 +3,6 @@ package com.andy.infrastructure.bean;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.andy.infrastructure.BR;
 
 
 /**
@@ -20,6 +19,6 @@ public class DataFrg extends BaseObservable {
 
     public void setCbText(String cbText) {
         this.cbText = cbText;
-        notifyPropertyChanged(BR.cbText);
+        notifyChange();
     }
 }

@@ -3,8 +3,6 @@ package com.andy.infrastructure.demos.custome_view;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.android.annotations.NonNull;
-import com.andy.infrastructure.BR;
 
 /**
  * Created by Andy on 2017/2/23.
@@ -20,7 +18,7 @@ public class PieData extends BaseObservable {
     private int color = 0;      // 颜色
     private float angle = 0;    // 角度
 
-    public PieData(@NonNull String name, @NonNull float value) {
+    public PieData( String name, float value) {
         this.name = name;
         this.value = value;
     }
@@ -40,7 +38,7 @@ public class PieData extends BaseObservable {
 
     public void setName(String name) {
         this.name = name;
-        notifyPropertyChanged(BR.pieData);
+        notifyChange();
     }
 
     public float getAngle() {
@@ -58,7 +56,7 @@ public class PieData extends BaseObservable {
 
     public void setValue(float value) {
         this.value = value;
-        notifyPropertyChanged(BR.pieData);
+        notifyChange();
     }
 
     public float getPercentage() {

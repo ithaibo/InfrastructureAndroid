@@ -40,6 +40,7 @@ import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
 import com.andy.infrastructure.demos.material.Material1Activity;
 import com.andy.infrastructure.demos.view.FragmentContainerActivity;
+import com.andy.infrastructure.demos.view.official.OfficialWidgetActivity;
 import com.andy.infrastructure.demos.web.WebViewActivity;
 
 
@@ -195,6 +196,10 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean("SQLite demo notes",
                 "SQLite demo notes",
                 NoteDemoActivity.class));
+
+        demoClasses.add( new DemoActivityBean(OfficialWidgetActivity.class.getSimpleName(),
+                OfficialWidgetActivity.class.getSimpleName(),
+                OfficialWidgetActivity.class));
 
         return demoClasses;
     }

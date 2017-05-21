@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.android.annotations.NonNull;
 import com.andy.baselibrary.bean.InternetCheckDataBean;
 import com.andy.baselibrary.interfaces.CheckInterNetAcccessCallback;
 
@@ -102,7 +101,7 @@ public class NetWorkUtils {
         }
     }
 
-    public static void isInternetAvailableByIntAdddr(@NonNull final CheckInterNetAcccessCallback<InternetCheckDataBean> callBack) {
+    public static void isInternetAvailableByIntAdddr( final CheckInterNetAcccessCallback<InternetCheckDataBean> callBack) {
         LogUtil.i("NetWorkUtils.isInternetAvailableByIntAdddr");
         final WeakReference<CheckInterNetAcccessCallback<InternetCheckDataBean>> callbackWeakReference =
                 new WeakReference<CheckInterNetAcccessCallback<InternetCheckDataBean>>(callBack);

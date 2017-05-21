@@ -6,14 +6,13 @@ import android.webkit.WebSettings;
 
 import com.andy.baselibrary.fragment.DataBindFrgment;
 import com.andy.baselibrary.utils.LogUtil;
-import com.andy.infrastructure.CommonWebFragmentBind;
 import com.andy.infrastructure.R;
 
 /**
  * Created by Andy on 2017/3/15.
  */
 
-public abstract class BaseWebFragment extends DataBindFrgment<CommonWebFragmentBind> {
+public abstract class BaseWebFragment extends DataBindFrgment<com.andy.infrastructure.CommonWebFragmentBind> {
 
     private WebSettings webSettings;
 
