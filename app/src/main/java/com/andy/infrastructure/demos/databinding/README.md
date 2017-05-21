@@ -65,7 +65,8 @@
     ...
     public void setMobile(String mobile) {
         this.mobile = mobile;
-        notifyPropertyChanged(BR.mobile);
+        //notifyPropertyChanged(BR.mobile);
+        notifyChanged();
     }
 继承BaseObservable，同时在setter方法中调用notifyPropertyChanged。
 
