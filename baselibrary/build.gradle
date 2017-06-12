@@ -48,4 +48,5 @@ dependencies {
     compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.adapter_rxjava"
     compile "org.greenrobot:greendao:$rootProject.greendao"
 
+    compile project(path: ':exrecyclerview')
 }

@@ -2,8 +2,10 @@ package com.andy.infrastructure.adapter;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.andy.baselibrary.adapter.BaseRecyclerViewHolder;
 import com.andy.baselibrary.adapter.DataBindRecyclerAdapter;
 import com.andy.baselibrary.holder.DataBindRecyclerHolder;
 import com.andy.infrastructure.R;
@@ -21,7 +23,7 @@ public class ListDialogAdapter<T> extends DataBindRecyclerAdapter<ListDialogItem
     }
 
     @Override
-    public DataBindRecyclerHolder<ListDialogItemDataBean<T>> getHolder(View itemView) {
+    public DataBindRecyclerHolder getHolder(View itemView) {
         return new ListDialogItemHolder<T>(itemView);
     }
 

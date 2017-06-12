@@ -25,8 +25,9 @@ public class ImageViewGlideBindAdapter {
 
     @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView imageView, String url) {
-        Glide.with(imageView.getContext())
-                .load(url)
-                .into(imageView);
+//        Glide.with(imageView.getContext())
+//                .load(url)
+//                .placeholder()
+//                .into(imageView);
     }
 }
