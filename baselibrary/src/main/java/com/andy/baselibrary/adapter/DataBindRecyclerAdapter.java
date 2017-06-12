@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.andy.baselibrary.holder.DataBindRecyclerHolder;
 
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Andy on 2017/3/8.

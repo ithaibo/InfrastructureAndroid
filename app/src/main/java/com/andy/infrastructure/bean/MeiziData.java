@@ -3,7 +3,6 @@ package com.andy.infrastructure.bean;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.andy.infrastructure.BR;
 
 import java.io.Serializable;
 
@@ -22,7 +21,7 @@ public class MeiziData extends BaseObservable implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
-        notifyPropertyChanged(BR.meizi);
+        notifyChange();
     }
 
     public String getType() {
@@ -31,7 +30,7 @@ public class MeiziData extends BaseObservable implements Serializable {
 
     public void setType(String type) {
         this.type = type;
-        notifyPropertyChanged(BR.meizi);
+        notifyChange();
     }
 
     @Override

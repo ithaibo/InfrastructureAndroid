@@ -3,7 +3,6 @@ package com.andy.infrastructure.demos.databinding;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.andy.infrastructure.BR;
 
 /**
  * Created by Andy on 2017/1/5.
@@ -21,7 +20,7 @@ public class Customer extends BaseObservable {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
-        notifyPropertyChanged(BR.mobile);
+        notifyChange();
     }
 
     @Bindable
@@ -31,7 +30,7 @@ public class Customer extends BaseObservable {
 
     public void setName(String name) {
         this.name = name;
-        notifyPropertyChanged(BR.name);
+        notifyChange();
     }
 
     @Bindable
@@ -41,6 +40,6 @@ public class Customer extends BaseObservable {
 
     public void setEmail(String email) {
         this.email = email;
-        notifyPropertyChanged(BR.email);
+        notifyChange();
     }
 }

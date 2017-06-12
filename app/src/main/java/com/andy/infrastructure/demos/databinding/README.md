@@ -65,7 +65,8 @@
     ...
     public void setMobile(String mobile) {
         this.mobile = mobile;
-        notifyPropertyChanged(BR.mobile);
+        //notifyPropertyChanged(BR.mobile);
+        notifyChanged();
     }
 继承BaseObservable，同时在setter方法中调用notifyPropertyChanged。
 
@@ -208,5 +209,34 @@ public void onBindViewHolder(BindingHolder holder, int position) {
 }
 ```
 
+# issue
+## 什么情况下需要使用BindingAdapter?
+举个例子：
 
-## Attribute Setters ##
+我们经常使用EditText来输入email，这就需要对用户输入的内容进行校验，是否为email格式。如果格式不正确，需要给出提示。
+解决办法是使用TextView的addTextChangedListener(TextWatcher)进行处理；
+这里如何在DataBinding中将一个TextWatcher设置给EditText?
+
+``` xml
+<data class="com.andy.infrastructure.view.OfficialWidgetBinding">
+   <variable
+      name="textWatcher"
+      type="android.text.TextWatcher"/>
+</data>
+
+<android.support.design.widget.TextInputEditText
+   android:id="@+id/tie_password"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:inputType="textPassword"
+   app:textWatcher="@{textWatcher}"/>
+```
+
+这样做还不能达到效果，需要使用BindingAdapter来进一步出来，因为TextInputEditText没有setTextWatcher这个方法。
+
+``` Java
+@BindingAdapter("textWatcher")
+public static void setTextWatcher(EditText et, TextWatcher wt) {
+   et.addTextChangedListener(wt);
+}
+```

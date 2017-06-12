@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Andy on 2017/1/5.
@@ -14,7 +13,7 @@ public class DataBindPresenter {
     private Context mContext;
     private Customer mUser;
 
-    public DataBindPresenter(@NotNull Context mContext) {
+    public DataBindPresenter( Context mContext) {
         this.mContext = mContext;
     }
 
