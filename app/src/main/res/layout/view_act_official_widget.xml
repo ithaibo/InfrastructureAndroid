@@ -34,6 +34,16 @@
                     app:textWatcher="@{textWatcher}"/>
             </android.support.design.widget.TextInputLayout>
 
+            <Button
+                android:id="@+id/btn2Setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="to setting activity"/>
+
+<!--            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                class="com.andy.infrastructure.demos.view.official.AppbarFragment"/>-->
         </LinearLayout>
     </ScrollView>
 </layout>

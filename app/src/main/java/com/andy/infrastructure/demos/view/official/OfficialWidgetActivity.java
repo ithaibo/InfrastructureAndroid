@@ -1,13 +1,17 @@
 package com.andy.infrastructure.demos.view.official;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.databinding.BindingAdapter;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import com.andy.baselibrary.activity.DataBindActivity;
 import com.andy.baselibrary.utils.LogUtil;
+import com.andy.infrastructure.BuildConfig;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.view.OfficialWidgetBinding;
 
@@ -28,7 +32,17 @@ public class OfficialWidgetActivity extends DataBindActivity<OfficialWidgetBindi
 
     @Override
     protected void initViews() {
-
+        mDataBind.btn2Setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("packageName", BuildConfig.APPLICATION_ID);
+                ComponentName comp = new ComponentName("com.android.settings", "com.android.settings.MiuiSettings");
+                intent.setComponent(comp);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
