@@ -1,1 +1,1 @@
-include ':app', ':baselibrary', ':JSBridge', ':exrecyclerview'
+include ':app', ':baselibrary', ':JSBridge', ':exrecyclerview', ':formmatcher'
