@@ -76,18 +76,17 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(path: ':baselibrary')
+    compile project(':formmatcher')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile "junit:junit:$rootProject.junit"
-
     compile "com.android.support:appcompat-v7:$rootProject.support"
     compile "com.android.support:design:$rootProject.support"
     compile "com.android.support:cardview-v7:$rootProject.support"
     compile "com.android.support:recyclerview-v7:$rootProject.support"
-    compile "com.android.support:multidex:1.0.1"
+    compile 'com.android.support:multidex:1.0.1'
     compile "com.android.support:support-v4:$rootProject.support"
     compile "com.android.support.constraint:constraint-layout:$rootProject.support_constraint_layout"
-
     compile files('lib/testSo.jar')
 }

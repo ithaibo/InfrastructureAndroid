@@ -26,6 +26,7 @@ import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
 import com.andy.infrastructure.demos.db.NoteDemoActivity;
 import com.andy.infrastructure.demos.float_window.FloatWindowActivity;
+import com.andy.infrastructure.demos.form_valid.FormActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
@@ -200,6 +201,10 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(OfficialWidgetActivity.class.getSimpleName(),
                 OfficialWidgetActivity.class.getSimpleName(),
                 OfficialWidgetActivity.class));
+
+        demoClasses.add( new DemoActivityBean(FormActivity.class.getSimpleName(),
+                FormActivity.class.getSimpleName(),
+                FormActivity.class));
 
         return demoClasses;
     }

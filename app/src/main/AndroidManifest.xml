@@ -87,6 +87,7 @@
             /> <!--android:screenOrientation="portrait"-->
         <activity android:name=".demos.db.NoteDemoActivity"/>
         <activity android:name=".demos.view.official.OfficialWidgetActivity"/>
+        <activity android:name=".demos.form_valid.FormActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

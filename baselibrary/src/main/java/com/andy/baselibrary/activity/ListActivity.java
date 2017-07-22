@@ -7,27 +7,46 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.andy.baselibrary.R;
+
 /**
  * Created by Andy on 2016/11/15.
  */
 
-public abstract class BaseListViewActivity<T> extends BaseActivity {
-
+public  class ListActivity<T> extends DataBindActivity<com.andy.baselibrary.CommonListActivityBind> {
+    private RecyclerView.Adapter contentAdapter;
+    @Override
+    protected int getLayoutId() {
+        return R.layout.comm_act_list;
+    }
 
     @Override
     protected void initData() {
-        RecyclerView recyclerView = new RecyclerView(this);
-        recyclerView.addItemDecoration(new MyDecoration());
+        this.contentAdapter = newAdapter();
     }
 
     @Override
     protected void initViews() {
+
+
         initHeaderView();
     }
 
-    protected abstract void initHeaderView();
+    private void initAdapterWrapper() {
 
-    protected abstract void initFooterView();
+    }
+
+    protected RecyclerView.Adapter newAdapter() {
+        return null;
+    }
+
+    public RecyclerView.Adapter getContentAdapter() {
+        return contentAdapter;
+    }
+
+    protected  void initHeaderView() {}
+
+    protected  void initFooterView() {}
 
     class MyDecoration extends RecyclerView.ItemDecoration{
         int oritation;
