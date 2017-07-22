@@ -19,24 +19,17 @@ public class NumberStrategy<T extends Number> implements BaseStrategy<T> {
         if (value instanceof Double || value instanceof Float ) {
             return matchDouble(value.doubleValue());
         } else if (value instanceof Integer || value instanceof Long || value instanceof Short || value instanceof Byte){
-//            Long targetV = null;
-//            if (value instanceof Integer) {
-//                int v = value.intValue();
-//                targetV = new Long(v);
-//            }else if (value instanceof Short) {
-//                short s = value.shortValue();
-//            } else if (value instanceof Byte) {
-//                byte b = value.byteValue();
-//                targetV = new Long(b);
-//            } else {
-//                targetV = (Long) value;
-//            }
             return matchLong(value.longValue());
         }
         return false;
     }
 
-    public boolean matchDouble(Double value) {
+    /**
+     * 浮点数类型校验策略
+     * @param value
+     * @return
+     */
+    private boolean matchDouble(Double value) {
         if (value == null) {
             return false;
         }
@@ -53,7 +46,13 @@ public class NumberStrategy<T extends Number> implements BaseStrategy<T> {
                 return false;
         }
     }
-    public boolean matchLong(Long value) {
+
+    /**
+     * byte, short, int, long校验策略
+     * @param value
+     * @return
+     */
+    private boolean matchLong(Long value) {
         if (value == null) {
             return false;
         }

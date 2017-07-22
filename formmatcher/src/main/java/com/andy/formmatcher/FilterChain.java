@@ -11,15 +11,7 @@ import java.util.Set;
  */
 
 public class FilterChain {
-    /**
-     * add multiple Filter, such as:
-     * 1. regular filter
-     * 2. changes filter between current and history
-     * ... and so on.
-     */
-
     private Map<String, MatchStrategy> filterMap;
-    private Map<String, Boolean> result;
 
     public static class Builder {
         private FilterChain filterChain;
@@ -40,19 +32,22 @@ public class FilterChain {
         }
     }
 
-    private FilterCallBack callBack;
 
     private FilterChain() {}
 
     public void startFilter(FilterCallBack callBack) {
-        this.callBack = callBack;
-        new MatchTask().execute(filterMap);
+        new MatchTask(callBack).execute(filterMap);
     }
 
     private void startFilter() {
         new MatchTask().execute(filterMap);
     }
 
+    /**
+     * 动态添加Filter
+     * @param filterKey
+     * @param filter
+     */
     public void addFilter(String filterKey, MatchStrategy filter) {
         if(filterMap!= null && filterKey!=null && filter!=null) {
             this.filterMap.put(filterKey, filter);
@@ -60,7 +55,19 @@ public class FilterChain {
         startFilter();
     }
 
+    /**
+     * 异步执行校验策略
+     */
     private class MatchTask extends AsyncTask<Map<String, MatchStrategy>, Integer, Map<String, Boolean>>{
+        private FilterCallBack callBack;
+
+        public MatchTask(FilterCallBack callBack) {
+            this.callBack = callBack;
+        }
+
+        public MatchTask() {
+        }
+
         @Override
         protected Map<String, Boolean> doInBackground(Map<String, MatchStrategy>... params) {
             if (filterMap == null || filterMap.size()<=0) {
@@ -85,9 +92,8 @@ public class FilterChain {
         @Override
         protected void onPostExecute(Map<String, Boolean> stringBooleanMap) {
             super.onPostExecute(stringBooleanMap);
-            result = stringBooleanMap;
             if (callBack !=null) {
-                callBack.onFilterCompleted(result);
+                callBack.onFilterCompleted(stringBooleanMap);
             }
         }
     }
