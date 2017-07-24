@@ -30,6 +30,7 @@ import com.andy.infrastructure.demos.form_valid.FormActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
+import com.andy.infrastructure.demos.map.ThirdMapDirection;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.daemon.KeepLiveService;
 import com.andy.infrastructure.demos.mvp.MvpDemoActivity;
@@ -205,6 +206,10 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(FormActivity.class.getSimpleName(),
                 FormActivity.class.getSimpleName(),
                 FormActivity.class));
+
+        demoClasses.add( new DemoActivityBean(ThirdMapDirection.class.getSimpleName(),
+                ThirdMapDirection.class.getSimpleName(),
+                ThirdMapDirection.class));
 
         return demoClasses;
     }
