@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.andy.baselibrary.activity.DataBindActivity;
@@ -17,18 +16,13 @@ import com.andy.infrastructure.demos.map.latlon.GCJ02BD09Adapter;
 import com.andy.infrastructure.demos.map.latlon.LatLon;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Andy on 2017/7/24.
  */
 
 public class ThirdMapDirection extends DataBindActivity<MapDirectionBinding> {
-
-    private List<DirectionBean> directionList;
 
     @Override
     protected int getLayoutId() {
@@ -37,23 +31,22 @@ public class ThirdMapDirection extends DataBindActivity<MapDirectionBinding> {
 
     @Override
     protected void initData() {
-
-        directionList = new ArrayList<>();
+        List<DirectionBean> directionList = new ArrayList<>();
 
         DirectionBean amapDirection = new DirectionBean("com.autonavi.minimap", 0);
         amapDirection.setdAddress("肇家浜路地铁站");
         amapDirection.setdPoint(new LatLon(31.199436, 121.450212, LatLon.PointType.CODE_GCJ02));
-
-        directionList.add(amapDirection);
 
         DirectionBean dbMapDirection = new DirectionBean("com.baidu.BaiduMap", 1);
         dbMapDirection.setdAddress("肇家浜路地铁站");
         double[] lonLat = GCJ02BD09Adapter.GCJ02ToBD09(121.450212, 31.199436);
         dbMapDirection.setdPoint(new LatLon(lonLat[0], lonLat[1], LatLon.PointType.CODE_BD09));
 
+        directionList.add(amapDirection);
         directionList.add(dbMapDirection);
 
         checkMapPackageInstalled(directionList);
+        pickOneNavChannel(directionList);
     }
 
     private void checkMapPackageInstalled(List<DirectionBean> directionList) {
@@ -81,13 +74,20 @@ public class ThirdMapDirection extends DataBindActivity<MapDirectionBinding> {
     @Override
     protected void initViews() {
         mDataBind.setClickAction(this.simpleAction);
-        mDataBind.setDirectionData(directionList.get(1));
+    }
+
+    private void pickOneNavChannel(final List<DirectionBean> directionList) {
+        for (int i=0; i<directionList.size(); i++) {
+            if (directionList.get(i)!=null && directionList.get(i).getPackageData()!=null && !directionList.get(i).getPackageData().isInstalled()){
+                mDataBind.setDirectionData(directionList.get(i));
+                break;
+            }
+        }
     }
 
     private SimpleAction simpleAction = new SimpleAction() {
         @Override
         public void action(final DirectionBean direction) {
-
             navOutSide(direction);
         }
     };
