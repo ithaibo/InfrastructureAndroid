@@ -1,6 +1,8 @@
 package com.andy.infrastructure.demos.map;
 
 import com.andy.baselibrary.activity.DataBindActivity;
+import com.andy.baselibrary.map_nav.DirectionBean;
+import com.andy.baselibrary.map_nav.OutSideNavUtils;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.databinding.MapDirectionBinding;
 

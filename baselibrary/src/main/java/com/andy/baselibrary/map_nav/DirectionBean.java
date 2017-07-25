@@ -1,6 +1,5 @@
-package com.andy.infrastructure.demos.map;
+package com.andy.baselibrary.map_nav;
 
-import com.andy.infrastructure.demos.map.latlon.LatLon;
 
 /**
  * Created by Andy on 2017/7/24.

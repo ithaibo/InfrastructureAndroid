@@ -9,7 +9,7 @@
             type="com.andy.infrastructure.demos.map.ThirdMapDirection.SimpleAction"/>
         <variable
             name="directionData"
-            type="com.andy.infrastructure.demos.map.DirectionBean"/>
+            type="com.andy.baselibrary.map_nav.DirectionBean"/>
     </data>
 
     <Button

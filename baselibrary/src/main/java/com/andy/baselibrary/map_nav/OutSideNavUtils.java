@@ -1,4 +1,4 @@
-package com.andy.infrastructure.demos.map;
+package com.andy.baselibrary.map_nav;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -9,10 +9,9 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 
+import com.andy.baselibrary.BuildConfig;
 import com.andy.baselibrary.utils.AppUtils;
 import com.andy.baselibrary.utils.CommonUtils;
-import com.andy.infrastructure.BuildConfig;
-import com.andy.infrastructure.demos.map.latlon.GCJ02BD09Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,6 +126,11 @@ public class OutSideNavUtils {
             Toast.makeText(mContext, "请先安装高德地图或百度地图APP", Toast.LENGTH_LONG).show();
             return;
         }
+        
+        if (channelPicked.getdPoint()==null) {
+            channelPicked.setdPoint(new LatLon());
+        }
+
         if (TextUtils.equals(channelPicked.getPackageData().getPackageName(), "com.baidu.BaiduMap")) {
             double[] converted = GCJ02BD09Adapter.GCJ02ToBD09(destinationLongitude, destinationLatitude);
             channelPicked.getdPoint().setLongitude(converted[0]);

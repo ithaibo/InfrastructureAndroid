@@ -1,4 +1,4 @@
-package com.andy.infrastructure.demos.map;
+package com.andy.baselibrary.map_nav;
 
 import android.text.TextUtils;
 
