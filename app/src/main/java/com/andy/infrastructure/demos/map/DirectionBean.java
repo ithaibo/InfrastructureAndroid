@@ -1,34 +1,28 @@
 package com.andy.infrastructure.demos.map;
 
+import com.andy.infrastructure.demos.map.latlon.LatLon;
+
 /**
  * Created by Andy on 2017/7/24.
  */
 
 public class DirectionBean {
-    private String packageName;
-    private String label;
+    private PackageData packageData;
+
     private int priority;
-    private boolean isInstalled;
 
     private String oAddress;
-    private double oLongitude;
-    private double oLatitude;
+    private LatLon oPoint;
 
     private String dAddress;
-    private double dLongitude;
-    private double dLatitude;
+    private LatLon dPoint;
 
     public DirectionBean(String packageName, int priority) {
-        this.packageName = packageName;
+        this.packageData = new PackageData(packageName);
         this.priority = priority;
     }
 
-    public String getPackageName() {
-        return packageName;
-    }
-
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
+    public DirectionBean() {
     }
 
     public int getPriority() {
@@ -39,20 +33,12 @@ public class DirectionBean {
         this.priority = priority;
     }
 
-    public boolean isInstalled() {
-        return isInstalled;
+    public PackageData getPackageData() {
+        return packageData;
     }
 
-    public void setInstalled(boolean installed) {
-        isInstalled = installed;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
+    public void setPackageData(PackageData packageData) {
+        this.packageData = packageData;
     }
 
     public String getoAddress() {
@@ -63,22 +49,6 @@ public class DirectionBean {
         this.oAddress = oAddress;
     }
 
-    public double getoLongitude() {
-        return oLongitude;
-    }
-
-    public void setoLongitude(double oLongitude) {
-        this.oLongitude = oLongitude;
-    }
-
-    public double getoLatitude() {
-        return oLatitude;
-    }
-
-    public void setoLatitude(double oLatitude) {
-        this.oLatitude = oLatitude;
-    }
-
     public String getdAddress() {
         return dAddress;
     }
@@ -87,19 +57,19 @@ public class DirectionBean {
         this.dAddress = dAddress;
     }
 
-    public double getdLongitude() {
-        return dLongitude;
+    public LatLon getoPoint() {
+        return oPoint;
     }
 
-    public void setdLongitude(double dLongitude) {
-        this.dLongitude = dLongitude;
+    public void setoPoint(LatLon oPoint) {
+        this.oPoint = oPoint;
     }
 
-    public double getdLatitude() {
-        return dLatitude;
+    public LatLon getdPoint() {
+        return dPoint;
     }
 
-    public void setdLatitude(double dLatitude) {
-        this.dLatitude = dLatitude;
+    public void setdPoint(LatLon dPoint) {
+        this.dPoint = dPoint;
     }
 }
