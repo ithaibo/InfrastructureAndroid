@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/exrecyclerview" />
             <option value="$PROJECT_DIR$/formmatcher" />
+            <option value="$PROJECT_DIR$/rendercontroller" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

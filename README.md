@@ -2,7 +2,13 @@
 这是一个Android APP快速开发框架
 
 ## 代码结构
-baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseActivity BaseFragment holder utils adapter的封装
+ - app  一些demo
+ - baselibrary 基本封装
+    一个与业务逻辑无关的基础框架
+ - exrecyclerview 针对RecyclerView的封装[非原创]
+ - formmatcher 表单验证框架
+ - JSBridge 导入module
+ - rendercontroller 页面渲染控制
 
 ## 使用的第三方库
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
@@ -59,3 +65,4 @@ baselibrary是一个与业务逻辑无关的基础框架，其中包含了BaseAc
 | 1/6/2017 4:52:48 PM | null |
 | 3/8/2017 11:29:21 AM  | mvp |
 | 7/22/2017 9:00:00 PM | formmatcher |
+| 7/26/2017 1:21:00 PM | rendercontroller |
