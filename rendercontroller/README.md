@@ -4,4 +4,5 @@
 
 ## 基本流程
 页面基本流程如下图所示：
+
  ![RenderFlow](render_flow.jpg)
