@@ -30,16 +30,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical"
+                android:padding="10dp"
                 android:visibility="@{netCheckData.pingStatueData.showPingPb==View.VISIBLE? View.GONE:View.VISIBLE}">
 
                 <Button
                     android:id="@+id/btn_ping_trigger"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#F1AA24"
+                    android:elevation="14dp"
                     android:text="@string/btn_internet_access_ping"
                     android:onClick="@{(view) -> clickNetCheck.onClick(view)}"/>
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:id="@+id/tv_ping_time_cost"
                     style="@style/list_dialog_item_text_view"
                     android:text="@{netCheckData.pingStatueData.pingTimeCost}"/>

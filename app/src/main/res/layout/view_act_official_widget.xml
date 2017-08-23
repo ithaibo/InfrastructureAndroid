@@ -37,8 +37,9 @@
             <Button
                 android:id="@+id/btn2Setting"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="to setting activity"/>
+                android:layout_height="70dp"
+                android:text="to setting activity"
+                android:background="@drawable/shadow_btn_bg2"/>
 
 <!--            <fragment
                 android:layout_width="match_parent"
