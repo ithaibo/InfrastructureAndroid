@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.andy.infrastructure.demos.view.NoScrollGridView
+            android:id="@+id/tagView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            style="@style/common_spinner_style"
+            android:layout_gravity="center" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            style="@style/common_spinner_style"
+            android:layout_gravity="start|bottom" />
+
+
+        <android.support.v7.widget.AppCompatSpinner
+            style="@style/common_spinner_style"
+            android:layout_gravity="end|bottom" />
+    </FrameLayout>
+
+</layout>

@@ -65,4 +65,11 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
+    <style name="common_spinner_style">
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:entries">@array/label_array</item>
+    </style>
 </resources>

@@ -89,6 +89,8 @@
         <activity android:name=".demos.view.official.OfficialWidgetActivity"/>
         <activity android:name=".demos.form_valid.FormActivity"/>
         <activity android:name=".demos.map.ThirdMapDirection"/>
+        <activity android:name=".demos.view.official.AppCompatSpinnerActivity"/>
+        <activity android:name=".demos.view.official.GridTagActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

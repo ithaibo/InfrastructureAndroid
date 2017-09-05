@@ -44,6 +44,6 @@ ext{
     rxandroid='1.2.1'
     retrofit="2.1.0"
     adapter_rxjava='2.2.0'
-    support_constraint_layout='1.0.0'
+    support_constraint_layout='1.0.2'
     greendao='3.2.2'
 }
