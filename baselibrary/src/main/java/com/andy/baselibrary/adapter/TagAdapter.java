@@ -116,7 +116,7 @@ public abstract class TagAdapter<T, DB extends ViewDataBinding> extends BaseAdap
      * @param data
      * @param position
      */
-    protected abstract void onBindView(DB itemBind, TagData<T> data, int position);
+    protected abstract void onBindView(final DB itemBind, final TagData<T> data, final int position);
 
     public void initItems(List<TagData<T>> initData) {
         refreshItems(initData);
@@ -246,6 +246,17 @@ public abstract class TagAdapter<T, DB extends ViewDataBinding> extends BaseAdap
                     "data=" + data +
                     ", selected=" + selected.get() +
                     '}';
+        }
+
+        public final TagData<T> wapper(T source, boolean selected) {
+            TagData<T> target = new TagData<>();
+            target.setData(source);
+            target.selected.set(selected);
+            return target;
+        }
+
+        public final T DeWrapper() {
+            return getData();
         }
     }
 }

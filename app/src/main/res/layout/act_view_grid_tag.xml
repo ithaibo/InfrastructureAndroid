@@ -5,7 +5,7 @@
     <data>
         <variable
             name="adapter"
-            type="com.andy.infrastructure.demos.view.TagAdapter"/>
+            type="com.andy.baselibrary.adapter.TagAdapter"/>
     </data>
 
     <FrameLayout

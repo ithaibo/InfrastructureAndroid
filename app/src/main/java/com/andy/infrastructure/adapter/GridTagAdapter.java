@@ -15,7 +15,7 @@ public class GridTagAdapter extends TagAdapter<String, ItemTagBinding> {
     }
 
     @Override
-    protected void onBindView(ItemTagBinding itemBind, TagAdapter.TagData<String> data, int position) {
+    protected void onBindView(final ItemTagBinding itemBind, final TagAdapter.TagData<String> data, final int position) {
         itemBind.tagLabel.setText(data.getData());
         itemBind.setTagData(data);
     }
