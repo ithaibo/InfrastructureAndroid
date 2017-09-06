@@ -6,7 +6,7 @@
     <data>
         <variable
             name="tagData"
-            type="com.andy.infrastructure.demos.view.TagData"/>
+            type="com.andy.baselibrary.adapter.TagAdapter.TagData"/>
     </data>
 
     <CheckBox

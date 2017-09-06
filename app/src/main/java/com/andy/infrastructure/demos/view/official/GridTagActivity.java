@@ -4,7 +4,7 @@ import com.andy.baselibrary.activity.DataBindActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.adapter.GridTagAdapter;
 import com.andy.infrastructure.databinding.ActViewGridTagBinding;
-import com.andy.infrastructure.demos.view.TagData;
+import com.andy.baselibrary.adapter.TagAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class GridTagActivity extends DataBindActivity<ActViewGridTagBinding> {
     protected void initData() {
         mDataBind.setAdapter(new GridTagAdapter());
 
-        List<TagData<String>> tagList = new ArrayList<>();
+        List<TagAdapter.TagData<String>> tagList = new ArrayList<>();
         String[] tags = new String[]{
                 "餐饮",
                 "生鲜果蔬",
@@ -33,7 +33,7 @@ public class GridTagActivity extends DataBindActivity<ActViewGridTagBinding> {
         };
 
         for (int i = 0; i < tags.length; i++) {
-            TagData<String> item = new TagData<>();
+            TagAdapter.TagData<String> item = new TagAdapter.TagData<>();
             item.setData(tags[i]);
             tagList.add(item);
         }
