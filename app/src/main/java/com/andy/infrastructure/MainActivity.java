@@ -42,9 +42,11 @@ import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
 import com.andy.infrastructure.demos.material.Material1Activity;
 import com.andy.infrastructure.demos.view.FragmentContainerActivity;
+import com.andy.infrastructure.demos.view.SlidepannelActivity;
 import com.andy.infrastructure.demos.view.official.AppCompatSpinnerActivity;
 import com.andy.infrastructure.demos.view.official.GridTagActivity;
 import com.andy.infrastructure.demos.view.official.OfficialWidgetActivity;
+import com.andy.infrastructure.demos.view.scroll_conflict.ScrollNestActivity;
 import com.andy.infrastructure.demos.web.WebViewActivity;
 
 
@@ -220,6 +222,14 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(GridTagActivity.class.getSimpleName(),
                 GridTagActivity.class.getSimpleName(),
                 GridTagActivity.class));
+
+        demoClasses.add( new DemoActivityBean(SlidepannelActivity.class.getSimpleName(),
+                SlidepannelActivity.class.getSimpleName(),
+                SlidepannelActivity.class));
+
+        demoClasses.add( new DemoActivityBean(ScrollNestActivity.class.getSimpleName(),
+                ScrollNestActivity.class.getSimpleName(),
+                ScrollNestActivity.class));
 
         return demoClasses;
     }

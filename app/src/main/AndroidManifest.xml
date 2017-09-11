@@ -91,6 +91,8 @@
         <activity android:name=".demos.map.ThirdMapDirection"/>
         <activity android:name=".demos.view.official.AppCompatSpinnerActivity"/>
         <activity android:name=".demos.view.official.GridTagActivity"/>
+        <activity android:name=".demos.view.SlidepannelActivity"/>
+        <activity android:name=".demos.view.scroll_conflict.ScrollNestActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

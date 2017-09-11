@@ -89,4 +89,6 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.support"
     compile "com.android.support.constraint:constraint-layout:$rootProject.support_constraint_layout"
     compile files('lib/testSo.jar')
+
+    compile 'com.sothree.slidinguppanel:library:3.3.1'
 }
