@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
@@ -46,4 +47,6 @@ ext{
     adapter_rxjava='2.2.0'
     support_constraint_layout='1.0.2'
     greendao='3.2.2'
+
+    isDebug = false
 }

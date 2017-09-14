@@ -36,6 +36,7 @@ public class QrCodeActivity extends DataBindActivity<ZxingActQrcodeBinding> {
         scanIntegrator.setCameraId(0);//0-back, 1-front
         scanIntegrator.setOrientationLocked(false);
         scanIntegrator.setCaptureActivity(ScanActivity.class);
+        scanIntegrator.setPrompt("将条码/二维码放入框内");
         scanIntegrator.initiateScan();
     }
 

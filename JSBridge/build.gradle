@@ -20,8 +20,7 @@ android {
     }
 }
 
-dependencies {
-}
+dependencies {}
 
 def siteUrl = 'https://github.com/lzyzsd/JsBridge'
 def gitUrl = 'https://github.com/lzyzsd/JsBridge.git'

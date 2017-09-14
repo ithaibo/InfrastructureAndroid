@@ -21,6 +21,7 @@ import com.andy.baselibrary.adapter.BaseRecyclerdapter;
 import com.andy.infrastructure.adapter.Demo4RecyclerAdapter;
 import com.andy.infrastructure.bean.DemoActivityBean;
 import com.andy.infrastructure.demos.animotion.AnimationActivity;
+import com.andy.infrastructure.demos.artiche.NavigateToModuleActivity;
 import com.andy.infrastructure.demos.constraint_layout.ConstraintLayoutActivity;
 import com.andy.infrastructure.demos.custome_view.CustomeViewActivity;
 import com.andy.infrastructure.demos.databinding.DataBindActivity;
@@ -240,6 +241,10 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(QrCodeActivity.class.getSimpleName(),
                 QrCodeActivity.class.getSimpleName(),
                 QrCodeActivity.class));
+
+        demoClasses.add( new DemoActivityBean(NavigateToModuleActivity.class.getSimpleName(),
+                NavigateToModuleActivity.class.getSimpleName(),
+                NavigateToModuleActivity.class));
 
         return demoClasses;
     }

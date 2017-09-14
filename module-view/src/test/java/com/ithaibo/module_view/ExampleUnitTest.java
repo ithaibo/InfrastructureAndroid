@@ -1,4 +1,4 @@
-package com.gidoor.xrecyclerview;
+package com.ithaibo.module_view;
 
 import org.junit.Test;
 

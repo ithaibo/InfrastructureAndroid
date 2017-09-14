@@ -1,4 +1,4 @@
-package com.gidoor.xrecyclerview;
+package com.ithaibo.module_view;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.gidoor.xrecyclerview.test", appContext.getPackageName());
+        assertEquals("com.ithaibo.module_view.test", appContext.getPackageName());
     }
 }
