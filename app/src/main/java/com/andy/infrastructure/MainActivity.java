@@ -30,6 +30,7 @@ import com.andy.infrastructure.demos.form_valid.FormActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
+import com.andy.infrastructure.demos.map.GpsLocationActivity;
 import com.andy.infrastructure.demos.map.ThirdMapDirection;
 import com.andy.infrastructure.demos.multiprocess.Demo4ProcessActivity;
 import com.andy.infrastructure.demos.daemon.KeepLiveService;
@@ -48,6 +49,7 @@ import com.andy.infrastructure.demos.view.official.GridTagActivity;
 import com.andy.infrastructure.demos.view.official.OfficialWidgetActivity;
 import com.andy.infrastructure.demos.view.scroll_conflict.ScrollNestActivity;
 import com.andy.infrastructure.demos.web.WebViewActivity;
+import com.andy.infrastructure.demos.zxing.qrcode.QrCodeActivity;
 
 
 import java.util.ArrayList;
@@ -230,6 +232,14 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(ScrollNestActivity.class.getSimpleName(),
                 ScrollNestActivity.class.getSimpleName(),
                 ScrollNestActivity.class));
+
+        demoClasses.add( new DemoActivityBean(GpsLocationActivity.class.getSimpleName(),
+                GpsLocationActivity.class.getSimpleName(),
+                GpsLocationActivity.class));
+
+        demoClasses.add( new DemoActivityBean(QrCodeActivity.class.getSimpleName(),
+                QrCodeActivity.class.getSimpleName(),
+                QrCodeActivity.class));
 
         return demoClasses;
     }

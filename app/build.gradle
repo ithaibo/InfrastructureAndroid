@@ -89,6 +89,7 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.support"
     compile "com.android.support.constraint:constraint-layout:$rootProject.support_constraint_layout"
     compile files('lib/testSo.jar')
-
     compile 'com.sothree.slidinguppanel:library:3.3.1'
+//    compile 'com.google.zxing:android-integration:3.3.0'
+    compile 'com.journeyapps:zxing-android-embedded:3.5.0'
 }

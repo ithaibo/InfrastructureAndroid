@@ -21,6 +21,11 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
+    <!--location-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!--location-->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo_xxh"
@@ -93,6 +98,12 @@
         <activity android:name=".demos.view.official.GridTagActivity"/>
         <activity android:name=".demos.view.SlidepannelActivity"/>
         <activity android:name=".demos.view.scroll_conflict.ScrollNestActivity"/>
+        <activity android:name=".demos.map.GpsLocationActivity"/>
+        <activity android:name=".demos.zxing.qrcode.QrCodeActivity"/>
+        <activity android:name=".demos.zxing.ScanActivity"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"
