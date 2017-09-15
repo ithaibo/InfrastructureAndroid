@@ -19,9 +19,17 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/singleCapture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="click to scan QRCode"
+            android:text="click to scan QRCode single"
+            android:onClick="@{clicker::onClick}"/>
+
+        <Button
+            android:id="@+id/captureContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="click to scan QRCode continue"
             android:onClick="@{clicker::onClick}"/>
 
         <TextView

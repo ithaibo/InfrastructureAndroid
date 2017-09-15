@@ -105,6 +105,7 @@
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".demos.artiche.NavigateToModuleActivity"/>
+        <activity android:name=".demos.zxing.qrcode.ContinuousCaptureActivity"/>
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

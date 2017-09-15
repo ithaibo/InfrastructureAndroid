@@ -26,18 +26,26 @@ public class QrCodeActivity extends DataBindActivity<ZxingActQrcodeBinding> {
         mDataBind.setClicker(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doScan();
+                if (v == mDataBind.singleCapture) {
+                    scanSingle();
+                } else if (v == mDataBind.captureContinue) {
+                    scanContinue();
+                }
             }
         });
     }
 
-    private void doScan() {
+    private void scanSingle() {
         IntentIntegrator scanIntegrator = new IntentIntegrator(this);
         scanIntegrator.setCameraId(0);//0-back, 1-front
         scanIntegrator.setOrientationLocked(false);
         scanIntegrator.setCaptureActivity(ScanActivity.class);
         scanIntegrator.setPrompt("将条码/二维码放入框内");
         scanIntegrator.initiateScan();
+    }
+
+    private void scanContinue() {
+        startActivity(new Intent(this, ContinuousCaptureActivity.class));
     }
 
     @Override

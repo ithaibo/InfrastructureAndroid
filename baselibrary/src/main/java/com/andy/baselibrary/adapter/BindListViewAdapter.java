@@ -41,7 +41,7 @@ public abstract class BindListViewAdapter<T, DB extends ViewDataBinding> extends
         return position;
     }
 
-    abstract int getItemlayout();
+    protected abstract int getItemlayout();
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -61,7 +61,7 @@ public abstract class BindListViewAdapter<T, DB extends ViewDataBinding> extends
         notifyDataSetChanged();
     }
 
-    abstract void onBindView(DB itemBind, T data, int position);
+    protected abstract void onBindView(DB itemBind, T data, int position);
 
     public void refreshItems(List<T> datas) {
         items = datas;
