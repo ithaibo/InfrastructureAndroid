@@ -35,7 +35,7 @@ public class MeiziPresenterImpl extends BasePresenterImpl implements MeiziPresen
     public void getMeiziData(int index) {
         //显示progressbar
         final Subscription subscription = GenServiceUtil
-                .genInstance("http://gank.io")
+                .genInstance("http://gank.io", mContext)
                 .createService(MeiziService.class)
                 .getMeiziData(index)
                 .subscribeOn(Schedulers.io())

@@ -197,7 +197,7 @@ public class DemoRxJavaActivity extends BaseActivity {
                         Response<Customer> bean = null;
                         try {
                             //请求服务器
-                            bean = GenServiceUtil.genInstance("http://192.168.1.24:3000/")
+                            bean = GenServiceUtil.genInstance("http://192.168.1.24:3000/", DemoRxJavaActivity.this)
                                     .createService(CustomerService.class)
                                     .getCustomerInfo().execute();
                             LogUtil.d("requestCustomerInfo call..." + bean.body());

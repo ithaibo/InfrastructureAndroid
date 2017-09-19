@@ -2,6 +2,7 @@ package com.andy.infrastructure.demos.retrofit;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,6 +12,7 @@ import com.andy.baselibrary.utils.LogUtil;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.bean.Customer;
 import com.andy.infrastructure.service.CustomerService;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +25,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Response;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 
 /**
@@ -35,6 +41,8 @@ public class SimpleRetrofit extends BaseActivity {
     @BindView(R.id.btn_add_one_act_simple_retrofit)
     Button btnAddOneActSimpleRetrofit;
     private List<Call> callList = new ArrayList<>();
+    @BindView(R.id.debug)
+    Button debug;
 
     @Override
     protected int getLayoutId() {
@@ -52,7 +60,8 @@ public class SimpleRetrofit extends BaseActivity {
     }
 
     @OnClick({R.id.btn_get_net_act_simple_retrofit,
-            R.id.btn_add_one_act_simple_retrofit})
+            R.id.btn_add_one_act_simple_retrofit,
+    R.id.debug})
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_get_net_act_simple_retrofit:
@@ -61,7 +70,35 @@ public class SimpleRetrofit extends BaseActivity {
             case R.id.btn_add_one_act_simple_retrofit:
                 addCustomer();
                 break;
+            case R.id.debug:
+                doDebug();
+                break;
         }
+    }
+
+    private void doDebug() {
+        final Observable<JsonObject> debugService = GenServiceUtil.genInstance("http://renwu.gidoor.com/", this)
+                .createService(DebugService.class)
+                .getOrderList();
+
+        debugService.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<JsonObject>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onNext(JsonObject jsonObject) {
+                        Log.i("OrderList", jsonObject.toString());
+                    }
+                });
     }
 
     public void justGetCustomerInfo() {
@@ -70,7 +107,7 @@ public class SimpleRetrofit extends BaseActivity {
         requestMap.put("sorrt", "desc");
 
         //getCustomerById(1);getCustomersSort("desc"); getCustomersByParamsMap
-        final Call<Customer> getCustomerCall = GenServiceUtil.genInstance("http://192.168.1.24:3000/")
+        final Call<Customer> getCustomerCall = GenServiceUtil.genInstance("http://192.168.1.24:3000/", this)
                 .createService(CustomerService.class)
                 .getCustomersByParamsMap(requestMap);
         callList.add(getCustomerCall);
@@ -106,7 +143,7 @@ public class SimpleRetrofit extends BaseActivity {
         newItem.setEmail("andy@host.com");
         newItem.setSex(1);
 
-        Call<Customer> addCustomerCall = GenServiceUtil.genInstance("http://192.168.1.24:3000/")
+        Call<Customer> addCustomerCall = GenServiceUtil.genInstance("http://192.168.1.24:3000/", this)
                 .createService(CustomerService.class)
                 .addCustomer(newItem);
 

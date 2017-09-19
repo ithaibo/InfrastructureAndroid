@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="add a customer"/>
 
+    <Button
+        android:id="@+id/debug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="debug"/>
+
 </LinearLayout>
