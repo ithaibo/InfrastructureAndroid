@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.andy.baselibrary.activity.DataBindActivity;
+import com.andy.baselibrary.utils.WGS84GCJ02BD09Util;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.databinding.ActGpsBinding;
 
@@ -23,6 +24,9 @@ import com.andy.infrastructure.databinding.ActGpsBinding;
  */
 
 public class GpsLocationActivity extends DataBindActivity<ActGpsBinding> {
+
+    private LocationManager lm;
+
     @Override
     protected int getLayoutId() {
         return R.layout.act_gps;
@@ -78,24 +82,66 @@ public class GpsLocationActivity extends DataBindActivity<ActGpsBinding> {
     }
 
     private void gpsLocate() {
-        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (lm == null) {
+            lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        }
 
         try {
-            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, locationListener);
-            Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            if (location != null) {
-                showToast("location: " + location.toString());
+            if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10 * 1000, 10, gpsListener);
+                Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (location != null) {
+                    showToast("gps location: " + location.toString());
+                }
+            }
+
+            if (lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10 * 1000, 10, networkListener);
+                Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                if (location != null) {
+                    showToast("network location: " + location.toString());
+                }
             }
         } catch (SecurityException e) {}
 
     }
 
-    private LocationListener locationListener = new LocationListener() {
+    private LocationListener gpsListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
-            Log.i("GpsLocationActivity", "location: " + location.toString());
+            Log.i("GpsLocationActivity", "gps location: " + location.toString());
             showToast("location: " + location.toString());
-            mDataBind.setLatlon(location.toString());
+            double[] lonLat = WGS84GCJ02BD09Util.wgs84togcj02(location.getLongitude(), location.getLatitude());
+            location.setLongitude(lonLat[0]);
+            location.setLatitude(lonLat[1]);
+            mDataBind.setLatlon("gps, " + location);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
+
+    private LocationListener networkListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+            Log.i("GpsLocationActivity", "network location: " + location.toString());
+            showToast("network location: " + location.toString());
+            double[] lonLat = WGS84GCJ02BD09Util.wgs84togcj02(location.getLongitude(), location.getLatitude());
+            location.setLongitude(lonLat[0]);
+            location.setLatitude(lonLat[1]);
+            mDataBind.setLatlon("network, " + location);
         }
 
         @Override
@@ -117,5 +163,11 @@ public class GpsLocationActivity extends DataBindActivity<ActGpsBinding> {
     @Override
     protected void initViews() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        lm.removeUpdates(this.gpsListener);
     }
 }
