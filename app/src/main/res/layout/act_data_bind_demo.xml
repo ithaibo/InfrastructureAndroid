@@ -5,6 +5,11 @@
         <variable
             name="user"
             type="com.andy.infrastructure.demos.databinding.Customer" />
+
+        <variable
+            name="userMV"
+            type="com.andy.infrastructure.demos.databinding.CustomerMV"/>
+
         <variable
             name="presenter"
             type="com.andy.infrastructure.demos.databinding.DataBindPresenter"/>
@@ -22,13 +27,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:text="@{user.mobile}"/>
+            android:text="@{userMV.mobile}"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="@={user.email}" />
+            android:text="@={userMV.email}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userMV.email}"/>
 
         <Button
             android:layout_width="match_parent"

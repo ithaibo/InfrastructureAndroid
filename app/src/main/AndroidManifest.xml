@@ -26,12 +26,18 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!--location-->
 
+    <!--camera-->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!--camera-->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo_xxh"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:hardwareAccelerated="false"
+        android:name=".MyApp"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
@@ -100,13 +106,15 @@
         <activity android:name=".demos.view.SlidepannelActivity"/>
         <activity android:name=".demos.view.scroll_conflict.ScrollNestActivity"/>
         <activity android:name=".demos.map.GpsLocationActivity"/>
-        <activity android:name=".demos.zxing.qrcode.QrCodeActivity"/>
+
+        <!--zxing-->
+        <!--<activity android:name=".demos.zxing.qrcode.QrCodeActivity"/>
         <activity android:name=".demos.zxing.ScanActivity"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".demos.artiche.NavigateToModuleActivity"/>
-        <activity android:name=".demos.zxing.qrcode.ContinuousCaptureActivity"/>
+        <activity android:name=".demos.artiche.NavigateToModuleActivity"/>-->
+        <!--zxing-->
 
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"

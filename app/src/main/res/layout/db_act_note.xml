@@ -5,5 +5,29 @@
 
     <FrameLayout style="@style/ActivityWHStyle">
 
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:hint="数据条数：" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnDeleteOld"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="删除之前数据" />
+
+            <Button
+                android:id="@+id/btnInsert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="插入数据" />
+        </LinearLayout>
     </FrameLayout>
 </layout>

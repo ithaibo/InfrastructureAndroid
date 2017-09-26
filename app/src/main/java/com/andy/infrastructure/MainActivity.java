@@ -50,7 +50,6 @@ import com.andy.infrastructure.demos.view.official.GridTagActivity;
 import com.andy.infrastructure.demos.view.official.OfficialWidgetActivity;
 import com.andy.infrastructure.demos.view.scroll_conflict.ScrollNestActivity;
 import com.andy.infrastructure.demos.web.WebViewActivity;
-import com.andy.infrastructure.demos.zxing.qrcode.QrCodeActivity;
 
 
 import java.util.ArrayList;
@@ -237,10 +236,6 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(GpsLocationActivity.class.getSimpleName(),
                 GpsLocationActivity.class.getSimpleName(),
                 GpsLocationActivity.class));
-
-        demoClasses.add( new DemoActivityBean(QrCodeActivity.class.getSimpleName(),
-                QrCodeActivity.class.getSimpleName(),
-                QrCodeActivity.class));
 
         demoClasses.add( new DemoActivityBean(NavigateToModuleActivity.class.getSimpleName(),
                 NavigateToModuleActivity.class.getSimpleName(),

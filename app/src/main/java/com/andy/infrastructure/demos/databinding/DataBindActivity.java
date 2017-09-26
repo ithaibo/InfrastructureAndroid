@@ -31,6 +31,8 @@ public class DataBindActivity extends AppCompatActivity {
         mPresenter = new DataBindPresenter(this);
         mPresenter.setmUser(user);
 
+        binding.setUserMV(new CustomerMV());
+
         binding.setPresenter(mPresenter);
 
 

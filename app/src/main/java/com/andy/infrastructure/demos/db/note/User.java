@@ -16,13 +16,13 @@ public class User {
 
     private String name;
 
-    @Transient
-    private int tempUserageCount;
+    private long time;
 
-    @Generated(hash = 873297011)
-    public User(Long id, String name) {
+    @Generated(hash = 1811755834)
+    public User(Long id, String name, long time) {
         this.id = id;
         this.name = name;
+        this.time = time;
     }
 
     @Generated(hash = 586692638)
@@ -45,11 +45,20 @@ public class User {
         this.name = name;
     }
 
-    public int getTempUserageCount() {
-        return tempUserageCount;
+    public long getTime() {
+        return time;
     }
 
-    public void setTempUserageCount(int tempUserageCount) {
-        this.tempUserageCount = tempUserageCount;
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", time=" + time +
+                '}';
     }
 }
