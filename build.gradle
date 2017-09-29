@@ -15,6 +15,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://maven.google.com' }
     }
 }
 
@@ -47,6 +48,9 @@ ext{
     adapter_rxjava='2.2.0'
     support_constraint_layout='1.0.2'
     greendao='3.2.2'
+
+    //lifecycle
+    archLifecycleVersion = "1.0.0-alpha9"
 
     isDebug = false
 }

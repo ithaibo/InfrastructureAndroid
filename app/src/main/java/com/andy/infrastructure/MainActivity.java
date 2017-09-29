@@ -30,6 +30,7 @@ import com.andy.infrastructure.demos.float_window.FloatWindowActivity;
 import com.andy.infrastructure.demos.form_valid.FormActivity;
 import com.andy.infrastructure.demos.gesture.ScrollerDemoActivity;
 import com.andy.infrastructure.demos.gesture.SlidingConflict;
+import com.andy.infrastructure.demos.lifecycle.LifecycleActivity;
 import com.andy.infrastructure.demos.listview.ArrayAdapterDemo;
 import com.andy.infrastructure.demos.map.GpsLocationActivity;
 import com.andy.infrastructure.demos.map.ThirdMapDirection;
@@ -240,6 +241,10 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(NavigateToModuleActivity.class.getSimpleName(),
                 NavigateToModuleActivity.class.getSimpleName(),
                 NavigateToModuleActivity.class));
+
+        demoClasses.add( new DemoActivityBean(LifecycleActivity.class.getSimpleName(),
+                "LiveData, Lifecycle, & Room",
+                LifecycleActivity.class));
 
         return demoClasses;
     }

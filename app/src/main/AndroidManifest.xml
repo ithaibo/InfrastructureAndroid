@@ -116,6 +116,10 @@
         <activity android:name=".demos.artiche.NavigateToModuleActivity"/>-->
         <!--zxing-->
 
+        <!--LiveData Room Lifecycle-->
+        <activity android:name=".demos.lifecycle.LifecycleActivity"/>
+        <!--LiveData Room-->
+
         <!--进程保活-->
         <activity android:name=".demos.daemon.KeepAliveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
