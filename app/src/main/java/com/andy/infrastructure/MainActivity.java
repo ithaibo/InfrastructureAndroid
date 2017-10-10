@@ -46,6 +46,7 @@ import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
 import com.andy.infrastructure.demos.material.Material1Activity;
 import com.andy.infrastructure.demos.view.FragmentContainerActivity;
 import com.andy.infrastructure.demos.view.SlidepannelActivity;
+import com.andy.infrastructure.demos.view.ToolBarActivity;
 import com.andy.infrastructure.demos.view.official.AppCompatSpinnerActivity;
 import com.andy.infrastructure.demos.view.official.GridTagActivity;
 import com.andy.infrastructure.demos.view.official.OfficialWidgetActivity;
@@ -245,6 +246,10 @@ public class MainActivity extends AppCompatActivity
         demoClasses.add( new DemoActivityBean(LifecycleActivity.class.getSimpleName(),
                 "LiveData, Lifecycle, & Room",
                 LifecycleActivity.class));
+
+        demoClasses.add( new DemoActivityBean(ToolBarActivity.class.getSimpleName(),
+                "ToolBar",
+                ToolBarActivity.class));
 
         return demoClasses;
     }
