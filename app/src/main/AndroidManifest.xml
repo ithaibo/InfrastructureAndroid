@@ -106,6 +106,7 @@
         <activity android:name=".demos.view.SlidepannelActivity"/>
         <activity android:name=".demos.view.scroll_conflict.ScrollNestActivity"/>
         <activity android:name=".demos.map.GpsLocationActivity"/>
+        <activity android:name=".demos.view.ToolBarActivity"/>
 
         <!--zxing-->
         <!--<activity android:name=".demos.zxing.qrcode.QrCodeActivity"/>
