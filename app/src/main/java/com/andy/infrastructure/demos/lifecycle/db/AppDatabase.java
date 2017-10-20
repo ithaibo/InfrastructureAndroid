@@ -17,4 +17,5 @@ public abstract class AppDatabase extends RoomDatabase {
     static final String DATABASE_NAME = "sample-product-db";
 
     public abstract ProductDao productDao();
+
 }

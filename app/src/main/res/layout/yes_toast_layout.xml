@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/custom_toast_bg"
+    android:gravity="center"
+    android:textColor="#ffffff"
+    android:text="扫码成功"
+    android:drawablePadding="15dp"
+    android:drawableLeft="@drawable/scan_ok"
+    android:textSize="16sp" />
