@@ -36,6 +36,10 @@ public class AnmCheckView extends View {
 
     private boolean anmRunning = false;
 
+    //color
+    private int colorUnChecked = 0xffff5317;
+    private int colorChecked = 0xff34d058;
+
     public AnmCheckView(Context context) {
         super(context);
         init(context);
@@ -49,7 +53,7 @@ public class AnmCheckView extends View {
     private void init(Context context) {
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setColor(0xffff5317);
+        mPaint.setColor(colorUnChecked);
         mPaint.setAntiAlias(true);
 
         okBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.icon_check_marks);
@@ -96,6 +100,7 @@ public class AnmCheckView extends View {
         super.onDraw(canvas);
         //handle padding
         canvas.translate(mWidth/2, mHeight/2);
+        mPaint.setColor(checked? colorChecked : colorUnChecked);
         canvas.drawCircle(0, 0, mWidth/2, mPaint);
 
         int imgLength = okBitmap.getWidth();
