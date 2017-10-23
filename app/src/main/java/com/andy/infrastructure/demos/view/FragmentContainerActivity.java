@@ -10,6 +10,7 @@ import com.andy.infrastructure.bean.ListDialogItemDataBean;
 import com.andy.infrastructure.databinding.ActFragmentContainerBinding;
 import com.andy.infrastructure.demos.view.custome_view.CircleViewFragment;
 import com.andy.infrastructure.demos.view.custome_view.CustomeHorizontalScrollViewFragment;
+import com.andy.infrastructure.demos.view.custome_view.PathFragment;
 import com.andy.infrastructure.dialog.ListMenuDialog;
 import com.andy.infrastructure.presenter.ListDialogItemPresenter;
 
@@ -42,6 +43,14 @@ public class FragmentContainerActivity extends BaseActivity implements View.OnCl
                     new ListDialogItemDataBean<>(
                             new CustomeHorizontalScrollViewFragment(),
                             "CustomeHorizontalScrollView",
+                            this
+                    )
+            );
+
+            menuDialogDataList.add(
+                    new ListDialogItemDataBean<>(
+                            new PathFragment(),
+                            "Path",
                             this
                     )
             );
