@@ -18,9 +18,11 @@ import java.util.List;
 
 /**
  * Created by Andy on 2017/10/23.
+ *
+ * 这个蜘蛛网图是静态的，拖拽顶点【尚未实现】
  */
 
-public class LevelView extends View {
+public class CobwebView extends View {
 	private final String TAG = "LevelView";
 
 	private Paint paint;
@@ -42,17 +44,17 @@ public class LevelView extends View {
 	private List<Double> maxValues = new ArrayList<>();
 	private List<Double> realValues = new ArrayList<>();
 
-	public LevelView(Context context) {
+	public CobwebView(Context context) {
 		super(context);
 		init(context, null);
 	}
 
-	public LevelView(Context context, @Nullable AttributeSet attrs) {
+	public CobwebView(Context context, @Nullable AttributeSet attrs) {
 		super(context, attrs);
 		init(context, attrs);
 	}
 
-	public LevelView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+	public CobwebView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init(context, attrs);
 	}
@@ -62,13 +64,13 @@ public class LevelView extends View {
 		setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
 		if (attrs != null) {
-			TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LevelView);
-			colorPoint = typedArray.getColor(R.styleable.LevelView_colorPoint, DEFAULT_COLOR_POINT);
-			netColor = typedArray.getColor(R.styleable.LevelView_lineColor, DEFAULT_COLOR_LINE);
-			radiusPoint = typedArray.getDimensionPixelSize(R.styleable.LevelView_radiusPoint, DEFAULT_RADIUS_POINT);
-			sides = typedArray.getInteger(R.styleable.LevelView_sides, 6);
-			netStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.LevelView_netStrokeWidth, 2);
-			scaleLevels = typedArray.getInteger(R.styleable.LevelView_scaleLevels, 5);
+			TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CobwebView);
+			colorPoint = typedArray.getColor(R.styleable.CobwebView_colorPoint, DEFAULT_COLOR_POINT);
+			netColor = typedArray.getColor(R.styleable.CobwebView_lineColor, DEFAULT_COLOR_LINE);
+			radiusPoint = typedArray.getDimensionPixelSize(R.styleable.CobwebView_radiusPoint, DEFAULT_RADIUS_POINT);
+			sides = typedArray.getInteger(R.styleable.CobwebView_sides, 6);
+			netStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.CobwebView_netStrokeWidth, 2);
+			scaleLevels = typedArray.getInteger(R.styleable.CobwebView_scaleLevels, 5);
 		} else {
 			colorPoint = DEFAULT_COLOR_POINT;
 			netColor = DEFAULT_COLOR_LINE;

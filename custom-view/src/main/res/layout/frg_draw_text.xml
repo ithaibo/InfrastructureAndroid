@@ -10,7 +10,7 @@
         android:background="@android:color/white"
         android:orientation="vertical">
 
-        <com.ithaibo.view.LevelView
+        <com.ithaibo.view.CobwebView
             android:id="@+id/levelView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,7 +20,7 @@
             app:lineColor="#333333"
             app:netStrokeWidth="1dp"
             app:scaleLevels="4"
-            app:sides="7"
+            app:sides="6"
             android:layout_marginTop="10dp" />
 
     </LinearLayout>

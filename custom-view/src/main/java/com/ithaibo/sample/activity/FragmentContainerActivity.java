@@ -66,7 +66,7 @@ public class FragmentContainerActivity extends BaseActivity implements View.OnCl
     @Override
     protected void onStart() {
         super.onStart();
-        doReplaceFragment(menuDialogDataList.get(0).getItemData());
+        doReplaceFragment(menuDialogDataList.get(2).getItemData());
     }
 
     @Override
