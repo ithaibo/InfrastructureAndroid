@@ -11,9 +11,16 @@
         android:orientation="vertical">
 
         <com.ithaibo.view.LevelView
+            android:id="@+id/levelView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            app:colorPoint="@android:color/holo_orange_dark"
+            app:radiusPoint="3dp"
+            app:lineColor="#333333"
+            app:netStrokeWidth="1dp"
+            app:scaleLevels="4"
+            app:sides="7"
             android:layout_marginTop="10dp" />
 
     </LinearLayout>
