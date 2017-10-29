@@ -94,7 +94,7 @@
         <activity android:name=".demos.mvp.MeiziDescripActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demos.web.WebViewActivity"/>
-        <activity android:name=".demos.view.FragmentContainerActivity"/>
+        <activity android:name="com.ithaibo.sample.activity.FragmentContainerActivity"/>
         <activity android:name=".demos.ping.CheckNetValidByCheckInternetActivity"
             /> <!--android:screenOrientation="portrait"-->
         <activity android:name=".demos.db.NoteDemoActivity"/>

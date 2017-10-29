@@ -44,7 +44,6 @@ import com.andy.infrastructure.demos.retrofit.SimpleRetrofit;
 import com.andy.infrastructure.demos.rxjava.DemoRxJavaActivity;
 import com.andy.infrastructure.demos.rxjava.RxJavaDataBindActivity;
 import com.andy.infrastructure.demos.material.Material1Activity;
-import com.andy.infrastructure.demos.view.FragmentContainerActivity;
 import com.andy.infrastructure.demos.view.SlidepannelActivity;
 import com.andy.infrastructure.demos.view.ToolBarActivity;
 import com.andy.infrastructure.demos.view.official.AppCompatSpinnerActivity;
@@ -193,10 +192,10 @@ public class MainActivity extends AppCompatActivity
                 .setName("WebViewActivity")
                 .setDesc("WebViewActivity"));
 
-        demoClasses.add(new DemoActivityBean()
-                .setClassName(FragmentContainerActivity.class)
-                .setName("FragmentContainerActivity")
-                .setDesc("FragmentContainerActivity"));
+//        demoClasses.add(new DemoActivityBean()
+//                .setClassName(FragmentContainerActivity.class)
+//                .setName("FragmentContainerActivity")
+//                .setDesc("FragmentContainerActivity"));
 
         demoClasses.add(new DemoActivityBean()
                 .setClassName(CheckNetValidByCheckInternetActivity.class)

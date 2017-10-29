@@ -52,5 +52,5 @@ ext{
     //lifecycle
     archLifecycleVersion = "1.0.0-alpha9"
 
-    isDebug = false
+    isDebug = true
 }

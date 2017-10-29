@@ -6,7 +6,6 @@ import android.view.View;
 import com.andy.baselibrary.activity.DataBindActivity;
 import com.andy.infrastructure.R;
 import com.andy.infrastructure.databinding.ModuleNavigateBinding;
-import com.ithaibo.module_view.ModuleDevelopActivity;
 
 /**
  * Created by Andy on 2017/9/14.
@@ -25,9 +24,9 @@ public class NavigateToModuleActivity extends DataBindActivity<ModuleNavigateBin
         mDataBind.setClicker(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NavigateToModuleActivity.this, ModuleDevelopActivity.class);
-                intent.putExtra("data", mDataBind.getIntentData());
-                startActivityForResult(intent, 110);
+//                Intent intent = new Intent(NavigateToModuleActivity.this, ModuleDevelopActivity.class);
+//                intent.putExtra("data", mDataBind.getIntentData());
+//                startActivityForResult(intent, 110);
             }
         });
     }

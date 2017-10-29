@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.ithaibo.view.CircleView
+        android:id="@+id/circle_view_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:background="#a1a1a1"
+        android:padding="15dp"
+        app:circle_color="#992288" />
+
+    <com.ithaibo.view.PieChart
+        android:id="@+id/piChart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="#44000000"
+        android:paddingLeft="10dp" />
+
+    <com.ithaibo.view.AnmCheckView
+        android:id="@+id/checkView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
