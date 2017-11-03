@@ -25,7 +25,7 @@ public class MatrixPolyView extends View {
     private Paint mPaint;
     private float[] src = new float[8];
     private float[] dst = new float[8];
-    private int pointCount = 3;
+    private int pointCount = 4;
     private int triggerRadius = 180;
 
     public MatrixPolyView(Context context) {
@@ -121,6 +121,5 @@ public class MatrixPolyView extends View {
         resetMatrix(this.pointCount);
         invalidate();
     }
-
 
 }
