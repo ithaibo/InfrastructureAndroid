@@ -29,6 +29,7 @@
 ### 实现方式：
     1. 在res/xml目录下创建一个shortcut.xml文件；
     2. 在该文件中编写Shortcut，例如：
+``` xml
        <shortcut
             android:shortcutId="simpleStaticShortcut"
             android:enabled="true"
@@ -42,10 +43,7 @@
                 android:targetClass="com.andy.infrastructure.rxjava.DemoRxJavaActivity" />  //需要打开的Activity
             <categories android:name="android.shortcut.conversation" />
         </shortcut>
-    /**
-     * @Author: AndyWu
-     * @Date: 2016-12-23
-     */
+```
 
 ## Demo
 该project的demo有：
