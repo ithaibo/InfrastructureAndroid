@@ -41,6 +41,7 @@ public class Bezier extends View {
 	private void init() {
 		mPaint = new Paint();
 		mPaint.setColor(Color.BLACK);
+		mPaint.setAntiAlias(true);
 		mPaint.setStrokeWidth(8);
 		mPaint.setStyle(Paint.Style.STROKE);
 		mPaint.setTextSize(60);

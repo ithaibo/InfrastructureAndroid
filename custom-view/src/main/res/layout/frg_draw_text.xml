@@ -13,7 +13,7 @@
         <com.ithaibo.view.CobwebView
             android:id="@+id/levelView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_gravity="center_horizontal"
             app:colorPoint="@android:color/holo_orange_dark"
             app:radiusPoint="3dp"

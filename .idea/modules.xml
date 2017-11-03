@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidLabs.iml" filepath="$PROJECT_DIR$/AndroidLabs.iml" />
       <module fileurl="file://$PROJECT_DIR$/InfrastructureAndroid.iml" filepath="$PROJECT_DIR$/InfrastructureAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/custom-view/custom-view.iml" filepath="$PROJECT_DIR$/custom-view/custom-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/custom-view/custom-view.iml" filepath="$PROJECT_DIR$/custom-view/custom-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exrecyclerview/exrecyclerview.iml" filepath="$PROJECT_DIR$/exrecyclerview/exrecyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/exrecyclerview/exrecyclerview.iml" filepath="$PROJECT_DIR$/exrecyclerview/exrecyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/formmatcher/formmatcher.iml" filepath="$PROJECT_DIR$/formmatcher/formmatcher.iml" />
-      <module fileurl="file://E:\labs\Android\InfrastructureAndroid\custom-view\module-view.iml" filepath="E:\labs\Android\InfrastructureAndroid\custom-view\module-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/formmatcher/formmatcher.iml" filepath="$PROJECT_DIR$/formmatcher/formmatcher.iml" />
+      <module fileurl="file://E:/labs/Android/InfrastructureAndroid/custom-view/module-view.iml" filepath="E:/labs/Android/InfrastructureAndroid/custom-view/module-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rendercontroller/rendercontroller.iml" filepath="$PROJECT_DIR$/rendercontroller/rendercontroller.iml" />
       <module fileurl="file://$PROJECT_DIR$/rendercontroller/rendercontroller.iml" filepath="$PROJECT_DIR$/rendercontroller/rendercontroller.iml" />
     </modules>
   </component>
