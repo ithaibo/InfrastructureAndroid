@@ -87,13 +87,12 @@ public class Bezier extends View {
 				control.x = event.getX();
 				control.y = event.getY();
 				invalidate();
-				return true;
 			} else {
 				control_2.x = event.getX();
 				control_2.y = event.getY();
 				invalidate();
-				return true;
 			}
+			return true;
 		}
 		consumedByControl_1 = false;
 		consumedByControl_2 = false;

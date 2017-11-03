@@ -9,6 +9,7 @@ import com.ithaibo.module_view.R;
 import com.ithaibo.module_view.databinding.ActFragmentContainerBinding;
 import com.ithaibo.sample.fragment.CircleViewFragment;
 import com.ithaibo.sample.fragment.CustomeHorizontalScrollViewFragment;
+import com.ithaibo.sample.fragment.MatrixFragment;
 import com.ithaibo.sample.fragment.PathFragment;
 import com.ithaibo.sample.bean.ListDialogItemDataBean;
 import com.ithaibo.sample.dialog.ListMenuDialog;
@@ -54,6 +55,8 @@ public class FragmentContainerActivity extends BaseActivity implements View.OnCl
                             this
                     )
             );
+
+            menuDialogDataList.add(new ListDialogItemDataBean<>(new MatrixFragment(), "matrix", this));
         }
     }
 
@@ -66,7 +69,7 @@ public class FragmentContainerActivity extends BaseActivity implements View.OnCl
     @Override
     protected void onStart() {
         super.onStart();
-        doReplaceFragment(menuDialogDataList.get(2).getItemData());
+        doReplaceFragment(menuDialogDataList.get(3).getItemData());
     }
 
     @Override
