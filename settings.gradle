@@ -1,1 +1,1 @@
-include ':app', ':baselibrary', ':exrecyclerview', ':formmatcher', ':rendercontroller', ':custom-view'
+include ':app', ':baselibrary', ':exrecyclerview', ':formmatcher', ':rendercontroller', ':custom-view', ':launch_mode'
